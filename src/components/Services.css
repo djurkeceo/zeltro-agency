@@ -1,0 +1,132 @@
+.services {
+  background: var(--color-bg-primary);
+  position: relative;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.services-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: var(--spacing-md) auto 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--spacing-lg);
+}
+
+.service-card {
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.service-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+  display: inline-block;
+  filter: drop-shadow(0 0 20px var(--color-accent-glow));
+}
+
+.service-title {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.service-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.service-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.checkmark {
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.service-hover-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--gradient-primary);
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .service-card {
+    padding: var(--spacing-md);
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-subtitle {
+    font-size: 1rem;
+  }
+
+  .services-grid {
+    gap: var(--spacing-sm);
+  }
+
+  .service-card {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .service-title {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .service-description {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .service-features li {
+    font-size: 0.85rem;
+  }
+
+  .checkmark {
+    font-size: 1rem;
+  }
+}

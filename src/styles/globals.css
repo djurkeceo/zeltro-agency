@@ -1,0 +1,367 @@
+/* ============================================
+   TYPOGRAPHY - Google Fonts Import
+   Clash Display alternative: Syne (geometric, modern)
+   DM Sans: clean, readable body font
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+/* ============================================
+   DESIGN SYSTEM - CSS Variables
+   Premium, futuristic, human
+   ============================================ */
+:root {
+  /* Background Colors - Deep Space Black */
+  --bg-primary: #080810;
+  --bg-secondary: #0f0f1a;
+  --bg-card: #12121f;
+  
+  /* Accent Colors - Electric Blue */
+  --accent: #4F8EF7;
+  --accent-hover: #6BA3F9;
+  --accent-glow: rgba(79, 142, 247, 0.15);
+  
+  /* Text Colors - Cold White/Ice */
+  --text-primary: #f0f0ff;
+  --text-muted: #8888aa;
+  
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.07);
+  
+  /* Layout */
+  --radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Typography */
+  --font-display: 'Syne', system-ui, -apple-system, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #4F8EF7 0%, #7B68EE 50%, #4F8EF7 100%);
+  --gradient-mesh: 
+    radial-gradient(at 0% 0%, rgba(79, 142, 247, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(123, 104, 238, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(79, 142, 247, 0.12) 0px, transparent 50%);
+  
+  /* Shadows & Effects */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 30px var(--accent-glow);
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 7.5rem; /* 120px */
+}
+
+/* ============================================
+   GLOBAL RESET
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   BASE ELEMENTS
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  background: var(--bg-primary);
+  color: var(--text-muted);
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle animated mesh gradient background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-mesh);
+  z-index: -1;
+  pointer-events: none;
+  animation: meshShift 20s ease-in-out infinite;
+}
+
+@keyframes meshShift {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY
+   Large, tight letter-spacing, high contrast
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+/* ============================================
+   LAYOUT UTILITIES
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.section {
+  padding: 120px 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+/* ============================================
+   GLASSMORPHISM
+   Dark card with subtle transparency
+   ============================================ */
+.glass {
+  background: rgba(18, 18, 31, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+/* ============================================
+   GRADIENT TEXT
+   Accent color on key words
+   ============================================ */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+/* ============================================
+   BUTTONS
+   Primary: accent filled + glow
+   Secondary: ghost/outline style
+   ============================================ */
+.btn-primary {
+  position: relative;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: calc(var(--radius) / 2);
+  background: var(--accent);
+  color: var(--text-primary);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(79, 142, 247, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Ripple effect on hover */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-secondary {
+  position: relative;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: calc(var(--radius) / 2);
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   Thin, accent colored
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg-secondary);
+}
+
+/* ============================================
+   TEXT SELECTION
+   Accent color highlight
+   ============================================ */
+::selection {
+  background: var(--accent);
+  color: var(--text-primary);
+}
+
+::-moz-selection {
+  background: var(--accent);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

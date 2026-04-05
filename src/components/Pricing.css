@@ -1,0 +1,149 @@
+.pricing {
+  background: var(--color-bg-primary);
+  position: relative;
+}
+
+.pricing-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricing-card {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-primary);
+}
+
+.pricing-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.pricing-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.pricing-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xl);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  text-align: left;
+}
+
+.pricing-feature {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.feature-icon {
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.pricing-cta {
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: var(--gradient-primary);
+  color: var(--color-bg-primary);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-bottom: var(--spacing-md);
+}
+
+.pricing-note {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .pricing-card {
+    padding: var(--spacing-lg);
+  }
+
+  .pricing-features {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .pricing-cta {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-card {
+    padding: var(--spacing-md);
+  }
+
+  .pricing-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .pricing-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .pricing-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .pricing-features {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .pricing-feature {
+    font-size: 0.9rem;
+    gap: var(--spacing-xs);
+  }
+
+  .feature-icon {
+    font-size: 1.1rem;
+  }
+
+  .pricing-cta {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .pricing-note {
+    font-size: 0.85rem;
+  }
+}

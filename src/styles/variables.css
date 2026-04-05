@@ -1,0 +1,59 @@
+:root {
+  /* Colors - Dark theme with electric blue accent */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #13131a;
+  --color-bg-tertiary: #1a1a24;
+  --color-accent: #00e5ff;
+  --color-accent-glow: rgba(0, 229, 255, 0.3);
+  --color-accent-dim: #0099b3;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b4b4c8;
+  --color-text-muted: #6b6b7f;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-card-bg: rgba(26, 26, 36, 0.6);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #00e5ff 0%, #0099ff 100%);
+  --gradient-mesh: radial-gradient(ellipse at top, rgba(0, 229, 255, 0.15), transparent 50%),
+                   radial-gradient(ellipse at bottom, rgba(0, 153, 255, 0.1), transparent 50%);
+  
+  /* Typography */
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  
+  /* Breakpoints */
+  --breakpoint-xs: 320px;   /* Extra small phones */
+  --breakpoint-sm: 480px;   /* Small phones */
+  --breakpoint-md: 768px;   /* Tablets */
+  --breakpoint-lg: 968px;   /* Small laptops */
+  --breakpoint-xl: 1200px;  /* Desktop */
+  --breakpoint-2xl: 1400px; /* Large desktop */
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-2xl: 8rem;
+  
+  /* Borders */
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 1rem;
+  --border-radius-lg: 1.5rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px var(--color-accent-glow);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-index */
+  --z-navbar: 1000;
+  --z-modal: 2000;
+}
