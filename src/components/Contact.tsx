@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
             <div className="info-card glass">
               <div className="info-icon">📍</div>
               <h3>Lokacija</h3>
-              <p>Beograd, Srbija</p>
+              <p>Subotica, Srbija</p>
             </div>
             <div className="info-card glass">
               <div className="info-icon">💼</div>
