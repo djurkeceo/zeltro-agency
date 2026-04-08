@@ -32,7 +32,7 @@ const Pricing: React.FC = () => {
             <h3 className="pricing-title">Prilagođeno svakom projektu</h3>
             <p className="pricing-description">
               Ne verujemo u univerzalne pakete. Svaki projekat je jedinstven, sa sopstvenim 
-              potrebama, ciljevima i budžetom. Zato naše cene uvek kreíramo nakon što 
+              potrebama, ciljevima i budžetom. Zato naše cene uvek kreiramo nakon što 
               temeljno razumemo vaš projekat.
             </p>
             

@@ -36,10 +36,32 @@
   filter: drop-shadow(0 0 20px var(--color-accent-glow));
 }
 
+.service-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  margin-bottom: var(--spacing-sm);
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--color-accent);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .service-title {
   font-size: 1.8rem;
   margin-bottom: var(--spacing-sm);
   color: var(--color-text-primary);
+}
+
+.service-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  display: block;
 }
 
 .service-description {
