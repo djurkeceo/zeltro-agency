@@ -49,7 +49,7 @@ const About: React.FC = () => {
               Naša <span className="gradient-text">priča</span>
             </h2>
             <p className="about-text">
-              NAME je osnovan pre 3 godine od strane malog tima strastvenih developera 
+              Zeltro je osnovan pre 3 godine od strane malog tima strastvenih developera 
               i dizajnera. Započeli smo sa jednostavnim verovanjem: svaki biznis zaslužuje 
               lepu, brzu i funkcionalnu online prisutnost — bez obzira na veličinu.
             </p>
@@ -87,7 +87,7 @@ const About: React.FC = () => {
                   <span className="code-keyword">const</span> <span className="code-var">agency</span> = {'{'}
                 </div>
                 <div className="code-line indent">
-                  <span className="code-prop">name</span>: <span className="code-string">'NAME'</span>,
+                  <span className="code-prop">name</span>: <span className="code-string">'Zeltro'</span>,
                 </div>
                 <div className="code-line indent">
                   <span className="code-prop">founded</span>: <span className="code-number">2021</span>,

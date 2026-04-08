@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
           </motion.h1>
 
           <motion.p variants={itemVariants} className="hero-subtitle">
-            Boutique web agencija koja stvara izuzetne web stranice, blogove i 
+            Web Design agencija koja stvara izuzetne web stranice, blogove i 
             WordPress rešenja. Ne radimo po šablonima — svaki projekat je 
             rukotvorina prilagođena vašoj viziji.
           </motion.p>

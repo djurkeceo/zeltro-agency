@@ -28,7 +28,7 @@
     "typescript-eslint": "^8.57.0",
     "vite": "^8.0.1"
   },
-  "description": "A breathtaking, modern landing website for NAME, a boutique web agency. Built with React, TypeScript, and Framer Motion.",
+  "description": "A breathtaking, modern landing website for Zeltro, a web design agency. Built with React, TypeScript, and Framer Motion.",
   "main": "eslint.config.js",
   "keywords": [],
   "author": "",

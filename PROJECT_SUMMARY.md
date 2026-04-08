@@ -1,7 +1,7 @@
-# NAME Agency Website - Project Summary
+# Zeltro Agency Website - Project Summary
 
 ## Overview
-A production-ready, breathtaking landing website for NAME, a boutique web agency. Built with modern web technologies and featuring stunning animations, this site showcases the agency's services, projects, and brand story.
+A production-ready, breathtaking landing website for Zeltro, a web design agency. Built with modern web technologies and featuring stunning animations, this site showcases the agency's services, projects, and brand story.
 
 ## What Was Built
 

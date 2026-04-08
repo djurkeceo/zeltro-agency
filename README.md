@@ -1,6 +1,6 @@
-# NAME - Boutique Web Agency Landing Page
+# Zeltro - Web Design Agency Landing Page
 
-A breathtaking, modern landing website for NAME, a boutique web agency specializing in custom websites, blogs, and WordPress solutions.
+A breathtaking, modern landing website for Zeltro, a web design agency specializing in custom websites, blogs, and WordPress solutions.
 
 ## 🎨 Design Features
 
@@ -102,7 +102,7 @@ src/
 
 ## 📄 License
 
-All rights reserved © 2026 NAME Agency
+All rights reserved © 2026 Zeltro Agency
 
 ## 🎯 Development
 

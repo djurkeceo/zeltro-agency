@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
               className="footer-logo gradient-text"
               whileHover={{ scale: 1.05 }}
             >
-              NAME
+              Zeltro
             </motion.h3>
             <p className="footer-tagline">
               Vaša digitalna identitet, kreirana sa preciznošću
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {currentYear} NAME Agency. All rights reserved.</p>
+          <p>&copy; {currentYear} Zeltro Agency. All rights reserved.</p>
           <motion.button
             className="back-to-top"
             onClick={scrollToTop}

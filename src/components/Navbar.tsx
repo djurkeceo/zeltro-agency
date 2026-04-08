@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <a href="#home" onClick={() => scrollToSection('home')}>
-              <span className="gradient-text">NAME</span>
+              <span className="gradient-text">Zeltro</span>
             </a>
           </motion.div>
 
