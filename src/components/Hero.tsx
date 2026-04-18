@@ -82,15 +82,15 @@ const Hero: React.FC = () => {
             className="hero-stats"
           >
             <div className="stat">
-              <h3 className="gradient-text">50+</h3>
+              <h3 className="gradient-text">20+</h3>
               <p>Projekata</p>
             </div>
             <div className="stat">
-              <h3 className="gradient-text">3</h3>
+              <h3 className="gradient-text">2</h3>
               <p>Godine Iskustva</p>
             </div>
             <div className="stat">
-              <h3 className="gradient-text">100%</h3>
+              <h3 className="gradient-text">100<span className="stat-percent">%</span></h3>
               <p>Zadovoljnih Klijenata</p>
             </div>
           </motion.div>

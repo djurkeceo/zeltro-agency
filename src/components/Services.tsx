@@ -7,7 +7,6 @@ interface Service {
   title: string;
   description: string;
   icon: string;
-  price: string;
   features: string[];
   badge?: string;
 }
@@ -17,7 +16,6 @@ const services: Service[] = [
     title: 'Landing Page',
     description: 'Moderna, brza i responzivna landing stranica dizajnirana za konverzije i brend identitet.',
     icon: '⚡',
-    price: '150–300 EUR',
     badge: 'Frontend',
     features: ['Dizajn po brendu', 'Do 5 sekcija', 'Responsivnost', 'Kontakt forma', 'SEO optimizacija', 'Google Analytics'],
   },
@@ -25,7 +23,6 @@ const services: Service[] = [
     title: 'Višestranični sajt',
     description: 'Kompletan web sajt sa više stranica, animacijama i naprednim funkcionalnostima.',
     icon: '🌐',
-    price: '350–600 EUR',
     badge: 'Frontend',
     features: ['6–7 stranica', 'Animacije (Framer Motion)', 'Hamburger meni', 'Galerija/Portfolio', 'Optimizacija brzine', 'Sitemap & robots.txt'],
   },
@@ -33,7 +30,6 @@ const services: Service[] = [
     title: 'Web aplikacija',
     description: 'Fullstack rešenje sa backendom, bazom podataka, autentikacijom i admin panelom.',
     icon: '🚀',
-    price: '800–1800 EUR',
     badge: 'Fullstack',
     features: ['Backend API (.NET/Node.js)', 'Baza podataka', 'Prijava/registracija', 'Admin panel', 'Korisnički rolovi', 'Cloud deployment'],
   },
@@ -41,7 +37,6 @@ const services: Service[] = [
     title: 'Web dizajn u Figmi',
     description: 'Profesionalni web dizajn od wireframe-a do finalnog mockup-a, spreman za razvoj.',
     icon: '🎨',
-    price: '100–200 EUR',
     badge: 'Dizajn',
     features: ['Wireframe', 'Hi-fi mockup', 'Desktop + mobilni', 'Tipografija i palete', 'Reusable komponente', '2 runde revizija'],
   },
@@ -49,7 +44,6 @@ const services: Service[] = [
     title: 'SEO paket',
     description: 'Mesečna SEO optimizacija koja povećava vidljivost i organsku posetu vašem sajtu.',
     icon: '📈',
-    price: '60–120 EUR/mes',
     badge: 'SEO',
     features: ['Keyword istraživanje', 'On-page optimizacija', 'Google Search Console', 'PageSpeed optimizacija', 'Lokalni SEO', 'Mesečni izveštaj'],
   },
@@ -57,7 +51,6 @@ const services: Service[] = [
     title: 'Održavanje',
     description: 'Mesečno održavanje sajta sa hostingom, backup-ima, SSL-om i tehničkom podrškom.',
     icon: '🛠️',
-    price: '25–80 EUR/mes',
     badge: 'Održavanje',
     features: ['Hosting uključen', 'SSL sertifikat', 'Backup', 'Monitoring', 'Sitne izmene', 'Priority support (Standard)'],
   },
@@ -122,7 +115,6 @@ const Services: React.FC = () => {
               <div className="service-icon">{service.icon}</div>
               {service.badge && <div className="service-badge">{service.badge}</div>}
               <h3 className="service-title">{service.title}</h3>
-              <p className="service-price">{service.price}</p>
               <p className="service-description">{service.description}</p>
               <ul className="service-features">
                 {service.features.map((feature, i) => (

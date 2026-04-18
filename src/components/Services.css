@@ -56,14 +56,6 @@
   color: var(--color-text-primary);
 }
 
-.service-price {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  margin-bottom: var(--spacing-sm);
-  display: block;
-}
-
 .service-description {
   font-size: 1rem;
   line-height: 1.7;

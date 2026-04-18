@@ -123,6 +123,12 @@
   margin-bottom: 0.5rem;
 }
 
+.stat-percent {
+  -webkit-text-fill-color: currentColor;
+  color: var(--color-text-primary);
+  background: none;
+}
+
 .stat p {
   font-size: 0.9rem;
   text-transform: uppercase;
