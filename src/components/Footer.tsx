@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
               Zeltro
             </motion.h3>
             <p className="footer-tagline">
-              Vaša digitalna identitet, kreirana sa preciznošću
+              Vaš digitalni identitet, Better websites. Better business.
             </p>
             <div className="footer-social">
               <motion.a
@@ -82,17 +82,18 @@ const Footer: React.FC = () => {
           <div className="footer-links">
             <h4>Usluge</h4>
             <ul>
-              <li>Custom Websites</li>
-              <li>Blog Development</li>
-              <li>WordPress Solutions</li>
-              <li>Maintenance & Support</li>
+              <li>Izrada web sajtova</li>
+              <li>Web aplikacije</li>
+              <li>Figma dizajn</li>
+              <li>SEO optimizacija</li>
+              <li>Održavanje sajtova</li>
             </ul>
           </div>
 
           <div className="footer-contact">
             <h4>Kontakt</h4>
             <p>hello@nameagency.rs</p>
-            <p>Beograd, Srbija</p>
+            <p>Subotica, Srbija</p>
             <motion.button
               className="footer-cta"
               whileHover={{ scale: 1.05 }}
