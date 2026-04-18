@@ -64,20 +64,6 @@ const About: React.FC = () => {
               klijentovoj viziji. Cene se uvek diskutuju nakon besplatne konsultacije 
               sa klijentom, prilagođene obimu i potrebama svakog projekta.
             </p>
-            <div className="about-values">
-              <div className="value-item">
-                <div className="value-icon">✨</div>
-                <h4>Pažnja na detalje</h4>
-              </div>
-              <div className="value-item">
-                <div className="value-icon">⚡</div>
-                <h4>Brzina i performanse</h4>
-              </div>
-              <div className="value-item">
-                <div className="value-icon">🎯</div>
-                <h4>Prilagođena rešenja</h4>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div className="about-visual" variants={rightVariants}>
