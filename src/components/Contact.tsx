@@ -3,30 +3,68 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import './Contact.css';
 
+type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 const Contact: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const formspreeEndpoint =
+    import.meta.env.VITE_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/xwvabjvr';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (submitStatus === 'success' || submitStatus === 'error') {
+      setSubmitStatus('idle');
+      setSubmitMessage('');
+    }
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
+    if (submitStatus === 'submitting') return;
+
+    setSubmitStatus('submitting');
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const responseData = (await response.json().catch(() => null)) as
+          | { errors?: Array<{ message: string }> }
+          | null;
+        const errorMessage =
+          responseData?.errors?.[0]?.message ?? 'Greška pri slanju poruke. Pokušajte ponovo.';
+        throw new Error(errorMessage);
+      }
+
       setFormData({ name: '', email: '', message: '' });
-      setIsSubmitted(false);
-    }, 3000);
+      setSubmitStatus('success');
+      setSubmitMessage('Poruka je uspešno poslata. Javićemo vam se uskoro.');
+    } catch (error) {
+      setSubmitStatus('error');
+      setSubmitMessage(
+        error instanceof Error ? error.message : 'Greška pri slanju poruke. Pokušajte ponovo.'
+      );
+    }
   };
 
   return (
@@ -119,9 +157,19 @@ const Contact: React.FC = () => {
               className="submit-button"
               whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(0, 229, 255, 0.6)' }}
               whileTap={{ scale: 0.98 }}
+              disabled={submitStatus === 'submitting'}
             >
-              {isSubmitted ? '✓ Poslato!' : 'Pošalji poruku'}
+              {submitStatus === 'submitting' ? 'Slanje...' : 'Pošalji poruku'}
             </motion.button>
+            {submitMessage && (
+              <p
+                className={`form-status ${submitStatus === 'error' ? 'error' : 'success'}`}
+                role="status"
+                aria-live="polite"
+              >
+                {submitMessage}
+              </p>
+            )}
           </motion.form>
         </motion.div>
       </div>
