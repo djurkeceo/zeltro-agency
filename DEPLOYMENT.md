@@ -95,7 +95,7 @@ Create `.env` file:
 ```env
 VITE_API_URL=your-api-url
 VITE_CONTACT_EMAIL=hello@nameagency.rs
-VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/xwvabjvr
+VITE_FORMSPREE_FORM_ID=xwvabjvr
 ```
 
 Access in code:

@@ -1,71 +1,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { ValidationError, useForm } from '@formspree/react';
+import { useRef } from 'react';
 import './Contact.css';
-
-type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 const Contact: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const formspreeEndpoint =
-    import.meta.env.VITE_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/xwvabjvr';
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
-  const [submitMessage, setSubmitMessage] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (submitStatus === 'success' || submitStatus === 'error') {
-      setSubmitStatus('idle');
-      setSubmitMessage('');
-    }
-
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (submitStatus === 'submitting') return;
-
-    setSubmitStatus('submitting');
-    setSubmitMessage('');
-
-    try {
-      const response = await fetch(formspreeEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const responseData = (await response.json().catch(() => null)) as
-          | { errors?: Array<{ message: string }> }
-          | null;
-        const errorMessage =
-          responseData?.errors?.[0]?.message ?? 'Greška pri slanju poruke. Pokušajte ponovo.';
-        throw new Error(errorMessage);
-      }
-
-      setFormData({ name: '', email: '', message: '' });
-      setSubmitStatus('success');
-      setSubmitMessage('Poruka je uspešno poslata. Javićemo vam se uskoro.');
-    } catch (error) {
-      setSubmitStatus('error');
-      setSubmitMessage(
-        error instanceof Error ? error.message : 'Greška pri slanju poruke. Pokušajte ponovo.'
-      );
-    }
-  };
+  const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID ?? 'xwvabjvr';
+  const [submitState, handleSubmit] = useForm(formspreeFormId);
 
   return (
     <section id="contact" className="contact" ref={ref}>
@@ -119,11 +62,12 @@ const Contact: React.FC = () => {
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
                 required
                 placeholder="Vaše ime"
               />
+              <div className="form-error">
+                <ValidationError field="name" errors={submitState.errors} />
+              </div>
             </div>
 
             <div className="form-group">
@@ -132,11 +76,12 @@ const Contact: React.FC = () => {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
                 required
                 placeholder="vas@email.com"
               />
+              <div className="form-error">
+                <ValidationError field="email" errors={submitState.errors} />
+              </div>
             </div>
 
             <div className="form-group">
@@ -144,12 +89,13 @@ const Contact: React.FC = () => {
               <textarea
                 id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
                 required
                 rows={6}
                 placeholder="Recite nam o vašem projektu..."
               />
+              <div className="form-error">
+                <ValidationError field="message" errors={submitState.errors} />
+              </div>
             </div>
 
             <motion.button
@@ -157,17 +103,18 @@ const Contact: React.FC = () => {
               className="submit-button"
               whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(0, 229, 255, 0.6)' }}
               whileTap={{ scale: 0.98 }}
-              disabled={submitStatus === 'submitting'}
+              disabled={submitState.submitting}
             >
-              {submitStatus === 'submitting' ? 'Slanje...' : 'Pošalji poruku'}
+              {submitState.submitting ? 'Slanje...' : 'Pošalji poruku'}
             </motion.button>
-            {submitMessage && (
-              <p
-                className={`form-status ${submitStatus === 'error' ? 'error' : 'success'}`}
-                role="status"
-                aria-live="polite"
-              >
-                {submitMessage}
+            {submitState.succeeded && (
+              <p className="form-status success" role="status" aria-live="polite">
+                Poruka je uspešno poslata. Javićemo vam se uskoro.
+              </p>
+            )}
+            {!!submitState.errors && !submitState.succeeded && (
+              <p className="form-status error" role="status" aria-live="polite">
+                Greška pri slanju poruke. Proverite polja i pokušajte ponovo.
               </p>
             )}
           </motion.form>
