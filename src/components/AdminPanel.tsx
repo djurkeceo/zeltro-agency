@@ -225,7 +225,14 @@ const AdminPanel: React.FC = () => {
                   <tbody>
                     {monthlyPackages.map((pkg) => (
                       <tr key={pkg.name}>
-                        <td>{pkg.name}</td>
+                        <td>
+                          <div className="admin-monthly-name">{pkg.name}</div>
+                          <ul className="admin-monthly-services">
+                            {pkg.includes.map((service) => (
+                              <li key={service}>-{service}</li>
+                            ))}
+                          </ul>
+                        </td>
                         <td>{pkg.price}</td>
                       </tr>
                     ))}

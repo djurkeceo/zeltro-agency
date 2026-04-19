@@ -15,6 +15,7 @@ export type ExtraService = {
 export type MonthlyPackage = {
   name: string;
   price: string;
+  includes: string[];
 };
 
 export const projectPackages: ProjectPackage[] = [
@@ -88,7 +89,27 @@ export const additionalServices: ExtraService[] = [
 ];
 
 export const monthlyPackages: MonthlyPackage[] = [
-  { name: 'Basic održavanje', price: '25-40 EUR / mes' },
-  { name: 'Standard održavanje', price: '50-80 EUR / mes' },
-  { name: 'SEO paket', price: '60-120 EUR / mes' },
+  {
+    name: 'Basic održavanje',
+    price: '35-50 EUR / mes',
+    includes: ['Hosting', 'SSL sertifikat', 'Backup', 'Monitoring'],
+  },
+  {
+    name: 'Standard održavanje',
+    price: '50-80 EUR / mes',
+    includes: ['Sve kao u Basic', 'Sitne izmene', 'Priority support'],
+  },
+  {
+    name: 'SEO paket',
+    price: '70-120 EUR / mes',
+    includes: [
+      'Sve kao u Standard',
+      'Keyword istraživanje',
+      'On-page optimizacija',
+      'Google Search Console',
+      'Pagespeed optimizacija',
+      'Lokalni SEO',
+      'Mesečni izveštaj',
+    ],
+  },
 ];

@@ -209,6 +209,23 @@
   font-weight: 700;
 }
 
+.admin-monthly-name {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.admin-monthly-services {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-secondary);
+}
+
+.admin-monthly-services li + li {
+  margin-top: 0.3rem;
+}
+
 @media (max-width: 1100px) {
   .admin-grid {
     grid-template-columns: 1fr;
