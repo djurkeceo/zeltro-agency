@@ -98,6 +98,14 @@ VITE_CONTACT_EMAIL=hello@nameagency.rs
 VITE_FORMSPREE_FORM_ID=xwvabjvr
 ```
 
+For protected `/admin` access on Vercel Functions, set these in Vercel Project Settings → Environment Variables:
+
+```env
+ADMIN_USERNAME=your-admin-username
+ADMIN_PASSWORD=your-strong-password
+ADMIN_SESSION_SECRET=long-random-secret-at-least-32-characters
+```
+
 Access in code:
 ```typescript
 const apiUrl = import.meta.env.VITE_API_URL;

@@ -46,6 +46,7 @@ npm run preview
 6. **Testimonials Section** - Client reviews with ratings
 7. **Contact Section** - Form with contact information cards
 8. **Footer** - Full footer with navigation, social links, and back-to-top
+9. **Admin Section (`/admin`)** - Protected internal pricing dashboard
 
 ## 🎭 Key Components
 
