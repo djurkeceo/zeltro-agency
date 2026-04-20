@@ -166,7 +166,17 @@ const AdminPanel: React.FC = () => {
 
           <div className="admin-grid">
             {projectPackages.map((item) => (
-              <article key={item.name} className="admin-card glass">
+              <motion.article
+                key={item.name}
+                className="admin-card glass"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45 }}
+                whileHover={{
+                  y: -10,
+                  boxShadow: '0 20px 60px rgba(0, 229, 255, 0.28)',
+                }}
+              >
                 <div className="admin-card-head">
                   <h2>{item.name}</h2>
                   <span>{item.category}</span>
@@ -188,16 +198,32 @@ const AdminPanel: React.FC = () => {
                     </ul>
                   </>
                 )}
-              </article>
+              </motion.article>
             ))}
           </div>
 
           <div className="admin-subsections">
-            <section className="admin-card glass">
+            <motion.section
+              className="admin-card glass"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.05 }}
+              whileHover={{
+                y: -8,
+                boxShadow: '0 20px 60px rgba(0, 229, 255, 0.24)',
+              }}
+            >
               <h2>Dodatne usluge — jednokratno</h2>
               <div className="admin-list">
                 {additionalServices.map((service) => (
-                  <article key={service.name} className="admin-list-item">
+                  <motion.article
+                    key={service.name}
+                    className="admin-list-item"
+                    whileHover={{
+                      y: -6,
+                      boxShadow: '0 14px 35px rgba(0, 229, 255, 0.22)',
+                    }}
+                  >
                     <div>
                       <h3>{service.name}</h3>
                       <p className="admin-price">{service.price}</p>
@@ -207,12 +233,21 @@ const AdminPanel: React.FC = () => {
                         <li key={point}>{point}</li>
                       ))}
                     </ul>
-                  </article>
+                  </motion.article>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
-            <section className="admin-card glass">
+            <motion.section
+              className="admin-card glass"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.1 }}
+              whileHover={{
+                y: -8,
+                boxShadow: '0 20px 60px rgba(0, 229, 255, 0.24)',
+              }}
+            >
               <h2>Mesečne usluge — pretplata</h2>
               <div className="admin-table-wrap">
                 <table className="admin-table">
@@ -239,7 +274,7 @@ const AdminPanel: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-            </section>
+            </motion.section>
           </div>
         </div>
       </section>
