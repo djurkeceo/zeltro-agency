@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
 
           <div className="footer-contact">
             <h4>Kontakt</h4>
-            <p>hello@nameagency.rs</p>
+            <p>zeltro.agency@gmail.com</p>
             <p>Subotica, Srbija</p>
             <motion.button
               className="footer-cta"
