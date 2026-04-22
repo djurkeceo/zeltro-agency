@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import bellaCucinaPreview from '../assets/Bella Cucina.png';
 import './Projects.css';
 
 interface Project {
@@ -8,6 +9,7 @@ interface Project {
   category: string;
   tags: string[];
   description: string;
+  thumbnail?: string;
 }
 
 const projects: Project[] = [
@@ -30,10 +32,11 @@ const projects: Project[] = [
     description: 'Kompletan online shopping sistem sa inventory managementom.',
   },
   {
-    title: 'AgencyPro Portfolio',
-    category: 'Portfolio Site',
-    tags: ['Next.js', 'Framer Motion', 'Tailwind'],
-    description: 'Portfolio web stranica kreativne agencije sa animiranim projektima.',
+    title: 'Bella Cucina',
+    category: 'Website',
+    tags: ['TypeScript', 'React', 'CSS'],
+    description: 'Website preview projekat za restoran sa modernim, čistim i preglednim dizajnom.',
+    thumbnail: bellaCucinaPreview,
   },
   {
     title: 'FitLife Studio',
@@ -103,9 +106,17 @@ const Projects: React.FC = () => {
               whileHover={{ y: -10 }}
             >
               <div className="project-thumbnail">
-                <div className="thumbnail-placeholder">
-                  <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
-                </div>
+                {project.thumbnail ? (
+                  <img
+                    src={project.thumbnail}
+                    alt={`${project.title} preview`}
+                    className="project-thumbnail-image"
+                  />
+                ) : (
+                  <div className="thumbnail-placeholder">
+                    <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
+                  </div>
+                )}
                 <motion.div
                   className="project-overlay"
                   initial={{ opacity: 0 }}
