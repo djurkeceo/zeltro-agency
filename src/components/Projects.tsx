@@ -10,6 +10,7 @@ interface Project {
   tags: string[];
   description: string;
   thumbnail?: string;
+  projectUrl?: string;
 }
 
 const projects: Project[] = [
@@ -37,6 +38,7 @@ const projects: Project[] = [
     tags: ['TypeScript', 'React', 'CSS'],
     description: 'Website preview projekat za restoran sa modernim, čistim i preglednim dizajnom.',
     thumbnail: bellaCucinaPreview,
+    projectUrl: 'https://bella-cucina-lovat.vercel.app/',
   },
   {
     title: 'FitLife Studio',
@@ -75,6 +77,11 @@ const Projects: React.FC = () => {
     },
   };
 
+  const openProject = (projectUrl?: string) => {
+    if (!projectUrl) return;
+    window.open(projectUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="projects" className="projects" ref={ref}>
       <div className="container">
@@ -101,9 +108,19 @@ const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="project-card glass"
+              className={`project-card glass ${project.projectUrl ? 'project-card-clickable' : ''}`}
               variants={cardVariants}
               whileHover={{ y: -10 }}
+              onClick={() => openProject(project.projectUrl)}
+              onKeyDown={(event) => {
+                if (!project.projectUrl) return;
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  openProject(project.projectUrl);
+                }
+              }}
+              role={project.projectUrl ? 'link' : undefined}
+              tabIndex={project.projectUrl ? 0 : undefined}
             >
               <div className="project-thumbnail">
                 {project.thumbnail ? (
