@@ -121,12 +121,15 @@
 .stat h3 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  white-space: nowrap;
 }
 
 .stat-percent {
-  -webkit-text-fill-color: currentColor;
-  color: var(--color-text-primary);
+  display: inline;
+  margin-left: 0.03em;
   background: none;
+  color: #00a9ff;
+  -webkit-text-fill-color: #00a9ff;
 }
 
 .stat p {

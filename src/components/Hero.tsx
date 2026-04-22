@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
               <p>Godine Iskustva</p>
             </div>
             <div className="stat">
-              <h3 className="gradient-text">100%</h3>
+              <h3 className="gradient-text">100<span className="stat-percent">%</span></h3>
               <p>Zadovoljnih Klijenata</p>
             </div>
           </motion.div>
