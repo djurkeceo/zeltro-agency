@@ -146,7 +146,9 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 4rem;
+    min-height: 100svh;
+    align-items: flex-start;
+    padding-top: 7.5rem;
   }
 
   .hero-title {
@@ -178,8 +180,8 @@
 
 @media (max-width: 480px) {
   .hero {
-    padding-top: 3rem;
-    min-height: 90vh;
+    min-height: 100svh;
+    padding-top: 7rem;
   }
 
   .hero-title {

@@ -9,7 +9,7 @@ const techStack = [
   "Next.js",
   "HTML",
   "CSS",
-  "Tailwind CSS",
+  "Tailwind",
   "C#",
   ".NET",
   "Node.js",

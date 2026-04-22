@@ -24,22 +24,29 @@
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-lg);
   position: relative;
+  overflow: hidden;
   transition: all var(--transition-base);
 }
 
 .quote-icon {
-  font-size: 6rem;
+  position: absolute;
+  top: 0.4rem;
+  right: 1rem;
+  font-size: 5rem;
   font-family: Georgia, serif;
   color: var(--color-accent);
-  opacity: 0.2;
-  line-height: 0.5;
-  margin-bottom: var(--spacing-sm);
+  opacity: 0.16;
+  line-height: 1;
+  margin: 0;
+  pointer-events: none;
 }
 
 .rating {
   display: flex;
   gap: 0.3rem;
   margin-bottom: var(--spacing-md);
+  position: relative;
+  z-index: 1;
 }
 
 .star {
@@ -53,6 +60,8 @@
   margin-bottom: var(--spacing-lg);
   font-style: italic;
   color: var(--color-text-secondary);
+  position: relative;
+  z-index: 1;
 }
 
 .testimonial-author {
@@ -61,6 +70,8 @@
   gap: var(--spacing-md);
   padding-top: var(--spacing-md);
   border-top: 1px solid var(--color-border);
+  position: relative;
+  z-index: 1;
 }
 
 .author-avatar {
@@ -92,6 +103,7 @@
 .author-role {
   font-size: 0.9rem;
   color: var(--color-text-muted);
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {
@@ -105,7 +117,9 @@
   }
 
   .quote-icon {
-    font-size: 5rem;
+    top: 0.35rem;
+    right: 0.9rem;
+    font-size: 4.2rem;
   }
 
   .testimonial-content {
@@ -119,11 +133,13 @@
   }
 
   .testimonial-card {
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-md);
   }
 
   .quote-icon {
-    font-size: 4rem;
+    top: 0.3rem;
+    right: 0.75rem;
+    font-size: 3.4rem;
   }
 
   .rating {
@@ -142,6 +158,7 @@
 
   .testimonial-author {
     gap: var(--spacing-sm);
+    align-items: flex-start;
   }
 
   .author-avatar {
