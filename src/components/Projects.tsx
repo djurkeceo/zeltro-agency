@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import bellaCucinaPreview from '../assets/Bella Cucina.png';
 import './Projects.css';
 
 interface Project {
@@ -10,6 +9,7 @@ interface Project {
   tags: string[];
   description: string;
   thumbnail?: string;
+  livePreviewUrl?: string;
   projectUrl?: string;
 }
 
@@ -21,10 +21,12 @@ const projects: Project[] = [
     description: 'Elegantan WordPress sajt za restoran sa online naručivanjem i rezervacijama.',
   },
   {
-    title: 'TechStartup Blog',
-    category: 'Custom Blog',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    description: 'Moderna blog platforma sa naprednom pretragom i analitikom čitaoca.',
+    title: 'Syncly',
+    category: 'Website',
+    tags: ['React', 'TypeScript', 'Vercel'],
+    description: 'Live preview projekta Syncly.',
+    livePreviewUrl: 'https://syncly-phi.vercel.app/',
+    projectUrl: 'https://syncly-phi.vercel.app/',
   },
   {
     title: 'LocalShop eCommerce',
@@ -37,7 +39,7 @@ const projects: Project[] = [
     category: 'Website',
     tags: ['TypeScript', 'React', 'CSS'],
     description: 'Website preview projekat za restoran sa modernim, čistim i preglednim dizajnom.',
-    thumbnail: bellaCucinaPreview,
+    livePreviewUrl: 'https://bella-cucina-lovat.vercel.app/',
     projectUrl: 'https://bella-cucina-lovat.vercel.app/',
   },
   {
@@ -123,7 +125,15 @@ const Projects: React.FC = () => {
               tabIndex={project.projectUrl ? 0 : undefined}
             >
               <div className="project-thumbnail">
-                {project.thumbnail ? (
+                {project.livePreviewUrl ? (
+                  <iframe
+                    src={project.livePreviewUrl}
+                    title={`${project.title} live preview`}
+                    className="project-thumbnail-iframe"
+                    loading="lazy"
+                    scrolling="no"
+                  />
+                ) : project.thumbnail ? (
                   <img
                     src={project.thumbnail}
                     alt={`${project.title} preview`}

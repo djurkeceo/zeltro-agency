@@ -48,6 +48,14 @@
   object-position: center;
 }
 
+.project-thumbnail-iframe {
+  width: calc(100% + 14px);
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+  margin-right: -14px;
+}
+
 .thumbnail-placeholder {
   font-size: 6rem;
   font-family: var(--font-display);
