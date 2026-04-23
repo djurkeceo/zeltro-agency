@@ -23,7 +23,7 @@ const projects: Project[] = [
   {
     title: 'Syncly',
     category: 'Website',
-    tags: ['React', 'TypeScript', 'Vercel'],
+    tags: ['Next.js', 'CSS', 'Framer Motion'],
     description: 'Live preview projekta Syncly.',
     livePreviewUrl: 'https://syncly-phi.vercel.app/',
     projectUrl: 'https://syncly-phi.vercel.app/',
