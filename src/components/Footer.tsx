@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
             <p className="footer-tagline">Better websites. Better business.</p>
             <div className="footer-social">
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/zeltro-agency/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://github.com"
+                href="https://github.com/djurkeceo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"

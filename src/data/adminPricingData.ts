@@ -41,7 +41,7 @@ export const projectPackages: ProjectPackage[] = [
     price: '350-600 EUR',
     includes: [
       'Sve iz Landing page paketa',
-      'Do 6-7 stranica (Home, O nama, Usluge, Blog, Galerija, Kontakt...)',
+      'Do 7 stranica (Home, O nama, Usluge, Blog, Galerija, Kontakt...)',
       'Animacije i tranzicije (Framer Motion)',
       'Navigacija sa hamburger menijem na mobilnom',
       'Galerija slika ili portfolio sekcija',
