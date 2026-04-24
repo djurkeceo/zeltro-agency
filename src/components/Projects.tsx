@@ -43,6 +43,14 @@ const projects: Project[] = [
     projectUrl: 'https://bella-cucina-lovat.vercel.app/',
   },
   {
+    title: 'Iron Lab',
+    category: 'Website',
+    tags: ['Next.js', 'React', 'CSS'],
+    description: 'Live preview projekta Iron Lab.',
+    livePreviewUrl: 'https://iron-lab.vercel.app/',
+    projectUrl: 'https://iron-lab.vercel.app/',
+  },
+  {
     title: 'FitLife Studio',
     category: 'Membership Site',
     tags: ['WordPress', 'MemberPress', 'Video Streaming'],
