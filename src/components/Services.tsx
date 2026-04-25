@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import './Services.css';
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import "./Services.css";
 
 interface Service {
   title: string;
@@ -13,46 +13,94 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: 'Landing Page',
-    description: 'Moderna, brza i responzivna landing stranica dizajnirana za konverzije i brend identitet.',
-    icon: '⚡',
-    badge: 'Frontend',
-    features: ['Dizajn po brendu', 'Do 5 sekcija', 'Responsivnost', 'Kontakt forma', 'SEO optimizacija', 'Google Analytics'],
+    title: "Landing Page",
+    description:
+      "Moderna, brza i responzivna landing stranica dizajnirana za konverzije i brend identitet.",
+    icon: "⚡",
+    badge: "Frontend",
+    features: [
+      "Dizajn po brendu",
+      "Do 5 sekcija",
+      "Responsivnost",
+      "Kontakt forma",
+      "SEO optimizacija",
+      "Google Analytics",
+    ],
   },
   {
-    title: 'Višestranični sajt',
-    description: 'Kompletan web sajt sa više stranica, animacijama i naprednim funkcionalnostima.',
-    icon: '🌐',
-    badge: 'Frontend',
-    features: ['6–7 stranica', 'Animacije (Framer Motion)', 'Hamburger meni', 'Galerija/Portfolio', 'Optimizacija brzine', 'Sitemap & robots.txt'],
+    title: "Višestranični sajt",
+    description:
+      "Kompletan web sajt sa više stranica, animacijama i naprednim funkcionalnostima.",
+    icon: "🌐",
+    badge: "Frontend",
+    features: [
+      "Do 7 stranica",
+      "Animacije (Framer Motion)",
+      "Hamburger meni",
+      "Galerija/Portfolio",
+      "Optimizacija brzine",
+      "Sitemap & robots.txt",
+    ],
   },
   {
-    title: 'Web aplikacija',
-    description: 'Fullstack rešenje sa backendom, bazom podataka, autentikacijom i admin panelom.',
-    icon: '🚀',
-    badge: 'Fullstack',
-    features: ['Backend API (.NET/Node.js)', 'Baza podataka', 'Prijava/registracija', 'Admin panel', 'Korisnički rolovi', 'Cloud deployment'],
+    title: "Web aplikacija",
+    description:
+      "Fullstack rešenje sa backendom, bazom podataka, autentikacijom i admin panelom.",
+    icon: "🚀",
+    badge: "Fullstack",
+    features: [
+      "Backend API (.NET/Node.js)",
+      "Baza podataka",
+      "Prijava/registracija",
+      "Admin panel",
+      "Korisnički rolovi",
+      "Cloud deployment",
+    ],
   },
   {
-    title: 'Web dizajn u Figmi',
-    description: 'Profesionalni web dizajn od wireframe-a do finalnog mockup-a, spreman za razvoj.',
-    icon: '🎨',
-    badge: 'Dizajn',
-    features: ['Wireframe', 'Hi-fi mockup', 'Desktop + mobilni', 'Tipografija i palete', 'Reusable komponente', '2 runde revizija'],
+    title: "Web dizajn u Figmi",
+    description:
+      "Profesionalni web dizajn od wireframe-a do finalnog mockup-a, spreman za razvoj.",
+    icon: "🎨",
+    badge: "Dizajn",
+    features: [
+      "Wireframe",
+      "Hi-fi mockup",
+      "Desktop + mobilni",
+      "Tipografija i palete",
+      "Reusable komponente",
+      "2 runde revizija",
+    ],
   },
   {
-    title: 'SEO paket',
-    description: 'Mesečna SEO optimizacija koja povećava vidljivost i organsku posetu vašem sajtu.',
-    icon: '📈',
-    badge: 'SEO',
-    features: ['Keyword istraživanje', 'On-page optimizacija', 'Google Search Console', 'PageSpeed optimizacija', 'Lokalni SEO', 'Mesečni izveštaj'],
+    title: "SEO paket",
+    description:
+      "Mesečna SEO optimizacija koja povećava vidljivost i organsku posetu vašem sajtu.",
+    icon: "📈",
+    badge: "SEO",
+    features: [
+      "Keyword istraživanje",
+      "On-page optimizacija",
+      "Google Search Console",
+      "PageSpeed optimizacija",
+      "Lokalni SEO",
+      "Mesečni izveštaj",
+    ],
   },
   {
-    title: 'Održavanje',
-    description: 'Mesečno održavanje sajta sa hostingom, backup-ima, SSL-om i tehničkom podrškom.',
-    icon: '🛠️',
-    badge: 'Održavanje',
-    features: ['Hosting uključen', 'SSL sertifikat', 'Backup', 'Monitoring', 'Sitne izmene', 'Priority support (Standard)'],
+    title: "Održavanje",
+    description:
+      "Mesečno održavanje sajta sa hostingom, backup-ima, SSL-om i tehničkom podrškom.",
+    icon: "🛠️",
+    badge: "Održavanje",
+    features: [
+      "Hosting uključen",
+      "SSL sertifikat",
+      "Backup",
+      "Monitoring",
+      "Sitne izmene",
+      "Priority support (Standard)",
+    ],
   },
 ];
 
@@ -92,7 +140,8 @@ const Services: React.FC = () => {
             Naše <span className="gradient-text">usluge</span>
           </h2>
           <p className="services-subtitle">
-            Specijalizovani smo za kreiranje digitalnih iskustava koja ostavljaju trajan utisak
+            Specijalizovani smo za kreiranje digitalnih iskustava koja
+            ostavljaju trajan utisak
           </p>
         </motion.div>
 
@@ -100,20 +149,22 @@ const Services: React.FC = () => {
           className="services-grid"
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service, index) => (
             <motion.div
               key={index}
               className="service-card glass"
               variants={cardVariants}
-              whileHover={{ 
-                y: -10, 
-                boxShadow: '0 20px 60px rgba(0, 229, 255, 0.3)' 
+              whileHover={{
+                y: -10,
+                boxShadow: "0 20px 60px rgba(0, 229, 255, 0.3)",
               }}
             >
               <div className="service-icon">{service.icon}</div>
-              {service.badge && <div className="service-badge">{service.badge}</div>}
+              {service.badge && (
+                <div className="service-badge">{service.badge}</div>
+              )}
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               <ul className="service-features">
