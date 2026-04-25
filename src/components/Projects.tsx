@@ -45,7 +45,7 @@ const projects: Project[] = [
   {
     title: 'Iron Lab',
     category: 'Website',
-    tags: ['Next.js', 'React', 'CSS'],
+    tags: ['TypeScript', 'CSS', 'React'],
     description: 'Live preview projekta Iron Lab.',
     livePreviewUrl: 'https://iron-lab.vercel.app/',
     projectUrl: 'https://iron-lab.vercel.app/',
@@ -55,12 +55,6 @@ const projects: Project[] = [
     category: 'Membership Site',
     tags: ['WordPress', 'MemberPress', 'Video Streaming'],
     description: 'Platforma za fitness članove sa video treninzima i online zakazivanjem.',
-  },
-  {
-    title: 'CryptoTracker',
-    category: 'Web App',
-    tags: ['React', 'TypeScript', 'API Integration'],
-    description: 'Real-time kripto valuta tracker sa naprednim chart-ovima.',
   },
 ];
 
