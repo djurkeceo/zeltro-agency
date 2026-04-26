@@ -15,10 +15,12 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'RestaurantXYZ',
-    category: 'WordPress Site',
-    tags: ['WordPress', 'WooCommerce', 'Custom Theme'],
-    description: 'Elegantan WordPress sajt za restoran sa online naručivanjem i rezervacijama.',
+    title: 'Studio Noir',
+    category: 'Website',
+    tags: ['React', 'TypeScript', 'CSS', 'Framer Motion'],
+    description: 'Live preview projekta Studio Noir.',
+    livePreviewUrl: 'https://studio-noir-inky.vercel.app/',
+    projectUrl: 'https://studio-noir-inky.vercel.app/',
   },
   {
     title: 'Syncly',
