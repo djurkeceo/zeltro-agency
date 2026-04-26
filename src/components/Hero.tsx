@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-import './Hero.css';
+import { motion } from "framer-motion";
+import "./Hero.css";
 
 const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -45,25 +45,31 @@ const Hero: React.FC = () => {
           animate="visible"
         >
           <motion.h1 variants={itemVariants} className="hero-title">
-            Vaš digitalni
+            Vaše
+            <span className="gradient-text"> poslovanje</span> zaslužuje
+            <span className="gradient-text"> web </span>
             <br />
-            <span className="gradient-text">identitet</span> kreiran
-            <br />
-            sa <span className="gradient-text">preciznošću</span>
+            <span className="gradient-text"> sajt </span>
+            koji donosi
+            <span className="gradient-text"> rezultate. </span>
           </motion.h1>
 
           <motion.p variants={itemVariants} className="hero-subtitle">
-            Web Design agencija koja stvara izuzetne web stranice, blogove i 
-            WordPress rešenja. Ne radimo po šablonima — svaki projekat je 
-            rukotvorina prilagođena vašoj viziji.
+            Kreiramo moderne web sajtove, moćne web aplikacije, strateški
+            dizajn, SEO optimizaciju i pouzdano održavanje — sve što je potrebno
+            da vaš brend raste online. Ne pravimo samo lepe stranice, već
+            digitalna rešenja koja unapređuju vaše poslovanje.
           </motion.p>
 
           <motion.div variants={itemVariants} className="hero-ctas">
             <motion.button
               className="btn btn-primary"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 229, 255, 0.6)' }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 40px rgba(0, 229, 255, 0.6)",
+              }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection("projects")}
             >
               Pogledaj Projekte
             </motion.button>
@@ -71,16 +77,13 @@ const Hero: React.FC = () => {
               className="btn btn-secondary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
             >
               Kontaktiraj Nas
             </motion.button>
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="hero-stats"
-          >
+          <motion.div variants={itemVariants} className="hero-stats">
             <div className="stat">
               <h3 className="gradient-text">20+</h3>
               <p>Projekata</p>
@@ -90,22 +93,17 @@ const Hero: React.FC = () => {
               <p>Godine Iskustva</p>
             </div>
             <div className="stat">
-              <h3 className="gradient-text">100<span className="stat-percent">%</span></h3>
+              <h3 className="gradient-text">
+                100
+                <span className="stat-percent" style={{ marginLeft: "-0.5px" }}>
+                  %
+                </span>
+              </h3>
               <p>Zadovoljnih Klijenata</p>
             </div>
           </motion.div>
         </motion.div>
       </div>
-
-      <motion.div
-        className="scroll-indicator-bottom"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </motion.div>
     </section>
   );
 };
