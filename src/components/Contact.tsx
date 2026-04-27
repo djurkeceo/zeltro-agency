@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { ValidationError, useForm } from '@formspree/react';
-import { useRef } from 'react';
-import './Contact.css';
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { ValidationError, useForm } from "@formspree/react";
+import { useRef } from "react";
+import "./Contact.css";
 
 const Contact: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID ?? 'xwvabjvr';
+  const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID ?? "xwvabjvr";
   const [submitState, handleSubmit] = useForm(formspreeFormId);
 
   return (
@@ -20,10 +20,11 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">
-            Hajde da <span className="gradient-text">razgovaramo</span>
+            Hajde da <span className="gradient-text">razgovaramo.</span>
           </h2>
           <p className="contact-subtitle">
-            Spremni da započnemo vaš projekat? Kontaktirajte nas za besplatnu konsultaciju
+            Spremni da započnemo vaš projekat? Kontaktirajte nas za besplatnu
+            konsultaciju.
           </p>
         </motion.div>
 
@@ -36,7 +37,7 @@ const Contact: React.FC = () => {
           <div className="contact-info">
             <div className="info-card glass">
               <div className="info-icon">📧</div>
-              <h3>Email</h3>
+              <h3>Email</h3>  
               <p>zeltro.agency@gmail.com</p>
             </div>
             <div className="info-card glass">
@@ -54,7 +55,7 @@ const Contact: React.FC = () => {
           <motion.form
             className="contact-form glass"
             onSubmit={handleSubmit}
-            whileHover={{ boxShadow: '0 20px 60px rgba(0, 229, 255, 0.2)' }}
+            whileHover={{ boxShadow: "0 20px 60px rgba(0, 229, 255, 0.2)" }}
           >
             <div className="form-group">
               <label htmlFor="name">Ime</label>
@@ -101,14 +102,21 @@ const Contact: React.FC = () => {
             <motion.button
               type="submit"
               className="submit-button"
-              whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(0, 229, 255, 0.6)' }}
+              whileHover={{
+                scale: 1.02,
+                boxShadow: "0 0 40px rgba(0, 229, 255, 0.6)",
+              }}
               whileTap={{ scale: 0.98 }}
               disabled={submitState.submitting}
             >
-              {submitState.submitting ? 'Slanje...' : 'Pošalji poruku'}
+              {submitState.submitting ? "Slanje..." : "Pošalji poruku"}
             </motion.button>
             {submitState.succeeded && (
-              <p className="form-status success" role="status" aria-live="polite">
+              <p
+                className="form-status success"
+                role="status"
+                aria-live="polite"
+              >
                 Poruka je uspešno poslata. Javićemo vam se uskoro.
               </p>
             )}
