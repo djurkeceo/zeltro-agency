@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import './Projects.css';
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import "./Projects.css";
 
 interface Project {
   title: string;
@@ -15,48 +15,50 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Studio Noir',
-    category: 'Website',
-    tags: ['React', 'TypeScript', 'CSS', 'Framer Motion'],
-    description: 'Live preview projekta Studio Noir.',
-    livePreviewUrl: 'https://studio-noir-inky.vercel.app/',
-    projectUrl: 'https://studio-noir-inky.vercel.app/',
+    title: "Studio Noir",
+    category: "Višestranični Website",
+    tags: ["React", "TypeScript", "CSS", "Framer Motion"],
+    description: "Live preview projekta Studio Noir.",
+    livePreviewUrl: "https://studio-noir-inky.vercel.app/",
+    projectUrl: "https://studio-noir-inky.vercel.app/",
   },
   {
-    title: 'Syncly',
-    category: 'Website',
-    tags: ['Next.js', 'CSS', 'Framer Motion'],
-    description: 'Live preview projekta Syncly.',
-    livePreviewUrl: 'https://syncly-phi.vercel.app/',
-    projectUrl: 'https://syncly-phi.vercel.app/',
+    title: "Syncly",
+    category: "Landing Page",
+    tags: ["Next.js", "CSS", "Framer Motion"],
+    description: "Live preview projekta Syncly.",
+    livePreviewUrl: "https://syncly-phi.vercel.app/",
+    projectUrl: "https://syncly-phi.vercel.app/",
   },
   {
-    title: 'LocalShop eCommerce',
-    category: 'E-Commerce',
-    tags: ['Shopify', 'Custom Integrations', 'Payment'],
-    description: 'Kompletan online shopping sistem sa inventory managementom.',
+    title: "LocalShop eCommerce",
+    category: "E-Commerce",
+    tags: ["Shopify", "Custom Integrations", "Payment"],
+    description: "Kompletan online shopping sistem sa inventory managementom.",
   },
   {
-    title: 'Bella Cucina',
-    category: 'Website',
-    tags: ['TypeScript', 'React', 'CSS'],
-    description: 'Website preview projekat za restoran sa modernim, čistim i preglednim dizajnom.',
-    livePreviewUrl: 'https://bella-cucina-lovat.vercel.app/',
-    projectUrl: 'https://bella-cucina-lovat.vercel.app/',
+    title: "Bella Cucina",
+    category: "Landing Page",
+    tags: ["TypeScript", "React", "CSS"],
+    description: "Website preview projekta Bella Cucina",
+    livePreviewUrl: "https://bella-cucina-lovat.vercel.app/",
+    projectUrl: "https://bella-cucina-lovat.vercel.app/",
   },
   {
-    title: 'Iron Lab',
-    category: 'Website',
-    tags: ['TypeScript', 'CSS', 'React'],
-    description: 'Live preview projekta Iron Lab.',
-    livePreviewUrl: 'https://iron-lab.vercel.app/',
-    projectUrl: 'https://iron-lab.vercel.app/',
+    title: "Iron Lab",
+    category: "Landing Page sa Galerijom",
+    tags: ["TypeScript", "CSS", "React"],
+    description: "Live preview projekta Iron Lab.",
+    livePreviewUrl: "https://iron-lab.vercel.app/",
+    projectUrl: "https://iron-lab.vercel.app/",
   },
   {
-    title: 'FitLife Studio',
-    category: 'Membership Site',
-    tags: ['WordPress', 'MemberPress', 'Video Streaming'],
-    description: 'Platforma za fitness članove sa video treninzima i online zakazivanjem.',
+    title: "Portfolio - Lena Marković",
+    category: "Višestranični Website",
+    tags: ["TypeScript", "CSS", "React"],
+    description: "Live preview portfolio projekta.",
+    livePreviewUrl: "https://lena-markovic.vercel.app/",
+    projectUrl: "https://lena-markovic.vercel.app/",
   },
 ];
 
@@ -85,7 +87,7 @@ const Projects: React.FC = () => {
 
   const openProject = (projectUrl?: string) => {
     if (!projectUrl) return;
-    window.open(projectUrl, '_blank', 'noopener,noreferrer');
+    window.open(projectUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -101,7 +103,8 @@ const Projects: React.FC = () => {
             Naši <span className="gradient-text">projekti</span>
           </h2>
           <p className="projects-subtitle">
-            Svaki projekat je priča o saradnji, kreativnosti i tehničkoj izvrsnosti
+            Svaki projekat je priča o saradnji, kreativnosti i tehničkoj
+            izvrsnosti
           </p>
         </motion.div>
 
@@ -109,23 +112,23 @@ const Projects: React.FC = () => {
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          animate={isInView ? "visible" : "hidden"}
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className={`project-card glass ${project.projectUrl ? 'project-card-clickable' : ''}`}
+              className={`project-card glass ${project.projectUrl ? "project-card-clickable" : ""}`}
               variants={cardVariants}
               whileHover={{ y: -10 }}
               onClick={() => openProject(project.projectUrl)}
               onKeyDown={(event) => {
                 if (!project.projectUrl) return;
-                if (event.key === 'Enter' || event.key === ' ') {
+                if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
                   openProject(project.projectUrl);
                 }
               }}
-              role={project.projectUrl ? 'link' : undefined}
+              role={project.projectUrl ? "link" : undefined}
               tabIndex={project.projectUrl ? 0 : undefined}
             >
               <div className="project-thumbnail">
@@ -145,7 +148,9 @@ const Projects: React.FC = () => {
                   />
                 ) : (
                   <div className="thumbnail-placeholder">
-                    <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="project-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
                 )}
                 <motion.div
@@ -163,7 +168,9 @@ const Projects: React.FC = () => {
                 <p className="project-description">{project.description}</p>
                 <div className="project-tags">
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="tag">{tag}</span>
+                    <span key={i} className="tag">
+                      {tag}
+                    </span>
                   ))}
                 </div>
               </div>
