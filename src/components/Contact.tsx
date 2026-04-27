@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
           <div className="contact-info">
             <div className="info-card glass">
               <div className="info-icon">📧</div>
-              <h3>Email</h3>  
+              <h3>Email</h3>
               <p>zeltro.agency@gmail.com</p>
             </div>
             <div className="info-card glass">
