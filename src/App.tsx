@@ -7,11 +7,13 @@ import Pricing from "./components/Pricing";
 import Testimonials from "./components/Process";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Seo from "./components/Seo";
 import "./App.css";
 
 function App() {
   return (
     <div className="app">
+      <Seo />
       <Navbar />
       <Hero />
       <About />

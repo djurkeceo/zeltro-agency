@@ -57,8 +57,9 @@ const Hero: React.FC = () => {
           <motion.p variants={itemVariants} className="hero-subtitle">
             Kreiramo moderne web sajtove, moćne web aplikacije, strateški
             dizajn, SEO optimizaciju i pouzdano održavanje — sve što je potrebno
-            da vaš brend raste online. Ne pravimo samo lepe stranice, već
-            digitalna rešenja koja unapređuju vaše poslovanje.
+            da vaš brend raste online. Kao web agencija iz Srbije, ne pravimo
+            samo lepe stranice, već digitalna rešenja koja unapređuju vaše
+            poslovanje.
           </motion.p>
 
           <motion.div variants={itemVariants} className="hero-ctas">
