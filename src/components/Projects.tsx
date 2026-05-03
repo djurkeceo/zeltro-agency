@@ -23,18 +23,20 @@ const projects: Project[] = [
     projectUrl: "https://studio-noir-inky.vercel.app/",
   },
   {
+    title: "Prosekator",
+    category: "Web Application",
+    tags: ["HTML", "CSS", "JavaScript", "ExpressJS", "MongoDB"],
+    description: "Live preview projekta Syncly.",
+    livePreviewUrl: "https://syncly-phi.vercel.app/",
+    projectUrl: "https://syncly-phi.vercel.app/",
+  },
+  {
     title: "Syncly",
     category: "Landing Page",
     tags: ["Next.js", "CSS", "Framer Motion"],
     description: "Live preview projekta Syncly.",
     livePreviewUrl: "https://syncly-phi.vercel.app/",
     projectUrl: "https://syncly-phi.vercel.app/",
-  },
-  {
-    title: "LocalShop eCommerce",
-    category: "E-Commerce",
-    tags: ["Shopify", "Custom Integrations", "Payment"],
-    description: "Kompletan online shopping sistem sa inventory managementom.",
   },
   {
     title: "Bella Cucina",
