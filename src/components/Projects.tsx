@@ -39,6 +39,14 @@ const projects: Project[] = [
     projectUrl: "https://syncly-phi.vercel.app/",
   },
   {
+    title: "Portfolio - Lena Marković",
+    category: "Višestranični Website",
+    tags: ["TypeScript", "CSS", "React"],
+    description: "Live preview portfolio projekta.",
+    livePreviewUrl: "https://lena-markovic.vercel.app/",
+    projectUrl: "https://lena-markovic.vercel.app/",
+  },
+  {
     title: "Bella Cucina",
     category: "Landing Page",
     tags: ["TypeScript", "React", "CSS"],
@@ -53,14 +61,6 @@ const projects: Project[] = [
     description: "Live preview projekta Iron Lab.",
     livePreviewUrl: "https://iron-lab.vercel.app/",
     projectUrl: "https://iron-lab.vercel.app/",
-  },
-  {
-    title: "Portfolio - Lena Marković",
-    category: "Višestranični Website",
-    tags: ["TypeScript", "CSS", "React"],
-    description: "Live preview portfolio projekta.",
-    livePreviewUrl: "https://lena-markovic.vercel.app/",
-    projectUrl: "https://lena-markovic.vercel.app/",
   },
 ];
 
