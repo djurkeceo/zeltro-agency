@@ -26,9 +26,9 @@ const projects: Project[] = [
     title: "Prosekator",
     category: "Web Application",
     tags: ["HTML", "CSS", "JavaScript", "ExpressJS", "MongoDB"],
-    description: "Live preview projekta Syncly.",
-    livePreviewUrl: "https://syncly-phi.vercel.app/",
-    projectUrl: "https://syncly-phi.vercel.app/",
+    description: "Live preview projekta Prosekator.",
+    livePreviewUrl: "https://prosekator.vercel.app/",
+    projectUrl: "https://prosekator.vercel.app/",
   },
   {
     title: "Syncly",
