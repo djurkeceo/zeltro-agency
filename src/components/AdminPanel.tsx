@@ -236,7 +236,7 @@ const AdminPanel: React.FC = () => {
                 transition={{ duration: 0.45 }}
                 whileHover={{
                   y: -10,
-                  boxShadow: '0 20px 55px rgba(0, 229, 255, 0.18)',
+                  boxShadow: '0 14px 36px -18px rgba(0, 229, 255, 0.65)',
                 }}
               >
                 <div className="admin-card-head">
@@ -284,7 +284,7 @@ const AdminPanel: React.FC = () => {
                     className="admin-list-item"
                     whileHover={{
                       y: -6,
-                      boxShadow: '0 14px 35px rgba(0, 229, 255, 0.18)',
+                      boxShadow: '0 12px 30px -18px rgba(0, 229, 255, 0.55)',
                     }}
                   >
                     <div>
