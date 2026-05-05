@@ -1,21 +1,22 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   additionalServices,
   monthlyPackages,
   projectPackages,
-} from '../data/adminPricingData';
-import './AdminPanel.css';
+} from "../data/adminPricingData";
+import "./AdminPanel.css";
 
-type AuthStatus = 'checking' | 'unauthenticated' | 'authenticated';
+type AuthStatus = "checking" | "unauthenticated" | "authenticated";
 
 const AdminPanel: React.FC = () => {
-  const [authStatus, setAuthStatus] = useState<AuthStatus>('checking');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [authStatus, setAuthStatus] = useState<AuthStatus>("checking");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const totalOffers = projectPackages.length + additionalServices.length + monthlyPackages.length;
+  const [errorMessage, setErrorMessage] = useState("");
+  const totalOffers =
+    projectPackages.length + additionalServices.length + monthlyPackages.length;
   const totalIncludedItems =
     projectPackages.reduce((sum, item) => sum + item.includes.length, 0) +
     additionalServices.reduce((sum, item) => sum + item.includes.length, 0) +
@@ -26,17 +27,21 @@ const AdminPanel: React.FC = () => {
 
     const checkSession = async () => {
       try {
-        const response = await fetch('/api/admin/session', {
-          method: 'GET',
-          credentials: 'include',
+        const response = await fetch("/api/admin/session", {
+          method: "GET",
+          credentials: "include",
         });
-        const data = (await response.json().catch(() => null)) as { authenticated?: boolean } | null;
+        const data = (await response.json().catch(() => null)) as {
+          authenticated?: boolean;
+        } | null;
 
         if (!isMounted) return;
-        setAuthStatus(data?.authenticated ? 'authenticated' : 'unauthenticated');
+        setAuthStatus(
+          data?.authenticated ? "authenticated" : "unauthenticated",
+        );
       } catch {
         if (!isMounted) return;
-        setAuthStatus('unauthenticated');
+        setAuthStatus("unauthenticated");
       }
     };
 
@@ -51,28 +56,30 @@ const AdminPanel: React.FC = () => {
     if (isSubmitting) return;
 
     setIsSubmitting(true);
-    setErrorMessage('');
+    setErrorMessage("");
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        credentials: 'include',
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        credentials: "include",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, password }),
       });
 
       if (!response.ok) {
-        const data = (await response.json().catch(() => null)) as { message?: string } | null;
-        setErrorMessage(data?.message ?? 'Prijava nije uspela.');
+        const data = (await response.json().catch(() => null)) as {
+          message?: string;
+        } | null;
+        setErrorMessage(data?.message ?? "Prijava nije uspela.");
         return;
       }
 
-      setAuthStatus('authenticated');
-      setPassword('');
+      setAuthStatus("authenticated");
+      setPassword("");
     } catch {
-      setErrorMessage('Došlo je do greške. Pokušajte ponovo.');
+      setErrorMessage("Došlo je do greške. Pokušajte ponovo.");
     } finally {
       setIsSubmitting(false);
     }
@@ -80,19 +87,19 @@ const AdminPanel: React.FC = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch('/api/admin/logout', {
-        method: 'POST',
-        credentials: 'include',
+      await fetch("/api/admin/logout", {
+        method: "POST",
+        credentials: "include",
       });
     } finally {
-      setAuthStatus('unauthenticated');
-      setUsername('');
-      setPassword('');
-      setErrorMessage('');
+      setAuthStatus("unauthenticated");
+      setUsername("");
+      setPassword("");
+      setErrorMessage("");
     }
   };
 
-  if (authStatus === 'checking') {
+  if (authStatus === "checking") {
     return (
       <main className="admin-page">
         <section className="admin-section">
@@ -104,7 +111,7 @@ const AdminPanel: React.FC = () => {
     );
   }
 
-  if (authStatus === 'unauthenticated') {
+  if (authStatus === "unauthenticated") {
     return (
       <main className="admin-page">
         <section className="admin-section">
@@ -119,7 +126,9 @@ const AdminPanel: React.FC = () => {
               <div className="admin-login-head">
                 <p className="admin-kicker">Zeltro Internal</p>
                 <h1>Admin pristup</h1>
-                <p>Prijavite se da otvorite interni cenovnik i pakete usluga.</p>
+                <p>
+                  Prijavite se da otvorite interni cenovnik i pakete usluga.
+                </p>
               </div>
 
               <div className="admin-form-group">
@@ -148,8 +157,12 @@ const AdminPanel: React.FC = () => {
 
               {errorMessage && <p className="admin-error">{errorMessage}</p>}
 
-              <button type="submit" className="admin-btn" disabled={isSubmitting}>
-                {isSubmitting ? 'Prijava...' : 'Uloguj se'}
+              <button
+                type="submit"
+                className="admin-btn"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Prijava..." : "Uloguj se"}
               </button>
             </motion.form>
           </div>
@@ -170,10 +183,14 @@ const AdminPanel: React.FC = () => {
           >
             <div>
               <p className="admin-kicker">Zeltro Internal</p>
-              <h1>Agency Admin Panel</h1>
+              <h1>Zeltro Admin Panel</h1>
               <p>Pregled svih ponuda i paketa na jednom mestu.</p>
             </div>
-            <button className="admin-btn admin-btn-ghost" type="button" onClick={handleLogout}>
+            <button
+              className="admin-btn admin-btn-ghost"
+              type="button"
+              onClick={handleLogout}
+            >
               Odjava
             </button>
           </motion.header>
@@ -227,41 +244,41 @@ const AdminPanel: React.FC = () => {
             </div>
 
             <div className="admin-grid">
-            {projectPackages.map((item) => (
-              <motion.article
-                key={item.name}
-                className="admin-card"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45 }}
-                whileHover={{
-                  y: -10,
-                  boxShadow: '0 14px 36px -18px rgba(0, 229, 255, 0.65)',
-                }}
-              >
-                <div className="admin-card-head">
-                  <h2>{item.name}</h2>
-                  <span>{item.category}</span>
-                </div>
-                <p className="admin-price">{item.price}</p>
-                <h3>Uključuje</h3>
-                <ul>
-                  {item.includes.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-                {item.excludes && (
-                  <>
-                    <h3>Ne uključuje</h3>
-                    <ul className="admin-excludes">
-                      {item.excludes.map((point) => (
-                        <li key={point}>{point}</li>
-                      ))}
-                    </ul>
-                  </>
-                )}
-              </motion.article>
-            ))}
+              {projectPackages.map((item) => (
+                <motion.article
+                  key={item.name}
+                  className="admin-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45 }}
+                  whileHover={{
+                    y: -10,
+                    boxShadow: "0 14px 36px -18px rgba(0, 229, 255, 0.65)",
+                  }}
+                >
+                  <div className="admin-card-head">
+                    <h2>{item.name}</h2>
+                    <span>{item.category}</span>
+                  </div>
+                  <p className="admin-price">{item.price}</p>
+                  <h3>Uključuje</h3>
+                  <ul>
+                    {item.includes.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  {item.excludes && (
+                    <>
+                      <h3>Ne uključuje</h3>
+                      <ul className="admin-excludes">
+                        {item.excludes.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </motion.article>
+              ))}
             </div>
           </motion.section>
 
@@ -284,7 +301,7 @@ const AdminPanel: React.FC = () => {
                     className="admin-list-item"
                     whileHover={{
                       y: -6,
-                      boxShadow: '0 12px 30px -18px rgba(0, 229, 255, 0.55)',
+                      boxShadow: "0 12px 30px -18px rgba(0, 229, 255, 0.55)",
                     }}
                   >
                     <div className="admin-list-head">
@@ -319,7 +336,7 @@ const AdminPanel: React.FC = () => {
                     className="admin-monthly-card"
                     whileHover={{
                       y: -6,
-                      boxShadow: '0 16px 34px -22px rgba(0, 229, 255, 0.7)',
+                      boxShadow: "0 16px 34px -22px rgba(0, 229, 255, 0.7)",
                     }}
                   >
                     <div className="admin-monthly-card-head">
