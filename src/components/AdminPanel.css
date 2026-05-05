@@ -298,26 +298,83 @@
 }
 
 .admin-list-item {
+  position: relative;
+  overflow: hidden;
   padding: var(--spacing-sm);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  border: 1px solid rgba(0, 229, 255, 0.24);
   border-radius: var(--border-radius-md);
-  background: rgba(255, 255, 255, 0.02);
+  background: linear-gradient(165deg, rgba(12, 22, 38, 0.72), rgba(11, 13, 24, 0.9));
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast),
     transform var(--transition-fast);
 }
 
+.admin-list-item::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0), rgba(0, 229, 255, 0.7), rgba(0, 229, 255, 0));
+  opacity: 0.6;
+}
+
 .admin-list-item:hover {
   border-color: rgba(0, 229, 255, 0.55);
+  box-shadow: 0 20px 42px -28px rgba(0, 229, 255, 0.7);
+}
+
+.admin-list-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
 }
 
 .admin-list-item h3 {
-  font-size: 1.05rem;
+  font-size: 1.16rem;
+  line-height: 1.25;
 }
 
-.admin-list-item ul {
-  margin-top: 0.35rem;
+.admin-list-price {
+  margin: 0;
+  white-space: nowrap;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 229, 255, 0.32);
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--color-accent);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.admin-list-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-list-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--color-text-primary);
+}
+
+.admin-list-points li::before {
+  content: '';
+  margin-top: 0.5rem;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.admin-list-points li + li {
+  margin-top: 0.5rem;
 }
 
 .admin-table-wrap {
@@ -398,5 +455,10 @@
 
   .admin-grid {
     grid-template-columns: 1fr;
+  }
+
+  .admin-list-head {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }

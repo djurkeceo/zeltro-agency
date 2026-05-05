@@ -287,11 +287,11 @@ const AdminPanel: React.FC = () => {
                       boxShadow: '0 12px 30px -18px rgba(0, 229, 255, 0.55)',
                     }}
                   >
-                    <div>
+                    <div className="admin-list-head">
                       <h3>{service.name}</h3>
-                      <p className="admin-price">{service.price}</p>
+                      <p className="admin-list-price">{service.price}</p>
                     </div>
-                    <ul>
+                    <ul className="admin-list-points">
                       {service.includes.map((point) => (
                         <li key={point}>{point}</li>
                       ))}
