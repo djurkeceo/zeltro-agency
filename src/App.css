@@ -2,3 +2,19 @@
   position: relative;
   overflow-x: hidden;
 }
+
+.scroll-section {
+  position: relative;
+}
+
+.scroll-section-inner {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-section,
+  .scroll-section-inner {
+    transform: none !important;
+    filter: none !important;
+  }
+}
