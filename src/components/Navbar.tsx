@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { motion, useScroll } from 'framer-motion';
-import './Navbar.css';
+import { useState, useEffect } from "react";
+import { motion, useScroll } from "framer-motion";
+import "./Navbar.css";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,14 +12,14 @@ const Navbar: React.FC = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
     }
   };
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
         style={{ scaleX: scrollYProgress }}
       />
       <motion.nav
-        className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+        className={`navbar ${isScrolled ? "scrolled" : ""}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -42,23 +42,34 @@ const Navbar: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <a href="#home" onClick={() => scrollToSection('home')}>
+            <a href="#home" onClick={() => scrollToSection("home")}>
               <span className="gradient-text">Zeltro</span>
             </a>
           </motion.div>
 
-          <div className={`navbar-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-            <a href="#home" onClick={() => scrollToSection('home')}>Početna</a>
-            <a href="#projects" onClick={() => scrollToSection('projects')}>Projekti</a>
-            <a href="#services" onClick={() => scrollToSection('services')}>Usluge</a>
-            <a href="#contact" onClick={() => scrollToSection('contact')}>Kontakt</a>
+          <div className={`navbar-menu ${isMobileMenuOpen ? "open" : ""}`}>
+            <a href="#home" onClick={() => scrollToSection("home")}>
+              Početna
+            </a>
+            <a href="#services" onClick={() => scrollToSection("projects")}>
+              Usluge
+            </a>
+            <a href="#projects" onClick={() => scrollToSection("services")}>
+              Projekti
+            </a>
+            <a href="#contact" onClick={() => scrollToSection("contact")}>
+              Kontakt
+            </a>
           </div>
 
           <motion.button
             className="cta-button"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 229, 255, 0.5)' }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 30px rgba(0, 229, 255, 0.5)",
+            }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => scrollToSection('contact')}
+            onClick={() => scrollToSection("contact")}
           >
             Besplatna Konsultacija
           </motion.button>
