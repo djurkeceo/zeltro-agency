@@ -15,6 +15,11 @@ const AdminPanel: React.FC = () => {
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const totalOffers = projectPackages.length + additionalServices.length + monthlyPackages.length;
+  const totalIncludedItems =
+    projectPackages.reduce((sum, item) => sum + item.includes.length, 0) +
+    additionalServices.reduce((sum, item) => sum + item.includes.length, 0) +
+    monthlyPackages.reduce((sum, item) => sum + item.includes.length, 0);
 
   useEffect(() => {
     let isMounted = true;
@@ -111,8 +116,11 @@ const AdminPanel: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <h1>Admin pristup</h1>
-              <p>Unesite admin korisničko ime i lozinku.</p>
+              <div className="admin-login-head">
+                <p className="admin-kicker">Zeltro Internal</p>
+                <h1>Admin pristup</h1>
+                <p>Prijavite se da otvorite interni cenovnik i pakete usluga.</p>
+              </div>
 
               <div className="admin-form-group">
                 <label htmlFor="admin-username">Korisničko ime</label>
@@ -153,28 +161,82 @@ const AdminPanel: React.FC = () => {
   return (
     <main className="admin-page">
       <section className="admin-section">
-        <div className="container">
-          <div className="admin-header">
+        <div className="container admin-shell">
+          <motion.header
+            className="admin-header glass"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+          >
             <div>
               <p className="admin-kicker">Zeltro Internal</p>
-              <h1>Detaljni cenovnik usluga</h1>
+              <h1>Agency Admin Panel</h1>
+              <p>Pregled svih ponuda i paketa na jednom mestu.</p>
             </div>
-            <button className="admin-btn admin-btn-ghost" onClick={handleLogout}>
+            <button className="admin-btn admin-btn-ghost" type="button" onClick={handleLogout}>
               Odjava
             </button>
-          </div>
+          </motion.header>
 
-          <div className="admin-grid">
+          <motion.section
+            className="admin-overview"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+          >
+            <article className="admin-stat glass">
+              <p>Ponude ukupno</p>
+              <strong>{totalOffers}</strong>
+            </article>
+            <article className="admin-stat glass">
+              <p>Projektni paketi</p>
+              <strong>{projectPackages.length}</strong>
+            </article>
+            <article className="admin-stat glass">
+              <p>Mesečni planovi</p>
+              <strong>{monthlyPackages.length}</strong>
+            </article>
+            <article className="admin-stat glass">
+              <p>Stavke uključene</p>
+              <strong>{totalIncludedItems}</strong>
+            </article>
+          </motion.section>
+
+          <nav className="admin-nav">
+            <a href="#admin-projects" className="admin-nav-link">
+              Projektni paketi
+            </a>
+            <a href="#admin-additional" className="admin-nav-link">
+              Dodatne usluge
+            </a>
+            <a href="#admin-monthly" className="admin-nav-link">
+              Mesečne usluge
+            </a>
+          </nav>
+
+          <motion.section
+            id="admin-projects"
+            className="admin-block glass"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+          >
+            <div className="admin-block-head">
+              <h2>Projektni paketi</h2>
+              <p>Fiksne ponude za landing stranice, sajtove i aplikacije.</p>
+            </div>
+
+            <div className="admin-grid">
             {projectPackages.map((item) => (
               <motion.article
                 key={item.name}
-                className="admin-card glass"
+                className="admin-card"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45 }}
                 whileHover={{
                   y: -10,
-                  boxShadow: '0 20px 60px rgba(0, 229, 255, 0.28)',
+                  boxShadow: '0 20px 55px rgba(0, 229, 255, 0.18)',
                 }}
               >
                 <div className="admin-card-head">
@@ -200,20 +262,21 @@ const AdminPanel: React.FC = () => {
                 )}
               </motion.article>
             ))}
-          </div>
+            </div>
+          </motion.section>
 
           <div className="admin-subsections">
             <motion.section
-              className="admin-card glass"
+              id="admin-additional"
+              className="admin-block glass"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.05 }}
-              whileHover={{
-                y: -8,
-                boxShadow: '0 20px 60px rgba(0, 229, 255, 0.24)',
-              }}
+              transition={{ duration: 0.45, delay: 0.15 }}
             >
-              <h2>Dodatne usluge — jednokratno</h2>
+              <div className="admin-block-head">
+                <h2>Dodatne usluge</h2>
+                <p>Jednokratne usluge koje se nadovezuju na glavne pakete.</p>
+              </div>
               <div className="admin-list">
                 {additionalServices.map((service) => (
                   <motion.article
@@ -221,7 +284,7 @@ const AdminPanel: React.FC = () => {
                     className="admin-list-item"
                     whileHover={{
                       y: -6,
-                      boxShadow: '0 14px 35px rgba(0, 229, 255, 0.22)',
+                      boxShadow: '0 14px 35px rgba(0, 229, 255, 0.18)',
                     }}
                   >
                     <div>
@@ -239,16 +302,16 @@ const AdminPanel: React.FC = () => {
             </motion.section>
 
             <motion.section
-              className="admin-card glass"
+              id="admin-monthly"
+              className="admin-block glass"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1 }}
-              whileHover={{
-                y: -8,
-                boxShadow: '0 20px 60px rgba(0, 229, 255, 0.24)',
-              }}
+              transition={{ duration: 0.45, delay: 0.2 }}
             >
-              <h2>Mesečne usluge — pretplata</h2>
+              <div className="admin-block-head">
+                <h2>Mesečne usluge</h2>
+                <p>Pretplatnički planovi za održavanje, podršku i SEO rast.</p>
+              </div>
               <div className="admin-table-wrap">
                 <table className="admin-table">
                   <thead>
