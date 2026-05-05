@@ -312,30 +312,27 @@ const AdminPanel: React.FC = () => {
                 <h2>Mesečne usluge</h2>
                 <p>Pretplatnički planovi za održavanje, podršku i SEO rast.</p>
               </div>
-              <div className="admin-table-wrap">
-                <table className="admin-table">
-                  <thead>
-                    <tr>
-                      <th>Paket</th>
-                      <th>Cena</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {monthlyPackages.map((pkg) => (
-                      <tr key={pkg.name}>
-                        <td>
-                          <div className="admin-monthly-name">{pkg.name}</div>
-                          <ul className="admin-monthly-services">
-                            {pkg.includes.map((service) => (
-                              <li key={service}>-{service}</li>
-                            ))}
-                          </ul>
-                        </td>
-                        <td>{pkg.price}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="admin-monthly-grid">
+                {monthlyPackages.map((pkg) => (
+                  <motion.article
+                    key={pkg.name}
+                    className="admin-monthly-card"
+                    whileHover={{
+                      y: -6,
+                      boxShadow: '0 16px 34px -22px rgba(0, 229, 255, 0.7)',
+                    }}
+                  >
+                    <div className="admin-monthly-card-head">
+                      <h3>{pkg.name}</h3>
+                      <p className="admin-monthly-price">{pkg.price}</p>
+                    </div>
+                    <ul className="admin-monthly-services">
+                      {pkg.includes.map((service) => (
+                        <li key={service}>{service}</li>
+                      ))}
+                    </ul>
+                  </motion.article>
+                ))}
               </div>
             </motion.section>
           </div>
