@@ -23,8 +23,10 @@
 .project-card {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
   cursor: default;
+  content-visibility: auto;
+  contain-intrinsic-size: 420px;
 }
 
 .project-card-clickable {
@@ -56,6 +58,18 @@
   margin-right: -14px;
 }
 
+.thumbnail-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+  background-size: 200% 100%;
+  animation: projectShimmer 1.3s linear infinite;
+}
+
 .thumbnail-placeholder {
   font-size: 6rem;
   font-family: var(--font-display);
@@ -81,6 +95,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition-property: opacity;
+  pointer-events: none;
+}
+
+.project-card-clickable:hover .project-overlay,
+.project-card-clickable:focus-visible .project-overlay {
+  opacity: 1;
 }
 
 .view-project {
@@ -130,6 +152,15 @@
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-sm);
   color: var(--color-text-secondary);
+}
+
+@keyframes projectShimmer {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
 }
 
 @media (max-width: 768px) {

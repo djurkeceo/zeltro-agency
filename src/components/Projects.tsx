@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef, useState } from "react";
 import "./Projects.css";
 
 interface Project {
@@ -11,6 +10,21 @@ interface Project {
   thumbnail?: string;
   livePreviewUrl?: string;
   projectUrl?: string;
+}
+
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+  cardVariants: {
+    hidden: { opacity: number; scale: number };
+    visible: {
+      opacity: number;
+      scale: number;
+      transition: { duration: number };
+    };
+  };
+  shouldReduceMotion: boolean;
+  onOpenProject: (projectUrl?: string) => void;
 }
 
 const projects: Project[] = [
@@ -64,8 +78,102 @@ const projects: Project[] = [
   },
 ];
 
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  index,
+  cardVariants,
+  shouldReduceMotion,
+  onOpenProject,
+}) => {
+  const thumbnailRef = useRef<HTMLDivElement | null>(null);
+  const isThumbnailNearViewport = useInView(thumbnailRef, {
+    once: true,
+    amount: 0.15,
+    margin: "0px 0px 220px 0px",
+  });
+  const [isPreviewLoaded, setIsPreviewLoaded] = useState(false);
+  const [previewFailed, setPreviewFailed] = useState(false);
+
+  const canShowLivePreview =
+    Boolean(project.livePreviewUrl) && isThumbnailNearViewport && !previewFailed;
+
+  return (
+    <motion.div
+      className={`project-card glass ${project.projectUrl ? "project-card-clickable" : ""}`}
+      variants={cardVariants}
+      whileHover={
+        project.projectUrl && !shouldReduceMotion ? { y: -8 } : undefined
+      }
+      whileTap={project.projectUrl ? { scale: 0.99 } : undefined}
+      onClick={() => onOpenProject(project.projectUrl)}
+      onKeyDown={(event) => {
+        if (!project.projectUrl) return;
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onOpenProject(project.projectUrl);
+        }
+      }}
+      role={project.projectUrl ? "link" : undefined}
+      tabIndex={project.projectUrl ? 0 : undefined}
+    >
+      <div className="project-thumbnail" ref={thumbnailRef}>
+        {canShowLivePreview ? (
+          <>
+            <iframe
+              src={project.livePreviewUrl}
+              title={`${project.title} live preview`}
+              className="project-thumbnail-iframe"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              scrolling="no"
+              onLoad={() => setIsPreviewLoaded(true)}
+              onError={() => setPreviewFailed(true)}
+            />
+            {!isPreviewLoaded && (
+              <div className="thumbnail-loading" aria-hidden="true">
+                <span>Učitavanje preview-a...</span>
+              </div>
+            )}
+          </>
+        ) : project.thumbnail ? (
+          <img
+            src={project.thumbnail}
+            alt={`${project.title} preview`}
+            className="project-thumbnail-image"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <div className="thumbnail-placeholder">
+            <span className="project-number">{String(index + 1).padStart(2, "0")}</span>
+          </div>
+        )}
+        <div
+          className="project-overlay"
+          style={{ transitionDuration: shouldReduceMotion ? "0s" : "0.25s" }}
+        >
+          <span className="view-project">View Project →</span>
+        </div>
+      </div>
+      <div className="project-content">
+        <span className="project-category">{project.category}</span>
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-description">{project.description}</p>
+        <div className="project-tags">
+          {project.tags.map((tag) => (
+            <span key={`${project.title}-${tag}`} className="tag">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Projects: React.FC = () => {
   const ref = useRef(null);
+  const shouldReduceMotion = useReducedMotion() ?? false;
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const containerVariants = {
@@ -73,7 +181,7 @@ const Projects: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: shouldReduceMotion ? 0 : 0.12,
       },
     },
   };
@@ -83,7 +191,7 @@ const Projects: React.FC = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5 },
+      transition: { duration: shouldReduceMotion ? 0 : 0.45 },
     },
   };
 
@@ -99,7 +207,7 @@ const Projects: React.FC = () => {
           className="projects-header"
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.55 }}
         >
           <h2 className="section-title">
             Naši <span className="gradient-text">projekti</span>
@@ -117,66 +225,14 @@ const Projects: React.FC = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className={`project-card glass ${project.projectUrl ? "project-card-clickable" : ""}`}
-              variants={cardVariants}
-              whileHover={{ y: -10 }}
-              onClick={() => openProject(project.projectUrl)}
-              onKeyDown={(event) => {
-                if (!project.projectUrl) return;
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  openProject(project.projectUrl);
-                }
-              }}
-              role={project.projectUrl ? "link" : undefined}
-              tabIndex={project.projectUrl ? 0 : undefined}
-            >
-              <div className="project-thumbnail">
-                {project.livePreviewUrl ? (
-                  <iframe
-                    src={project.livePreviewUrl}
-                    title={`${project.title} live preview`}
-                    className="project-thumbnail-iframe"
-                    loading="lazy"
-                    scrolling="no"
-                  />
-                ) : project.thumbnail ? (
-                  <img
-                    src={project.thumbnail}
-                    alt={`${project.title} preview`}
-                    className="project-thumbnail-image"
-                  />
-                ) : (
-                  <div className="thumbnail-placeholder">
-                    <span className="project-number">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                )}
-                <motion.div
-                  className="project-overlay"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className="view-project">View Project →</span>
-                </motion.div>
-              </div>
-              <div className="project-content">
-                <span className="project-category">{project.category}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            <ProjectCard
+              key={project.title}
+              project={project}
+              index={index}
+              cardVariants={cardVariants}
+              shouldReduceMotion={shouldReduceMotion}
+              onOpenProject={openProject}
+            />
           ))}
         </motion.div>
       </div>
