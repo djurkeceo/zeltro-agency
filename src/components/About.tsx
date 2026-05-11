@@ -13,11 +13,11 @@ const techStack = [
   "C#",
   ".NET",
   "Node.js",
+  "Express.js",
   "MongoDB",
   "PostgreSQL",
   "Docker",
   "GitHub",
-  "Azure",
 ];
 
 const About: React.FC = () => {
