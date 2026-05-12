@@ -8,7 +8,7 @@ const steps = [
     number: "01",
     title: "Konsultacije",
     description:
-      "Besplatan razgovor o tvojim ciljevima, publici i viziji projekta.",
+      "Tu smo da saslušamo tvoju priču i razumemo šta tvoj brend čini posebnim pre nego što povučemo prvi potez.",
     icon: "💬",
   },
   {
@@ -21,14 +21,14 @@ const steps = [
     number: "03",
     title: "Dizajn",
     description:
-      "Vizuelni identitet i UI koji ostavlja utisak na svaki posetilac.",
+      "Kreiramo UI koji ostavlja snažan prvi utisak i gradi poverenje kod tvojih korisnika od prve sekunde.",
     icon: "🎨",
   },
   {
     number: "04",
     title: "Development",
     description:
-      "Brz, optimizovan i clean kod — izgrađen po najvišim standardima.",
+      "Gradimo stabilna i skalabilna rešenja koja su optimizovana za brzinu i sve uređaje.",
     icon: "⚙️",
   },
   {
