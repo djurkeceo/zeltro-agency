@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import "./Footer.css";
+import transparentLogo from "../assets/zeltro logo transparent.png";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -20,12 +21,19 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-brand">
-            <motion.h3
-              className="footer-logo gradient-text"
-              whileHover={{ scale: 1.05 }}
+            <motion.div
+              className="footer-logo-wrapper"
+              whileHover={{ scale: 1.06, y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Zeltro
-            </motion.h3>
+              <motion.img
+                src={transparentLogo}
+                alt="Zeltro logo"
+                className="footer-logo"
+                whileHover={{ rotate: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 18 }}
+              />
+            </motion.div>
             <p className="footer-tagline">Better websites. Better business.</p>
             <div className="footer-social">
               <motion.a
