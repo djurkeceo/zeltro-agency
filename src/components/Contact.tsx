@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
             Hajde da <span className="gradient-text">razgovaramo.</span>
           </h2>
           <p className="contact-subtitle">
-            Spremni da započnemo vaš projekat? Kontaktirajte nas za besplatnu
+            Spremni da započnemo Vaš projekat? Kontaktirajte nas za besplatnu
             konsultaciju.
           </p>
         </motion.div>
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
                 name="message"
                 required
                 rows={6}
-                placeholder="Recite nam o vašem projektu..."
+                placeholder="Recite nam o Vašem projektu..."
               />
               <div className="form-error">
                 <ValidationError field="message" errors={submitState.errors} />

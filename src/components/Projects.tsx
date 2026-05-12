@@ -95,7 +95,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const [previewFailed, setPreviewFailed] = useState(false);
 
   const canShowLivePreview =
-    Boolean(project.livePreviewUrl) && isThumbnailNearViewport && !previewFailed;
+    Boolean(project.livePreviewUrl) &&
+    isThumbnailNearViewport &&
+    !previewFailed;
 
   return (
     <motion.div
@@ -145,7 +147,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           />
         ) : (
           <div className="thumbnail-placeholder">
-            <span className="project-number">{String(index + 1).padStart(2, "0")}</span>
+            <span className="project-number">
+              {String(index + 1).padStart(2, "0")}
+            </span>
           </div>
         )}
         <div
@@ -213,8 +217,8 @@ const Projects: React.FC = () => {
             Naši <span className="gradient-text">projekti</span>
           </h2>
           <p className="projects-subtitle">
-            Svaki projekat je priča o saradnji, kreativnosti i tehničkoj
-            izvrsnosti
+            Portfolio naših radova je zapravo kolekcija uspešnih partnerstava
+            koja su počela samo jednom idejom.
           </p>
         </motion.div>
 

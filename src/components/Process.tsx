@@ -8,20 +8,20 @@ const steps = [
     number: "01",
     title: "Konsultacije",
     description:
-      "Tu smo da saslušamo tvoju priču i razumemo šta tvoj brend čini posebnim.",
+      "Tu smo da saslušamo Vašu priču i razumemo šta Vaš brend čini posebnim.",
     icon: "💬",
   },
   {
     number: "02",
     title: "Strategija",
-    description: "Kreiramo plan koji odgovara tvojim potrebama i budžetu.",
+    description: "Kreiramo plan koji odgovara Vašim potrebama i budžetu.",
     icon: "🧭",
   },
   {
     number: "03",
     title: "Dizajn",
     description:
-      "Kreiramo UI koji ostavlja snažan prvi utisak i gradi poverenje kod tvojih korisnika od prve sekunde.",
+      "Kreiramo UI koji ostavlja snažan prvi utisak i gradi poverenje kod korisnika od prve sekunde.",
     icon: "🎨",
   },
   {
