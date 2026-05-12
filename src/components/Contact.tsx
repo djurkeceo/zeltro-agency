@@ -103,10 +103,12 @@ const Contact: React.FC = () => {
               type="submit"
               className="submit-button"
               whileHover={{
-                scale: 1.02,
-                boxShadow: "0 0 40px rgba(0, 229, 255, 0.6)",
+                scale: 1.03,
+                y: -2,
+                boxShadow: "0 14px 30px rgba(0, 229, 255, 0.34)",
               }}
-              whileTap={{ scale: 0.98 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 300, damping: 18 }}
               disabled={submitState.submitting}
             >
               {submitState.submitting ? "Slanje..." : "Pošalji poruku"}

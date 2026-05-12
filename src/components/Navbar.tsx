@@ -77,10 +77,12 @@ const Navbar: React.FC = () => {
           <motion.button
             className="cta-button"
             whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 30px rgba(0, 229, 255, 0.5)",
+              scale: 1.04,
+              y: -2,
+              boxShadow: "0 12px 28px rgba(0, 229, 255, 0.35)",
             }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 320, damping: 20 }}
             onClick={() => scrollToSection("contact")}
           >
             Besplatna Konsultacija

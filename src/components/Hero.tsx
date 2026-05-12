@@ -66,18 +66,25 @@ const Hero: React.FC = () => {
             <motion.button
               className="btn btn-primary"
               whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 40px rgba(0, 229, 255, 0.6)",
+                scale: 1.04,
+                y: -3,
+                boxShadow: "0 14px 32px rgba(0, 229, 255, 0.35)",
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 320, damping: 18 }}
               onClick={() => scrollToSection("projects")}
             >
               Pogledaj Projekte
             </motion.button>
             <motion.button
               className="btn btn-secondary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{
+                scale: 1.04,
+                y: -3,
+                boxShadow: "0 12px 28px rgba(0, 229, 255, 0.22)",
+              }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 320, damping: 18 }}
               onClick={() => scrollToSection("contact")}
             >
               Kontaktiraj Nas

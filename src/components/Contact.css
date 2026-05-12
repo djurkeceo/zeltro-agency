@@ -110,7 +110,34 @@
   border: none;
   border-radius: var(--border-radius-sm);
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    filter var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.submit-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -120%;
+  width: 55%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.32) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+  z-index: 0;
+}
+
+.submit-button:hover::before {
+  left: 130%;
 }
 
 .submit-button:disabled {

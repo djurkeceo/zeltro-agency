@@ -57,8 +57,13 @@ const Pricing: React.FC = () => {
 
             <motion.button
               className="pricing-cta"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 229, 255, 0.6)' }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{
+                scale: 1.04,
+                y: -2,
+                boxShadow: '0 14px 30px rgba(0, 229, 255, 0.34)',
+              }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 18 }}
               onClick={scrollToContact}
             >
               Zakažite besplatnu konsultaciju
