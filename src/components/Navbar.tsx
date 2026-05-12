@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import "./Navbar.css";
+import transparentLogo from "../assets/zeltro logo transparent.png";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,14 +37,25 @@ const Navbar: React.FC = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
+        <div
+          className={`mobile-menu-backdrop ${isMobileMenuOpen ? "open" : ""}`}
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
         <div className="container navbar-container">
           <motion.div
             className="navbar-logo"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.06, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
             <a href="#home" onClick={() => scrollToSection("home")}>
-              <span className="gradient-text">Zeltro</span>
+              <motion.img
+                src={transparentLogo}
+                alt="Zeltro logo"
+                className="navbar-logo-image"
+                whileHover={{ rotate: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 18 }}
+              />
             </a>
           </motion.div>
 
@@ -78,6 +90,7 @@ const Navbar: React.FC = () => {
             className="mobile-menu-toggle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <span></span>
             <span></span>
