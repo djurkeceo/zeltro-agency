@@ -74,14 +74,14 @@ const About: React.FC = () => {
             <p className="about-text">
               Tokom protekle 2 godine, pomogli smo startupima, lokalnim
               biznisima i rastućim brendovima da uspostave svoj digitalni
-              identitet u Srbiji i regionu. Specijalizujemo se za Figma dizajn,
-              izradu web sajtova i web aplikacija, SEO optimizaciju i održavanje
-              sajtova, uz fokus na kvalitet, brzinu i merljive rezultate.
+              identitet u Srbiji i regionu. Specijalizujemo se za izradu web
+              sajtova i web aplikacija, SEO optimizaciju i održavanje sajtova,
+              Figma dizajn uz fokus na kvalitet, brzinu i merljive rezultate.
             </p>
             <p className="about-text highlight">
               Svaki projekat je kreiran da odgovara klijentovoj viziji. Cene se
               uvek diskutuju nakon besplatne konsultacije sa klijentom,
-              prilagođene obimu i potrebama svakog projekta.
+              prilagođene potrebama svakog projekta.
             </p>
           </motion.div>
 

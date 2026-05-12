@@ -140,8 +140,8 @@ const Services: React.FC = () => {
             Naše <span className="gradient-text">usluge</span>
           </h2>
           <p className="services-subtitle">
-            Specijalizovani smo za kreiranje digitalnih iskustava koja
-            ostavljaju trajan utisak
+            Specijalizovani smo za kreiranje digitalnih rešenja koja
+            transformišu poslovanje.
           </p>
         </motion.div>
 
