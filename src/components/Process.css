@@ -63,11 +63,11 @@
 
 .process-card {
     border-radius: var(--border-radius-md);
-    padding: 1.2rem 1.1rem 1.1rem;
+    padding: 1.15rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    min-height: 255px;
+    min-height: 265px;
     position: relative;
     transition:
         transform var(--transition-base),
@@ -75,57 +75,52 @@
         box-shadow var(--transition-base);
 }
 
-.process-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--gradient-primary);
-    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
-    opacity: 0.85;
-}
-
 .process-card:hover {
+    transform: translateY(-5px);
     border-color: rgba(0, 229, 255, 0.28);
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
 }
 
-.process-card-head {
+.process-card-top {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.85rem;
+}
+
+.process-card-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+    min-width: 0;
 }
 
 .process-step-number {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     color: var(--color-accent);
-    padding: 0.42rem 0.55rem;
-    border-radius: 999px;
-    border: 1px solid rgba(0, 229, 255, 0.3);
-    background: rgba(0, 229, 255, 0.09);
+    opacity: 0.95;
+    text-transform: uppercase;
 }
 
 .process-step-icon {
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     background: rgba(0, 229, 255, 0.08);
     border: 1px solid rgba(0, 229, 255, 0.22);
+    flex-shrink: 0;
 }
 
 .process-step-title {
     font-size: 1.05rem;
     font-weight: 800;
     color: var(--color-text-primary);
-    margin-top: 0.15rem;
+    line-height: 1.25;
 }
 
 .process-step-desc {
@@ -163,6 +158,10 @@
 }
 
 @media (max-width: 560px) {
+    .process-shell {
+        padding: var(--spacing-sm);
+    }
+
     .process-steps {
         grid-template-columns: 1fr;
     }

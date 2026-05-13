@@ -79,7 +79,7 @@ const Process: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.15 }}
         >
           <div className="process-shell-header">
-            <p className="process-kicker">Transparentan workflow</p>
+            <p className="process-kicker"></p>
             <p className="process-note">
               Od prvog poziva do dugoročne podrške, svaka faza ima jasan cilj i
               konkretan ishod za Vaš biznis.
@@ -96,26 +96,21 @@ const Process: React.FC = () => {
                   isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
                 }
                 transition={{ duration: 0.55, delay: 0.2 + index * 0.09 }}
-                whileHover={{ y: -6 }}
               >
-                <div className="process-card-head">
-                  <span className="process-step-number">{step.number}</span>
-                  <motion.span
-                    className="process-step-icon"
-                    whileHover={{ scale: 1.1, rotate: -4 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    {step.icon}
-                  </motion.span>
+                <div className="process-card-top">
+                  <span className="process-step-icon">{step.icon}</span>
+                  <div className="process-card-title-wrap">
+                    <p className="process-step-number">FAZA {step.number}</p>
+                    <h3 className="process-step-title">{step.title}</h3>
+                  </div>
                 </div>
-                <h3 className="process-step-title">{step.title}</h3>
                 <p className="process-step-desc">{step.description}</p>
                 <p className="process-step-outcome">{step.outcome}</p>
               </motion.article>
             ))}
           </div>
         </motion.div>
-        </div>
+      </div>
     </section>
   );
 };
