@@ -78,14 +78,6 @@ const Process: React.FC = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.15 }}
         >
-          <div className="process-shell-header">
-            <p className="process-kicker"></p>
-            <p className="process-note">
-              Od prvog poziva do dugoročne podrške, svaka faza ima jasan cilj i
-              konkretan ishod za Vaš biznis.
-            </p>
-          </div>
-
           <div className="process-steps">
             {steps.map((step, index) => (
               <motion.article
