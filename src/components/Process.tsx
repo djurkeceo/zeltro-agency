@@ -10,12 +10,14 @@ const steps = [
     description:
       "Tu smo da saslušamo Vašu priču i razumemo šta Vaš brend čini posebnim.",
     icon: "💬",
+    outcome: "Dobijate jasnu sliku šta treba graditi i zašto.",
   },
   {
     number: "02",
     title: "Strategija",
     description: "Kreiramo plan koji odgovara Vašim potrebama i budžetu.",
     icon: "🧭",
+    outcome: "Definišemo prioritete, rokove i fokus koji donosi rezultat.",
   },
   {
     number: "03",
@@ -23,6 +25,7 @@ const steps = [
     description:
       "Kreiramo UI koji ostavlja snažan prvi utisak i gradi poverenje kod korisnika od prve sekunde.",
     icon: "🎨",
+    outcome: "Vaš brend dobija prepoznatljiv, moderan i konverzijski izgled.",
   },
   {
     number: "04",
@@ -30,18 +33,21 @@ const steps = [
     description:
       "Gradimo stabilna i skalabilna rešenja koja su optimizovana za brzinu i sve uređaje.",
     icon: "⚙️",
+    outcome: "Dobijate brz i pouzdan proizvod spreman za rast.",
   },
   {
     number: "05",
     title: "Launch",
     description: "Testiramo svaki detalj, pa tek onda idemo live.",
     icon: "🚀",
+    outcome: "Lansiranje bez stresa, sa sigurnim performansama od starta.",
   },
   {
     number: "06",
     title: "Održavanje",
     description: "Tu smo i posle lansiranja — ažuriranja, podrška, rast.",
     icon: "🔧",
+    outcome: "Kontinuirana podrška i unapređenja koja čuvaju momentum.",
   },
 ];
 
@@ -66,46 +72,50 @@ const Process: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="process-track">
-          {/* Connector line */}
-          <div className="process-line-bg" />
-          <motion.div
-            className="process-line-fill"
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 1.4, delay: 0.4, ease: "easeInOut" }}
-          />
+        <motion.div
+          className="process-shell glass"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
+          <div className="process-shell-header">
+            <p className="process-kicker">Transparentan workflow</p>
+            <p className="process-note">
+              Od prvog poziva do dugoročne podrške, svaka faza ima jasan cilj i
+              konkretan ishod za Vaš biznis.
+            </p>
+          </div>
 
           <div className="process-steps">
             {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                className="process-step"
+              <motion.article
+                key={step.number}
+                className="process-card glass"
                 initial={{ opacity: 0, y: 40 }}
                 animate={
                   isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
                 }
-                transition={{ duration: 0.55, delay: 0.15 + index * 0.12 }}
+                transition={{ duration: 0.55, delay: 0.2 + index * 0.09 }}
+                whileHover={{ y: -6 }}
               >
-                <div className="step-node">
-                  <motion.div
-                    className="step-icon-wrap"
-                    whileHover={{ scale: 1.12, rotate: -4 }}
+                <div className="process-card-head">
+                  <span className="process-step-number">{step.number}</span>
+                  <motion.span
+                    className="process-step-icon"
+                    whileHover={{ scale: 1.1, rotate: -4 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <span className="step-emoji">{step.icon}</span>
-                  </motion.div>
-                  <div className="step-number">{step.number}</div>
+                    {step.icon}
+                  </motion.span>
                 </div>
-                <div className="step-body glass">
-                  <h3 className="step-title">{step.title}</h3>
-                  <p className="step-desc">{step.description}</p>
-                </div>
-              </motion.div>
+                <h3 className="process-step-title">{step.title}</h3>
+                <p className="process-step-desc">{step.description}</p>
+                <p className="process-step-outcome">{step.outcome}</p>
+              </motion.article>
             ))}
           </div>
+        </motion.div>
         </div>
-      </div>
     </section>
   );
 };
