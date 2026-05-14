@@ -1,31 +1,31 @@
 :root {
-  /* Colors - Dark theme with electric blue accent */
-  --color-bg-primary: #0a0a0f;
-  --color-bg-secondary: #13131a;
-  --color-bg-tertiary: #1a1a24;
-  --color-accent: #00e5ff;
-  --color-accent-glow: rgba(0, 229, 255, 0.3);
-  --color-accent-dim: #0099b3;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #b4b4c8;
-  --color-text-muted: #6b6b7f;
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-card-bg: rgba(26, 26, 36, 0.6);
+  --color-bg-primary: #05070d;
+  --color-bg-secondary: #090f1c;
+  --color-bg-tertiary: #11182b;
+  --color-accent: #5be7ff;
+  --color-accent-glow: rgba(91, 231, 255, 0.35);
+  --color-accent-dim: #409fbe;
+  --color-text-primary: #f7fbff;
+  --color-text-secondary: #b8c6e3;
+  --color-text-muted: #7f8fb1;
+  --color-border: rgba(186, 214, 255, 0.2);
+  --color-card-bg: rgba(13, 20, 37, 0.72);
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #00e5ff 0%, #0099ff 100%);
-  --gradient-mesh: radial-gradient(ellipse at top, rgba(0, 229, 255, 0.15), transparent 50%),
-                   radial-gradient(ellipse at bottom, rgba(0, 153, 255, 0.1), transparent 50%);
+  --gradient-primary: linear-gradient(95deg, #5be7ff 0%, #69b3ff 52%, #8a7cff 100%);
+  --gradient-mesh: radial-gradient(circle at 8% 8%, rgba(91, 231, 255, 0.2), transparent 46%),
+                   radial-gradient(circle at 85% 15%, rgba(108, 137, 255, 0.16), transparent 42%),
+                   radial-gradient(circle at 50% 88%, rgba(138, 124, 255, 0.15), transparent 45%);
   
   /* Typography */
-  --font-display: 'Archivo Black', sans-serif;
-  --font-body: 'Space Grotesk', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
   
   /* Breakpoints */
   --breakpoint-xs: 320px;   /* Extra small phones */
   --breakpoint-sm: 480px;   /* Small phones */
   --breakpoint-md: 768px;   /* Tablets */
-  --breakpoint-lg: 968px;   /* Small laptops */
+  --breakpoint-lg: 992px;   /* Small laptops */
   --breakpoint-xl: 1200px;  /* Desktop */
   --breakpoint-2xl: 1400px; /* Large desktop */
   
@@ -34,19 +34,19 @@
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
-  --spacing-xl: 6rem;
+  --spacing-xl: 7rem;
   --spacing-2xl: 8rem;
   
   /* Borders */
-  --border-radius-sm: 0.5rem;
-  --border-radius-md: 1rem;
-  --border-radius-lg: 1.5rem;
+  --border-radius-sm: 0.75rem;
+  --border-radius-md: 1.1rem;
+  --border-radius-lg: 1.6rem;
   
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 40px var(--color-accent-glow);
+  --shadow-sm: 0 8px 20px rgba(2, 5, 13, 0.38);
+  --shadow-md: 0 14px 30px rgba(2, 5, 13, 0.44);
+  --shadow-lg: 0 20px 55px rgba(2, 5, 13, 0.52);
+  --shadow-glow: 0 0 36px var(--color-accent-glow);
   
   /* Transitions */
   --transition-fast: 0.2s ease;

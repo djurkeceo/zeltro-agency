@@ -63,10 +63,10 @@ const Navbar: React.FC = () => {
             <a href="#home" onClick={() => scrollToSection("home")}>
               Početna
             </a>
-            <a href="#services" onClick={() => scrollToSection("projects")}>
+            <a href="#services" onClick={() => scrollToSection("services")}>
               Usluge
             </a>
-            <a href="#projects" onClick={() => scrollToSection("services")}>
+            <a href="#projects" onClick={() => scrollToSection("projects")}>
               Projekti
             </a>
             <a href="#contact" onClick={() => scrollToSection("contact")}>

@@ -1,4 +1,5 @@
 @import './styles/variables.css';
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap");
 
 * {
   margin: 0;
@@ -14,9 +15,12 @@ html {
 body {
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
+  background:
+    radial-gradient(1200px 700px at 75% -10%, rgba(91, 231, 255, 0.14), transparent 58%),
+    radial-gradient(900px 650px at -10% 75%, rgba(138, 124, 255, 0.12), transparent 55%),
+    var(--color-bg-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,26 +33,26 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1.2;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  line-height: 1.06;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-size: clamp(2.8rem, 8vw, 6.2rem);
 }
 
 h2 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 5vw, 4.3rem);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
 }
 
 p {
   color: var(--color-text-secondary);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 a {
@@ -86,14 +90,14 @@ button {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 1.4rem;
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 var(--spacing-sm);
+    padding: 0 1rem;
   }
 }
 
@@ -158,9 +162,10 @@ section {
 
 .glass {
   background: var(--color-card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .gradient-text {
@@ -181,4 +186,19 @@ body::before {
   z-index: -1;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   pointer-events: none;
+}
+
+.section-title {
+  margin-bottom: 1.2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
