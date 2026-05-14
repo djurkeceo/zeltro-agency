@@ -112,6 +112,20 @@
   background: rgba(91, 231, 255, 0.13);
 }
 
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.admin-btn-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .admin-shell {
   display: grid;
   gap: 1rem;
@@ -505,6 +519,10 @@
   }
 
   .admin-btn {
+    width: 100%;
+  }
+
+  .admin-actions {
     width: 100%;
   }
 }

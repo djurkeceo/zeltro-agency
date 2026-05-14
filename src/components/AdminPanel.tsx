@@ -157,13 +157,18 @@ const AdminPanel: React.FC = () => {
 
               {errorMessage && <p className="admin-error">{errorMessage}</p>}
 
-              <button
-                type="submit"
-                className="admin-btn"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Prijava..." : "Uloguj se"}
-              </button>
+              <div className="admin-actions">
+                <button
+                  type="submit"
+                  className="admin-btn"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Prijava..." : "Uloguj se"}
+                </button>
+                <a href="/" className="admin-btn admin-btn-ghost admin-btn-link">
+                  Nazad na početnu
+                </a>
+              </div>
             </motion.form>
           </div>
         </section>
@@ -186,13 +191,18 @@ const AdminPanel: React.FC = () => {
               <h1>Zeltro Admin Panel</h1>
               <p>Pregled svih ponuda i paketa na jednom mestu.</p>
             </div>
-            <button
-              className="admin-btn admin-btn-ghost"
-              type="button"
-              onClick={handleLogout}
-            >
-              Odjava
-            </button>
+            <div className="admin-actions">
+              <a href="/" className="admin-btn admin-btn-ghost admin-btn-link">
+                Nazad na početnu
+              </a>
+              <button
+                className="admin-btn admin-btn-ghost"
+                type="button"
+                onClick={handleLogout}
+              >
+                Odjava
+              </button>
+            </div>
           </motion.header>
 
           <motion.section
