@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(1.2rem, 3vw, 3rem);
-  align-items: stretch;
+  align-items: start;
 }
 
 .about-content {
@@ -47,8 +47,7 @@
 
 .visual-card {
   position: relative;
-  height: 100%;
-  min-height: 450px;
+  height: auto;
   padding: clamp(1.1rem, 2.6vw, 1.8rem);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
@@ -98,6 +97,10 @@
   transition: all var(--transition-base);
 }
 
+.tech-item:first-child {
+  grid-column: span 2;
+}
+
 .tech-item:hover {
   transform: translateY(-2px);
   border-color: rgba(91, 231, 255, 0.55);
@@ -119,14 +122,14 @@
   .about-grid {
     grid-template-columns: 1fr;
   }
-
-  .visual-card {
-    min-height: 360px;
-  }
 }
 
 @media (max-width: 640px) {
   .tech-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tech-item:first-child {
+    grid-column: span 1;
   }
 }
