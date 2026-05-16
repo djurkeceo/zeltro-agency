@@ -39,7 +39,7 @@ const projects: Project[] = [
   {
     title: "Prosekator",
     category: "Web Application",
-    tags: ["HTML", "CSS", "JavaScript", "ExpressJS", "MongoDB"],
+    tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "MongoDB"],
     description: "Live preview projekta Prosekator.",
     livePreviewUrl: "https://prosekator.vercel.app/",
     projectUrl: "https://prosekator.vercel.app/",
