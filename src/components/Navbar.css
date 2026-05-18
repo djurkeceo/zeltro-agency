@@ -50,7 +50,9 @@
   height: 34px;
   width: auto;
   display: block;
-  transition: transform var(--transition-fast), filter var(--transition-fast);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navbar-logo:hover .navbar-logo-image {
@@ -71,7 +73,9 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-text-secondary);
-  transition: all var(--transition-fast);
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
   padding: 0.55rem 0.95rem;
   border-radius: 999px;
 }
@@ -87,7 +91,9 @@
   color: #03111b;
   font-weight: 700;
   border-radius: 999px;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   font-size: 0.83rem;
   box-shadow: 0 10px 24px rgba(91, 231, 255, 0.25);
 }
