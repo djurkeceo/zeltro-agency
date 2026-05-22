@@ -1,19 +1,32 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
-import studioNoirPreview from "../assets/StudioNoir.png";
-import prosekatorPreview from "../assets/Prosekator.png";
-import SynclyPreview from "../assets/Syncly.png";
-import MetalShopPreview from "../assets/MetalShop.png";
-import LenaMarkovicPreview from "../assets/LenaMarkovicPortfolio.png";
-import IronLabPreview from "../assets/IronLab.png";
+import studioNoirPreview640 from "../assets/StudioNoir-640.png";
+import studioNoirPreview1280 from "../assets/StudioNoir-1280.png";
+import prosekatorPreview640 from "../assets/Prosekator-640.png";
+import prosekatorPreview1280 from "../assets/Prosekator-1280.png";
+import synclyPreview640 from "../assets/Syncly-640.png";
+import synclyPreview1280 from "../assets/Syncly-1280.png";
+import metalShopPreview640 from "../assets/MetalShop-640.png";
+import metalShopPreview1280 from "../assets/MetalShop-1280.png";
+import lenaMarkovicPreview640 from "../assets/LenaMarkovicPortfolio-640.png";
+import lenaMarkovicPreview1280 from "../assets/LenaMarkovicPortfolio-1280.png";
+import ironLabPreview640 from "../assets/IronLab-640.png";
+import ironLabPreview1280 from "../assets/IronLab-1280.png";
 import "./Projects.css";
+
+interface ProjectThumbnail {
+  src: string;
+  srcSet: string;
+  width: number;
+  height: number;
+}
 
 interface Project {
   title: string;
   category: string;
   tags: string[];
   description: string;
-  thumbnail?: string;
+  thumbnail?: ProjectThumbnail;
   projectUrl?: string;
 }
 
@@ -32,13 +45,33 @@ interface ProjectCardProps {
   onOpenProject: (projectUrl?: string) => void;
 }
 
+const projectImageSizes =
+  "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw";
+
+const createThumbnail = (
+  src640: string,
+  src1280: string,
+  width: number,
+  height: number
+): ProjectThumbnail => ({
+  src: src640,
+  srcSet: `${src640} 640w, ${src1280} 1280w`,
+  width,
+  height,
+});
+
 const projects: Project[] = [
   {
     title: "Studio Noir",
     category: "Višestranični Website",
     tags: ["React", "TypeScript", "CSS", "Framer Motion"],
     description: "Live preview projekta Studio Noir.",
-    thumbnail: studioNoirPreview,
+    thumbnail: createThumbnail(
+      studioNoirPreview640,
+      studioNoirPreview1280,
+      1280,
+      636
+    ),
     projectUrl: "https://studio-noir-inky.vercel.app/",
   },
   {
@@ -46,7 +79,12 @@ const projects: Project[] = [
     category: "Web Application",
     tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "MongoDB"],
     description: "Live preview projekta Prosekator.",
-    thumbnail: prosekatorPreview,
+    thumbnail: createThumbnail(
+      prosekatorPreview640,
+      prosekatorPreview1280,
+      1280,
+      618
+    ),
     projectUrl: "https://prosekator.vercel.app/",
   },
   {
@@ -54,7 +92,12 @@ const projects: Project[] = [
     category: "Landing Page",
     tags: ["Next.js", "CSS", "Framer Motion"],
     description: "Live preview projekta Syncly.",
-    thumbnail: SynclyPreview,
+    thumbnail: createThumbnail(
+      synclyPreview640,
+      synclyPreview1280,
+      1280,
+      622
+    ),
     projectUrl: "https://syncly-phi.vercel.app/",
   },
   {
@@ -62,7 +105,12 @@ const projects: Project[] = [
     category: "Višestranični Website",
     tags: ["TypeScript", "React", "CSS", "Framer Motion"],
     description: "Website preview projekta Metal Shop",
-    thumbnail: MetalShopPreview,
+    thumbnail: createThumbnail(
+      metalShopPreview640,
+      metalShopPreview1280,
+      1280,
+      634
+    ),
     projectUrl: "https://metal-shop-su.vercel.app/",
   },
   {
@@ -70,7 +118,12 @@ const projects: Project[] = [
     category: "Višestranični Website",
     tags: ["TypeScript", "CSS", "React"],
     description: "Live preview portfolio projekta.",
-    thumbnail: LenaMarkovicPreview,
+    thumbnail: createThumbnail(
+      lenaMarkovicPreview640,
+      lenaMarkovicPreview1280,
+      1280,
+      647
+    ),
     projectUrl: "https://lena-markovic.vercel.app/",
   },
   {
@@ -78,7 +131,12 @@ const projects: Project[] = [
     category: "Landing Page sa Galerijom",
     tags: ["TypeScript", "CSS", "React"],
     description: "Live preview projekta Iron Lab.",
-    thumbnail: IronLabPreview,
+    thumbnail: createThumbnail(
+      ironLabPreview640,
+      ironLabPreview1280,
+      1280,
+      644
+    ),
     projectUrl: "https://iron-lab.vercel.app/",
   },
 ];
@@ -112,11 +170,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="project-thumbnail">
         {project.thumbnail ? (
           <img
-            src={project.thumbnail}
+            src={project.thumbnail.src}
+            srcSet={project.thumbnail.srcSet}
+            sizes={projectImageSizes}
+            width={project.thumbnail.width}
+            height={project.thumbnail.height}
             alt={`${project.title} preview`}
             className="project-thumbnail-image"
             loading="lazy"
             decoding="async"
+            fetchPriority="low"
           />
         ) : (
           <div className="thumbnail-placeholder">
