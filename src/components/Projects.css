@@ -53,26 +53,6 @@
   object-position: center;
 }
 
-.project-thumbnail-iframe {
-  width: calc(100% + 14px);
-  height: 100%;
-  border: 0;
-  pointer-events: none;
-  margin-right: -14px;
-}
-
-.thumbnail-loading {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-secondary);
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-  background-size: 200% 100%;
-  animation: projectShimmer 1.3s linear infinite;
-}
-
 .thumbnail-placeholder {
   font-size: 5.2rem;
   font-family: var(--font-display);
@@ -149,16 +129,6 @@
   color: var(--color-text-secondary);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(186, 214, 255, 0.16);
-}
-
-@keyframes projectShimmer {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 200% 0;
-  }
 }
 
 @media (max-width: 768px) {

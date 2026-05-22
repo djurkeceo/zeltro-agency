@@ -1,5 +1,11 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import studioNoirPreview from "../assets/StudioNoir.png";
+import prosekatorPreview from "../assets/Prosekator.png";
+import SynclyPreview from "../assets/Syncly.png";
+import MetalShopPreview from "../assets/MetalShop.png";
+import LenaMarkovicPreview from "../assets/LenaMarkovicPortfolio.png";
+import IronLabPreview from "../assets/IronLab.png";
 import "./Projects.css";
 
 interface Project {
@@ -8,7 +14,6 @@ interface Project {
   tags: string[];
   description: string;
   thumbnail?: string;
-  livePreviewUrl?: string;
   projectUrl?: string;
 }
 
@@ -33,7 +38,7 @@ const projects: Project[] = [
     category: "Višestranični Website",
     tags: ["React", "TypeScript", "CSS", "Framer Motion"],
     description: "Live preview projekta Studio Noir.",
-    livePreviewUrl: "https://studio-noir-inky.vercel.app/",
+    thumbnail: studioNoirPreview,
     projectUrl: "https://studio-noir-inky.vercel.app/",
   },
   {
@@ -41,7 +46,7 @@ const projects: Project[] = [
     category: "Web Application",
     tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "MongoDB"],
     description: "Live preview projekta Prosekator.",
-    livePreviewUrl: "https://prosekator.vercel.app/",
+    thumbnail: prosekatorPreview,
     projectUrl: "https://prosekator.vercel.app/",
   },
   {
@@ -49,7 +54,7 @@ const projects: Project[] = [
     category: "Landing Page",
     tags: ["Next.js", "CSS", "Framer Motion"],
     description: "Live preview projekta Syncly.",
-    livePreviewUrl: "https://syncly-phi.vercel.app/",
+    thumbnail: SynclyPreview,
     projectUrl: "https://syncly-phi.vercel.app/",
   },
   {
@@ -57,7 +62,7 @@ const projects: Project[] = [
     category: "Višestranični Website",
     tags: ["TypeScript", "React", "CSS", "Framer Motion"],
     description: "Website preview projekta Metal Shop",
-    livePreviewUrl: "https://metal-shop-su.vercel.app/",
+    thumbnail: MetalShopPreview,
     projectUrl: "https://metal-shop-su.vercel.app/",
   },
   {
@@ -65,7 +70,7 @@ const projects: Project[] = [
     category: "Višestranični Website",
     tags: ["TypeScript", "CSS", "React"],
     description: "Live preview portfolio projekta.",
-    livePreviewUrl: "https://lena-markovic.vercel.app/",
+    thumbnail: LenaMarkovicPreview,
     projectUrl: "https://lena-markovic.vercel.app/",
   },
   {
@@ -73,7 +78,7 @@ const projects: Project[] = [
     category: "Landing Page sa Galerijom",
     tags: ["TypeScript", "CSS", "React"],
     description: "Live preview projekta Iron Lab.",
-    livePreviewUrl: "https://iron-lab.vercel.app/",
+    thumbnail: IronLabPreview,
     projectUrl: "https://iron-lab.vercel.app/",
   },
 ];
@@ -85,20 +90,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   shouldReduceMotion,
   onOpenProject,
 }) => {
-  const thumbnailRef = useRef<HTMLDivElement | null>(null);
-  const isThumbnailNearViewport = useInView(thumbnailRef, {
-    once: true,
-    amount: 0.15,
-    margin: "0px 0px 220px 0px",
-  });
-  const [isPreviewLoaded, setIsPreviewLoaded] = useState(false);
-  const [previewFailed, setPreviewFailed] = useState(false);
-
-  const canShowLivePreview =
-    Boolean(project.livePreviewUrl) &&
-    isThumbnailNearViewport &&
-    !previewFailed;
-
   return (
     <motion.div
       className={`project-card glass ${project.projectUrl ? "project-card-clickable" : ""}`}
@@ -118,26 +109,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       role={project.projectUrl ? "link" : undefined}
       tabIndex={project.projectUrl ? 0 : undefined}
     >
-      <div className="project-thumbnail" ref={thumbnailRef}>
-        {canShowLivePreview ? (
-          <>
-            <iframe
-              src={project.livePreviewUrl}
-              title={`${project.title} live preview`}
-              className="project-thumbnail-iframe"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              scrolling="no"
-              onLoad={() => setIsPreviewLoaded(true)}
-              onError={() => setPreviewFailed(true)}
-            />
-            {!isPreviewLoaded && (
-              <div className="thumbnail-loading" aria-hidden="true">
-                <span>Učitavanje preview-a...</span>
-              </div>
-            )}
-          </>
-        ) : project.thumbnail ? (
+      <div className="project-thumbnail">
+        {project.thumbnail ? (
           <img
             src={project.thumbnail}
             alt={`${project.title} preview`}
