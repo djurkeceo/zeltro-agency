@@ -105,9 +105,23 @@ section {
   position: relative;
 }
 
+section:not(.hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+}
+
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
 @media (max-width: 768px) {
   section {
     padding: var(--spacing-lg) 0;
+  }
+
+  body::before {
+    display: none;
   }
 }
 

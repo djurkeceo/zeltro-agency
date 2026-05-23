@@ -148,6 +148,7 @@
 
   .hero-content {
     border-radius: 1.35rem;
+    box-shadow: var(--shadow-sm);
   }
 
   .hero-ctas {
@@ -156,6 +157,12 @@
 
   .btn {
     width: 100%;
+  }
+
+  .gradient-orb {
+    animation: none;
+    opacity: 0.3;
+    filter: blur(46px);
   }
 }
 
@@ -171,6 +178,6 @@
   .orb-1,
   .orb-2,
   .orb-3 {
-    filter: blur(54px);
+    filter: blur(40px);
   }
 }
