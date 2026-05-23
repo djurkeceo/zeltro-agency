@@ -86,6 +86,14 @@ export const additionalServices: ExtraService[] = [
     price: '250-450 EUR',
     includes: ['CTA fokus, brz load time, integracija Pixel-a i GTM-a'],
   },
+  {
+    name: 'Google PageSpeed Insights optimizacija',
+    price: '80-150 EUR',
+    includes: [
+      'Audit performansi i Core Web Vitals preporuke',
+      'Optimizacija slika, fontova i JS/CSS resursa',
+    ],
+  },
 ];
 
 export const monthlyPackages: MonthlyPackage[] = [
