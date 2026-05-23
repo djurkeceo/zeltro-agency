@@ -1,15 +1,26 @@
 import { useState, useEffect } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useReducedMotion, useScroll } from "framer-motion";
 import "./Navbar.css";
 import logo120 from "../assets/zeltro-logo-120.png";
 import logo240 from "../assets/zeltro-logo-240.png";
 import logo120Webp from "../assets/zeltro-logo-120.webp";
 import logo240Webp from "../assets/zeltro-logo-240.webp";
+import useIsMobile from "../hooks/useIsMobile";
+
+const ScrollIndicator: React.FC = () => {
+  const { scrollYProgress } = useScroll();
+
+  return (
+    <motion.div className="scroll-indicator" style={{ scaleX: scrollYProgress }} />
+  );
+};
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = useReducedMotion();
+  const showScrollIndicator = !isMobile && !prefersReducedMotion;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,10 +48,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <motion.div
-        className="scroll-indicator"
-        style={{ scaleX: scrollYProgress }}
-      />
+      {showScrollIndicator && <ScrollIndicator />}
       <motion.nav
         className={`navbar ${isScrolled ? "scrolled" : ""}`}
         initial={{ y: -100 }}
