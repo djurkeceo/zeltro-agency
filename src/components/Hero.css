@@ -120,9 +120,10 @@
   border: 1px solid rgba(186, 214, 255, 0.15);
 }
 
-.stat h3 {
+.stat-value {
   font-size: clamp(1.6rem, 3vw, 2.3rem);
   margin-bottom: 0.45rem;
+  font-weight: 700;
 }
 
 .stat-percent {
@@ -133,7 +134,7 @@
   -webkit-text-fill-color: #73b9ff;
 }
 
-.stat p {
+.stat-label {
   font-size: 0.76rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;

@@ -93,21 +93,21 @@ const Hero: React.FC = () => {
 
           <motion.div variants={itemVariants} className="hero-stats">
             <div className="stat">
-              <h3 className="gradient-text">20+</h3>
-              <p>Projekata</p>
+              <p className="stat-value gradient-text">20+</p>
+              <p className="stat-label">Projekata</p>
             </div>
             <div className="stat">
-              <h3 className="gradient-text">2</h3>
-              <p>Godine Iskustva</p>
+              <p className="stat-value gradient-text">2</p>
+              <p className="stat-label">Godine Iskustva</p>
             </div>
             <div className="stat">
-              <h3 className="gradient-text">
+              <p className="stat-value gradient-text">
                 100
                 <span className="stat-percent" style={{ marginLeft: "-0.5px" }}>
                   %
                 </span>
-              </h3>
-              <p>Zadovoljnih Klijenata</p>
+              </p>
+              <p className="stat-label">Zadovoljnih Klijenata</p>
             </div>
           </motion.div>
         </motion.div>

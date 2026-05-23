@@ -57,6 +57,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
+                aria-label="Zeltro on LinkedIn"
                 whileHover={{ scale: 1.2, color: "#00e5ff" }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -74,6 +75,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
+                aria-label="Zeltro on GitHub"
                 whileHover={{ scale: 1.2, color: "#00e5ff" }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -91,6 +93,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
+                aria-label="Zeltro on TikTok"
                 whileHover={{ scale: 1.2, color: "#00e5ff" }}
                 whileTap={{ scale: 0.9 }}
               >
