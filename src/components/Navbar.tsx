@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import "./Navbar.css";
-import transparentLogo from "../assets/zeltro logo transparent.png";
+import logo168 from "../assets/zeltro-logo-168.png";
+import logo336 from "../assets/zeltro-logo-336.png";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,9 +59,14 @@ const Navbar: React.FC = () => {
           >
             <a href="#home" onClick={() => scrollToSection("home")}>
               <motion.img
-                src={transparentLogo}
+                src={logo168}
+                srcSet={`${logo168} 168w, ${logo336} 336w`}
+                sizes="(max-width: 768px) 120px, 168px"
                 alt="Zeltro logo"
                 className="navbar-logo-image"
+                width={114}
+                height={34}
+                decoding="async"
                 whileHover={{ rotate: -1.5 }}
                 transition={smoothHoverTransition}
               />

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import "./Footer.css";
-import transparentLogo from "../assets/zeltro logo transparent.png";
+import logo168 from "../assets/zeltro-logo-168.png";
+import logo336 from "../assets/zeltro-logo-336.png";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -27,9 +28,15 @@ const Footer: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <motion.img
-                src={transparentLogo}
+                src={logo168}
+                srcSet={`${logo168} 168w, ${logo336} 336w`}
+                sizes="168px"
                 alt="Zeltro logo"
                 className="footer-logo"
+                width={168}
+                height={50}
+                loading="lazy"
+                decoding="async"
                 whileHover={{ rotate: -2 }}
                 transition={{ type: "spring", stiffness: 300, damping: 18 }}
               />
