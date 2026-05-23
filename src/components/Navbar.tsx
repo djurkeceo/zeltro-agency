@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import "./Navbar.css";
-import logo168 from "../assets/zeltro-logo-168.png";
-import logo336 from "../assets/zeltro-logo-336.png";
+import logo120 from "../assets/zeltro-logo-120.png";
+import logo240 from "../assets/zeltro-logo-240.png";
+import logo120Webp from "../assets/zeltro-logo-120.webp";
+import logo240Webp from "../assets/zeltro-logo-240.webp";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,18 +60,25 @@ const Navbar: React.FC = () => {
             transition={smoothHoverTransition}
           >
             <a href="#home" onClick={() => scrollToSection("home")}>
-              <motion.img
-                src={logo168}
-                srcSet={`${logo168} 168w, ${logo336} 336w`}
-                sizes="(max-width: 768px) 120px, 168px"
-                alt="Zeltro logo"
-                className="navbar-logo-image"
-                width={114}
-                height={34}
-                decoding="async"
-                whileHover={{ rotate: -1.5 }}
-                transition={smoothHoverTransition}
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${logo120Webp} 120w, ${logo240Webp} 240w`}
+                  sizes="114px"
+                />
+                <motion.img
+                  src={logo120}
+                  srcSet={`${logo120} 120w, ${logo240} 240w`}
+                  sizes="114px"
+                  alt="Zeltro logo"
+                  className="navbar-logo-image"
+                  width={114}
+                  height={34}
+                  decoding="async"
+                  whileHover={{ rotate: -1.5 }}
+                  transition={smoothHoverTransition}
+                />
+              </picture>
             </a>
           </motion.div>
 

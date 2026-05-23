@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import "./Footer.css";
 import logo168 from "../assets/zeltro-logo-168.png";
 import logo336 from "../assets/zeltro-logo-336.png";
+import logo168Webp from "../assets/zeltro-logo-168.webp";
+import logo336Webp from "../assets/zeltro-logo-336.webp";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -27,19 +29,26 @@ const Footer: React.FC = () => {
               whileHover={{ scale: 1.06, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <motion.img
-                src={logo168}
-                srcSet={`${logo168} 168w, ${logo336} 336w`}
-                sizes="168px"
-                alt="Zeltro logo"
-                className="footer-logo"
-                width={168}
-                height={50}
-                loading="lazy"
-                decoding="async"
-                whileHover={{ rotate: -2 }}
-                transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${logo168Webp} 168w, ${logo336Webp} 336w`}
+                  sizes="168px"
+                />
+                <motion.img
+                  src={logo168}
+                  srcSet={`${logo168} 168w, ${logo336} 336w`}
+                  sizes="168px"
+                  alt="Zeltro logo"
+                  className="footer-logo"
+                  width={168}
+                  height={50}
+                  loading="lazy"
+                  decoding="async"
+                  whileHover={{ rotate: -2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                />
+              </picture>
             </motion.div>
             <p className="footer-tagline">Better websites. Better business.</p>
             <div className="footer-social">
