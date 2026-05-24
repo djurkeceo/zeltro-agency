@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   additionalServices,
   monthlyPackages,
@@ -116,7 +116,7 @@ const AdminPanel: React.FC = () => {
       <main className="admin-page">
         <section className="admin-section">
           <div className="container admin-login-wrap">
-            <motion.form
+            <m.form
               className="admin-login glass"
               onSubmit={handleLogin}
               initial={{ opacity: 0, y: 20 }}
@@ -169,7 +169,7 @@ const AdminPanel: React.FC = () => {
                   Nazad na početnu
                 </a>
               </div>
-            </motion.form>
+            </m.form>
           </div>
         </section>
       </main>
@@ -180,7 +180,7 @@ const AdminPanel: React.FC = () => {
     <main className="admin-page">
       <section className="admin-section">
         <div className="container admin-shell">
-          <motion.header
+          <m.header
             className="admin-header glass"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -203,9 +203,9 @@ const AdminPanel: React.FC = () => {
                 Odjava
               </button>
             </div>
-          </motion.header>
+          </m.header>
 
-          <motion.section
+          <m.section
             className="admin-overview"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -227,7 +227,7 @@ const AdminPanel: React.FC = () => {
               <p>Stavke uključene</p>
               <strong>{totalIncludedItems}</strong>
             </article>
-          </motion.section>
+          </m.section>
 
           <nav className="admin-nav">
             <a href="#admin-projects" className="admin-nav-link">
@@ -241,7 +241,7 @@ const AdminPanel: React.FC = () => {
             </a>
           </nav>
 
-          <motion.section
+          <m.section
             id="admin-projects"
             className="admin-block glass"
             initial={{ opacity: 0, y: 20 }}
@@ -255,7 +255,7 @@ const AdminPanel: React.FC = () => {
 
             <div className="admin-grid">
               {projectPackages.map((item) => (
-                <motion.article
+                <m.article
                   key={item.name}
                   className="admin-card"
                   initial={{ opacity: 0, y: 20 }}
@@ -287,13 +287,13 @@ const AdminPanel: React.FC = () => {
                       </ul>
                     </>
                   )}
-                </motion.article>
+                </m.article>
               ))}
             </div>
-          </motion.section>
+          </m.section>
 
           <div className="admin-subsections">
-            <motion.section
+            <m.section
               id="admin-additional"
               className="admin-block glass"
               initial={{ opacity: 0, y: 20 }}
@@ -306,7 +306,7 @@ const AdminPanel: React.FC = () => {
               </div>
               <div className="admin-list">
                 {additionalServices.map((service) => (
-                  <motion.article
+                  <m.article
                     key={service.name}
                     className="admin-list-item"
                     whileHover={{
@@ -323,12 +323,12 @@ const AdminPanel: React.FC = () => {
                         <li key={point}>{point}</li>
                       ))}
                     </ul>
-                  </motion.article>
+                  </m.article>
                 ))}
               </div>
-            </motion.section>
+            </m.section>
 
-            <motion.section
+            <m.section
               id="admin-monthly"
               className="admin-block glass"
               initial={{ opacity: 0, y: 20 }}
@@ -341,7 +341,7 @@ const AdminPanel: React.FC = () => {
               </div>
               <div className="admin-monthly-grid">
                 {monthlyPackages.map((pkg) => (
-                  <motion.article
+                  <m.article
                     key={pkg.name}
                     className="admin-monthly-card"
                     whileHover={{
@@ -358,10 +358,10 @@ const AdminPanel: React.FC = () => {
                         <li key={service}>{service}</li>
                       ))}
                     </ul>
-                  </motion.article>
+                  </m.article>
                 ))}
               </div>
-            </motion.section>
+            </m.section>
           </div>
         </div>
       </section>
