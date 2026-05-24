@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 import "./Process.css";
 
@@ -58,7 +57,7 @@ const Process: React.FC = () => {
   return (
     <section id="process" className="process" ref={ref}>
       <div className="container">
-        <motion.div
+        <m.div
           className="process-header"
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -70,9 +69,9 @@ const Process: React.FC = () => {
           <p className="process-subtitle">
             Svaki korak ima svrhu. Svaka odluka ima razlog.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="process-shell glass"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -80,7 +79,7 @@ const Process: React.FC = () => {
         >
           <div className="process-steps">
             {steps.map((step, index) => (
-              <motion.article
+              <m.article
                 key={step.number}
                 className="process-card glass"
                 initial={{ opacity: 0, y: 40 }}
@@ -98,10 +97,10 @@ const Process: React.FC = () => {
                 </div>
                 <p className="process-step-desc">{step.description}</p>
                 <p className="process-step-outcome">{step.outcome}</p>
-              </motion.article>
+              </m.article>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

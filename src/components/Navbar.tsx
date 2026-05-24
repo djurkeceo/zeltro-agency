@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, useReducedMotion, useScroll } from "framer-motion";
+import { m, useReducedMotion, useScroll } from "framer-motion";
 import "./Navbar.css";
 import logo120 from "../assets/zeltro-logo-120.png";
 import logo240 from "../assets/zeltro-logo-240.png";
@@ -11,7 +11,7 @@ const ScrollIndicator: React.FC = () => {
   const { scrollYProgress } = useScroll();
 
   return (
-    <motion.div className="scroll-indicator" style={{ scaleX: scrollYProgress }} />
+    <m.div className="scroll-indicator" style={{ scaleX: scrollYProgress }} />
   );
 };
 
@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       {showScrollIndicator && <ScrollIndicator />}
-      <motion.nav
+      <m.nav
         className={`navbar ${isScrolled ? "scrolled" : ""}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
           aria-hidden="true"
         />
         <div className="container navbar-container">
-          <motion.div
+          <m.div
             className="navbar-logo"
             whileHover={{ scale: 1.04, y: -1 }}
             whileTap={{ scale: 0.97 }}
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
                   srcSet={`${logo120Webp} 120w, ${logo240Webp} 240w`}
                   sizes="114px"
                 />
-                <motion.img
+                <m.img
                   src={logo120}
                   srcSet={`${logo120} 120w, ${logo240} 240w`}
                   sizes="114px"
@@ -88,7 +88,7 @@ const Navbar: React.FC = () => {
                 />
               </picture>
             </a>
-          </motion.div>
+          </m.div>
 
           <div className={`navbar-menu ${isMobileMenuOpen ? "open" : ""}`}>
             <a href="#home" onClick={() => scrollToSection("home")}>
@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
             </a>
           </div>
 
-          <motion.button
+          <m.button
             className="cta-button"
             whileHover={{
               scale: 1.03,
@@ -117,7 +117,7 @@ const Navbar: React.FC = () => {
             onClick={() => scrollToSection("contact")}
           >
             Besplatna Konsultacija
-          </motion.button>
+          </m.button>
 
           <button
             className="mobile-menu-toggle"
@@ -130,7 +130,7 @@ const Navbar: React.FC = () => {
             <span></span>
           </button>
         </div>
-      </motion.nav>
+      </m.nav>
     </>
   );
 };

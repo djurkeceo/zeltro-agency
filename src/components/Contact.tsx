@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { ValidationError, useForm } from "@formspree/react";
 import { useRef } from "react";
 import "./Contact.css";
@@ -13,7 +12,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="contact" ref={ref}>
       <div className="container">
-        <motion.div
+        <m.div
           className="contact-header"
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -26,9 +25,9 @@ const Contact: React.FC = () => {
             Spremni da započnemo Vaš projekat? Kontaktirajte nas za besplatnu
             konsultaciju.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="contact-content"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -52,7 +51,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          <motion.form
+          <m.form
             className="contact-form glass"
             onSubmit={handleSubmit}
             whileHover={{ boxShadow: "0 20px 60px rgba(0, 229, 255, 0.2)" }}
@@ -99,7 +98,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <motion.button
+            <m.button
               type="submit"
               className="submit-button"
               whileHover={{
@@ -112,7 +111,7 @@ const Contact: React.FC = () => {
               disabled={submitState.submitting}
             >
               {submitState.submitting ? "Slanje..." : "Pošalji poruku"}
-            </motion.button>
+            </m.button>
             {submitState.succeeded && (
               <p
                 className="form-status success"
@@ -127,8 +126,8 @@ const Contact: React.FC = () => {
                 Greška pri slanju poruke. Proverite polja i pokušajte ponovo.
               </p>
             )}
-          </motion.form>
-        </motion.div>
+          </m.form>
+        </m.div>
       </div>
     </section>
   );

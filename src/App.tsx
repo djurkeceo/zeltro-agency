@@ -1,37 +1,50 @@
-import { MotionConfig, useReducedMotion } from "framer-motion";
+import React, { Suspense } from "react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Services from "./components/Services";
-import Projects from "./components/Projects";
-import Pricing from "./components/Pricing";
-import Testimonials from "./components/Process";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import Seo from "./components/Seo";
-import useIsMobile from "./hooks/useIsMobile";
 import "./App.css";
 
-function App() {
-  const prefersReducedMotion = useReducedMotion();
-  const isMobile = useIsMobile();
-  const shouldReduceMotion = prefersReducedMotion || isMobile;
+const About = React.lazy(() => import("./components/About"));
+const Services = React.lazy(() => import("./components/Services"));
+const Projects = React.lazy(() => import("./components/Projects"));
+const Pricing = React.lazy(() => import("./components/Pricing"));
+const Testimonials = React.lazy(() => import("./components/Process"));
+const Contact = React.lazy(() => import("./components/Contact"));
+const Footer = React.lazy(() => import("./components/Footer"));
 
+const SuspenseFallback = () => <div style={{ minHeight: "100vh" }} />;
+
+function App() {
   return (
-    <MotionConfig reducedMotion={shouldReduceMotion ? "always" : "user"}>
+    <LazyMotion features={domAnimation} strict>
       <div className="app">
         <Seo />
         <Navbar />
         <Hero />
-        <About />
-        <Services />
-        <Projects />
-        <Pricing />
-        <Testimonials />
-        <Contact />
-        <Footer />
+        <Suspense fallback={<SuspenseFallback />}>
+          <About />
+        </Suspense>
+        <Suspense fallback={<SuspenseFallback />}>
+          <Services />
+        </Suspense>
+        <Suspense fallback={<SuspenseFallback />}>
+          <Projects />
+        </Suspense>
+        <Suspense fallback={<SuspenseFallback />}>
+          <Pricing />
+        </Suspense>
+        <Suspense fallback={<SuspenseFallback />}>
+          <Testimonials />
+        </Suspense>
+        <Suspense fallback={<SuspenseFallback />}>
+          <Contact />
+        </Suspense>
+        <Suspense fallback={<SuspenseFallback />}>
+          <Footer />
+        </Suspense>
       </div>
-    </MotionConfig>
+    </LazyMotion>
   );
 }
 

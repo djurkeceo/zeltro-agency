@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 import "./Pricing.css";
 
@@ -17,7 +16,7 @@ const Pricing: React.FC = () => {
   return (
     <section id="pricing" className="pricing" ref={ref}>
       <div className="container">
-        <motion.div
+        <m.div
           className="pricing-content"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -55,7 +54,7 @@ const Pricing: React.FC = () => {
               </div>
             </div>
 
-            <motion.button
+            <m.button
               className="pricing-cta"
               whileHover={{
                 scale: 1.04,
@@ -67,14 +66,14 @@ const Pricing: React.FC = () => {
               onClick={scrollToContact}
             >
               Zakažite besplatnu konsultaciju
-            </motion.button>
+            </m.button>
 
             <p className="pricing-note">
               Kontaktirajte nas danas i dobijte personalizovanu ponudu za vaš
               projekat
             </p>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

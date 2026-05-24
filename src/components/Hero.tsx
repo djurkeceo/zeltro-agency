@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import "./Hero.css";
 
 const Hero: React.FC = () => {
@@ -38,13 +38,13 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container">
-        <motion.div
+        <m.div
           className="hero-content"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.h1 variants={itemVariants} className="hero-title">
+          <m.h1 variants={itemVariants} className="hero-title">
             Vaše
             <span className="gradient-text"> poslovanje</span> zaslužuje
             <span className="gradient-text"> web </span>
@@ -52,18 +52,18 @@ const Hero: React.FC = () => {
             <span className="gradient-text"> sajt </span>
             koji donosi
             <span className="gradient-text"> rezultate. </span>
-          </motion.h1>
+          </m.h1>
 
-          <motion.p variants={itemVariants} className="hero-subtitle">
+          <m.p variants={itemVariants} className="hero-subtitle">
             Kreiramo moderne web sajtove, moćne web aplikacije, strateški
             dizajn, SEO optimizaciju i pouzdano održavanje — sve što je potrebno
             da Vaš brend raste online. Kao web agencija iz Srbije, ne pravimo
             samo lepe stranice, već digitalna rešenja koja unapređuju Vaše
             poslovanje.
-          </motion.p>
+          </m.p>
 
-          <motion.div variants={itemVariants} className="hero-ctas">
-            <motion.button
+          <m.div variants={itemVariants} className="hero-ctas">
+            <m.button
               className="btn btn-primary"
               whileHover={{
                 scale: 1.04,
@@ -75,8 +75,8 @@ const Hero: React.FC = () => {
               onClick={() => scrollToSection("projects")}
             >
               Pogledaj Projekte
-            </motion.button>
-            <motion.button
+            </m.button>
+            <m.button
               className="btn btn-secondary"
               whileHover={{
                 scale: 1.04,
@@ -88,10 +88,10 @@ const Hero: React.FC = () => {
               onClick={() => scrollToSection("contact")}
             >
               Kontaktiraj Nas
-            </motion.button>
-          </motion.div>
+            </m.button>
+          </m.div>
 
-          <motion.div variants={itemVariants} className="hero-stats">
+          <m.div variants={itemVariants} className="hero-stats">
             <div className="stat">
               <p className="stat-value gradient-text">20+</p>
               <p className="stat-label">Projekata</p>
@@ -109,8 +109,8 @@ const Hero: React.FC = () => {
               </p>
               <p className="stat-label">Zadovoljnih Klijenata</p>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   );

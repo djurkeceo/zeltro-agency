@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 import "./Services.css";
 
@@ -130,7 +129,7 @@ const Services: React.FC = () => {
   return (
     <section id="services" className="services" ref={ref}>
       <div className="container">
-        <motion.div
+        <m.div
           className="services-header"
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -143,16 +142,16 @@ const Services: React.FC = () => {
             Specijalizovani smo za kreiranje digitalnih rešenja koja
             transformišu poslovanje.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="services-grid"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service, index) => (
-            <motion.div
+            <m.div
               key={index}
               className="service-card glass"
               variants={cardVariants}
@@ -175,15 +174,15 @@ const Services: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <motion.div
+              <m.div
                 className="service-hover-effect"
                 initial={{ scale: 0, opacity: 0 }}
                 whileHover={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

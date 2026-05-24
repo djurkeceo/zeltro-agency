@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 import "./About.css";
 
@@ -55,13 +54,13 @@ const About: React.FC = () => {
   return (
     <section id="about" className="about" ref={ref}>
       <div className="container">
-        <motion.div
+        <m.div
           className="about-grid"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <motion.div className="about-content" variants={leftVariants}>
+          <m.div className="about-content" variants={leftVariants}>
             <h2 className="section-title">
               Naša <span className="gradient-text">priča</span>
             </h2>
@@ -83,9 +82,9 @@ const About: React.FC = () => {
               uvek diskutuju nakon besplatne konsultacije sa klijentom,
               prilagođene potrebama svakog projekta.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div className="about-visual" variants={rightVariants}>
+          <m.div className="about-visual" variants={rightVariants}>
             <div className="visual-card glass">
               <div className="tech-stack">
                 <p className="tech-label">Tech Stack</p>
@@ -100,8 +99,8 @@ const About: React.FC = () => {
               </div>
               <div className="visual-decoration"></div>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   );

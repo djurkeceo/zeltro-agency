@@ -1,4 +1,4 @@
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { m, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import studioNoirPreview640 from "../assets/StudioNoir-640.png";
 import studioNoirPreview1280 from "../assets/StudioNoir-1280.png";
@@ -149,7 +149,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   onOpenProject,
 }) => {
   return (
-    <motion.div
+    <m.div
       className={`project-card glass ${project.projectUrl ? "project-card-clickable" : ""}`}
       variants={cardVariants}
       whileHover={
@@ -207,7 +207,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -243,7 +243,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="projects" ref={ref}>
       <div className="container">
-        <motion.div
+        <m.div
           className="projects-header"
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -256,9 +256,9 @@ const Projects: React.FC = () => {
             Portfolio naših radova je zapravo kolekcija uspešnih partnerstava
             koja su počela samo jednom idejom.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
@@ -274,7 +274,7 @@ const Projects: React.FC = () => {
               onOpenProject={openProject}
             />
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
