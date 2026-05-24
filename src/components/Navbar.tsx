@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
       {showScrollIndicator && <ScrollIndicator />}
       <m.nav
         className={`navbar ${isScrolled ? "scrolled" : ""}`}
-        initial={{ y: -100 }}
+        initial={false}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >

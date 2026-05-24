@@ -27,6 +27,9 @@ const nonBlockingCssPlugin = () => ({
 export default defineConfig({
   plugins: [react(), nonBlockingCssPlugin()],
   build: {
+    target: 'esnext',
+    cssCodeSplit: true,
+    reportCompressedSize: false,
     rollupOptions: {
       output: {
         manualChunks: (id) => {

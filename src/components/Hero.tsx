@@ -10,22 +10,22 @@ const Hero: React.FC = () => {
   };
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.15,
+        delayChildren: 0,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 },
+      transition: { duration: 0.6 },
     },
   };
 
@@ -41,10 +41,10 @@ const Hero: React.FC = () => {
         <m.div
           className="hero-content"
           variants={containerVariants}
-          initial="hidden"
+          initial={false}
           animate="visible"
         >
-          <m.h1 variants={itemVariants} className="hero-title">
+          <m.h1 variants={itemVariants} className="hero-title" initial={false}>
             Vaše
             <span className="gradient-text"> poslovanje</span> zaslužuje
             <span className="gradient-text"> web </span>
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
             <span className="gradient-text"> rezultate. </span>
           </m.h1>
 
-          <m.p variants={itemVariants} className="hero-subtitle">
+          <m.p variants={itemVariants} className="hero-subtitle" initial={false}>
             Kreiramo moderne web sajtove, moćne web aplikacije, strateški
             dizajn, SEO optimizaciju i pouzdano održavanje — sve što je potrebno
             da Vaš brend raste online. Kao web agencija iz Srbije, ne pravimo
@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
             poslovanje.
           </m.p>
 
-          <m.div variants={itemVariants} className="hero-ctas">
+          <m.div variants={itemVariants} className="hero-ctas" initial={false}>
             <m.button
               className="btn btn-primary"
               whileHover={{
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
             </m.button>
           </m.div>
 
-          <m.div variants={itemVariants} className="hero-stats">
+          <m.div variants={itemVariants} className="hero-stats" initial={false}>
             <div className="stat">
               <p className="stat-value gradient-text">20+</p>
               <p className="stat-label">Projekata</p>
