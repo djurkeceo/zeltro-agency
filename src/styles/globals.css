@@ -1,9 +1,9 @@
 /* ============================================
-   TYPOGRAPHY - Google Fonts Import
+   TYPOGRAPHY - Google Fonts loaded via index.html
    Clash Display alternative: Syne (geometric, modern)
    DM Sans: clean, readable body font
+   Using font-display: swap for non-blocking font load
    ============================================ */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 /* ============================================
    DESIGN SYSTEM - CSS Variables
@@ -99,14 +99,15 @@ body::before {
   z-index: -1;
   pointer-events: none;
   animation: meshShift 20s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes meshShift {
   0%, 100% {
-    opacity: 1;
+    transform: scale(1);
   }
   50% {
-    opacity: 0.8;
+    transform: scale(1.02);
   }
 }
 

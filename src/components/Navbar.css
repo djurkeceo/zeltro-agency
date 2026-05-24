@@ -7,6 +7,7 @@
   background: var(--gradient-primary);
   transform-origin: 0%;
   z-index: calc(var(--z-navbar) + 2);
+  will-change: transform;
 }
 
 .navbar {

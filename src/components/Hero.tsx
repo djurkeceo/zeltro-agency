@@ -54,7 +54,13 @@ const Hero: React.FC = () => {
             <span className="gradient-text"> rezultate. </span>
           </m.h1>
 
-          <m.p variants={itemVariants} className="hero-subtitle" initial={false}>
+          <m.p
+            variants={itemVariants}
+            className="hero-subtitle"
+            initial={false}
+            layout={false}
+            style={{ willChange: 'opacity' }}
+          >
             Kreiramo moderne web sajtove, moćne web aplikacije, strateški
             dizajn, SEO optimizaciju i pouzdano održavanje — sve što je potrebno
             da Vaš brend raste online. Kao web agencija iz Srbije, ne pravimo
