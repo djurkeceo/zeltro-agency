@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 import { LazyMotion, domAnimation } from "framer-motion";
-import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Seo from "./components/Seo";
 import "./App.css";
 
+const Navbar = React.lazy(() => import("./components/Navbar"));
 const About = React.lazy(() => import("./components/About"));
 const Services = React.lazy(() => import("./components/Services"));
 const Projects = React.lazy(() => import("./components/Projects"));
@@ -20,7 +20,9 @@ function App() {
     <LazyMotion features={domAnimation} strict>
       <div className="app">
         <Seo />
-        <Navbar />
+        <Suspense fallback={null}>
+          <Navbar />
+        </Suspense>
         <Hero />
         <Suspense fallback={<SuspenseFallback />}>
           <About />

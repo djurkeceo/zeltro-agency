@@ -2,12 +2,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--gradient-primary);
-  transform-origin: 0%;
-  z-index: calc(var(--z-navbar) + 2);
-  will-change: transform;
+  height: 3px;
+  background: linear-gradient(90deg, #00e5ff, #7b2ff7);
+  transform-origin: left;
+  z-index: 1000;
+  width: calc(var(--scroll-progress, 0) * 100%);
 }
 
 .navbar {

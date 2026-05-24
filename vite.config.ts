@@ -33,6 +33,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
+          if (id.includes('@formspree/react')) {
+            return 'vendor-formspree'
+          }
           if (id.includes('node_modules/framer-motion')) {
             return 'vendor-motion'
           }

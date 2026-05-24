@@ -1,30 +1,28 @@
 import { useState, useEffect } from "react";
-import { m, useReducedMotion, useScroll } from "framer-motion";
+import { m } from "framer-motion";
 import "./Navbar.css";
 import logo120 from "../assets/zeltro-logo-120.png";
 import logo240 from "../assets/zeltro-logo-240.png";
 import logo120Webp from "../assets/zeltro-logo-120.webp";
 import logo240Webp from "../assets/zeltro-logo-240.webp";
-import useIsMobile from "../hooks/useIsMobile";
-
-const ScrollIndicator: React.FC = () => {
-  const { scrollYProgress } = useScroll();
-
-  return (
-    <m.div className="scroll-indicator" style={{ scaleX: scrollYProgress }} />
-  );
-};
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
-  const prefersReducedMotion = useReducedMotion();
-  const showScrollIndicator = !isMobile && !prefersReducedMotion;
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Update CSS variable for scroll progress bar
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      document.documentElement.style.setProperty(
+        "--scroll-progress",
+        String(progress)
+      );
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -47,14 +45,12 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <>
-      {showScrollIndicator && <ScrollIndicator />}
-      <m.nav
-        className={`navbar ${isScrolled ? "scrolled" : ""}`}
-        initial={false}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+    <m.nav
+      className={`navbar ${isScrolled ? "scrolled" : ""}`}
+      initial={false}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
         <div
           className={`mobile-menu-backdrop ${isMobileMenuOpen ? "open" : ""}`}
           onClick={() => setIsMobileMenuOpen(false)}
@@ -131,8 +127,7 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </m.nav>
-    </>
-  );
-};
+    );
+  };
 
 export default Navbar;
