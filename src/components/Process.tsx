@@ -66,9 +66,9 @@ const Process: React.FC = () => {
           <h2 className="section-title">
             Od ideje do <span className="gradient-text">digitalnog uspeha</span>
           </h2>
-          <p className="process-subtitle">
+          {/* <p className="process-subtitle">
             Svaki korak ima svrhu. Svaka odluka ima razlog.
-          </p>
+          </p> */}
         </m.div>
 
         <m.div
