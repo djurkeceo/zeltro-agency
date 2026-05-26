@@ -30,8 +30,8 @@
   border-radius: 999px;
   background: rgba(8, 13, 24, 0.72);
   border: 1px solid rgba(186, 214, 255, 0.2);
-  backdrop-filter: blur(48px);
-  -webkit-backdrop-filter: blur(48px);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
   box-shadow: var(--shadow-sm);
   position: relative;
   z-index: calc(var(--z-navbar) + 1);
