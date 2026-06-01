@@ -127,17 +127,17 @@ const projects: Project[] = [
     projectUrl: "https://lena-markovic.vercel.app/",
   },
   {
-    title: "Iron Lab",
-    category: "Landing Page sa Galerijom",
-    tags: ["TypeScript", "CSS", "React"],
-    description: "Live preview projekta Iron Lab.",
+    title: "Shark Origins",
+    category: "Educational Web Game",
+    tags: ["TypeScript", "React"],
+    description: "Live preview projekta Shark Origins.",
     thumbnail: createThumbnail(
       ironLabPreview640,
       ironLabPreview1280,
       1280,
       644
     ),
-    projectUrl: "https://iron-lab.vercel.app/",
+    projectUrl: "https://evolucija-ajkule.vercel.app/",
   },
 ];
 
