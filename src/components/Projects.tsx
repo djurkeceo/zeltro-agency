@@ -10,8 +10,8 @@ import metalShopPreview640 from "../assets/MetalShop-640.png";
 import metalShopPreview1280 from "../assets/MetalShop-1280.png";
 import lenaMarkovicPreview640 from "../assets/LenaMarkovicPortfolio-640.png";
 import lenaMarkovicPreview1280 from "../assets/LenaMarkovicPortfolio-1280.png";
-import ironLabPreview640 from "../assets/IronLab-640.png";
-import ironLabPreview1280 from "../assets/IronLab-1280.png";
+import sharkOriginsPreview640 from "../assets/SharkOrigins-640.png";
+import sharkOriginsPreview1280 from "../assets/SharkOrigins-1280.png";
 import "./Projects.css";
 
 interface ProjectThumbnail {
@@ -132,10 +132,10 @@ const projects: Project[] = [
     tags: ["TypeScript", "CSS", "React"],
     description: "Live preview projekta Iron Lab.",
     thumbnail: createThumbnail(
-      ironLabPreview640,
-      ironLabPreview1280,
+      sharkOriginsPreview640,
+      sharkOriginsPreview1280,
       1280,
-      644
+      646
     ),
     projectUrl: "https://iron-lab.vercel.app/",
   },
