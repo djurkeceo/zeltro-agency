@@ -26,8 +26,12 @@ const nonBlockingCssPlugin = () => ({
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), nonBlockingCssPlugin()],
+  css: {
+    transformer: 'postcss',
+  },
   build: {
     target: 'esnext',
+    cssMinify: false,
     cssCodeSplit: true,
     reportCompressedSize: false,
     rollupOptions: {
