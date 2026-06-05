@@ -75,7 +75,7 @@ const About: React.FC = () => {
               biznisima i rastućim brendovima da uspostave svoj digitalni
               identitet u Srbiji i regionu. Specijalizujemo se za izradu web
               sajtova i web aplikacija, SEO optimizaciju, održavanje sajtova kao
-              i Figma dizajn uz fokus na kvalitet i brzinu.
+              i Figma dizajn uz fokus na kvalitet i brzinu.``
             </p>
             <p className="about-text highlight">
               Svaki projekat je kreiran da odgovara klijentovoj viziji. Cene se
