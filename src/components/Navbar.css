@@ -193,8 +193,8 @@
     width: min(86vw, 360px);
     height: 100vh;
     background: rgba(7, 12, 22, 0.98);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(14x);
+    -webkit-backdrop-filter: blur(14px);
     flex-direction: column;
     justify-content: center;
     gap: 0.85rem;
