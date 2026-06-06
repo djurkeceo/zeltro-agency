@@ -64,7 +64,7 @@ const Process: React.FC = () => {
         >
           <h2>
             <span className="process-muted">Svaki sajt mora</span>
-            {" "}da donosi{" "}
+            {" "}da donese{" "}
             <span className="gradient-text">konkretne rezultate.</span>
             <br />
             <span className="process-muted">Sve ostalo je dekoracija.</span>
@@ -100,8 +100,7 @@ const Process: React.FC = () => {
               <p>
                 Ne pravimo sajtove koji samo <strong>izgledaju dobro</strong> —
                 pravimo digitalna sredstva koja <strong>rade za vas 24/7</strong>{" "}
-                i donose merljiv povratak investicije. Bez skrivenih troškova,
-                bez šablona, bez kompromisa.
+                i donose merljiv povratak investicije.
               </p>
             </div>
 

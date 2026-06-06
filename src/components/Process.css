@@ -205,7 +205,7 @@
   padding: 0.8rem 1.25rem;
   border-radius: 10px;
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--font-display);
   white-space: nowrap;
   width: 100%;
   transition: border-color 0.2s ease;
@@ -222,7 +222,7 @@
   padding: 0.7rem 1.25rem;
   border-radius: 10px;
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--font-display);
   white-space: nowrap;
   width: 100%;
   transition: border-color 0.2s ease, color 0.2s ease;
