@@ -33,11 +33,6 @@ const pillars = [
   },
 ];
 
-const scrollToSection = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) element.scrollIntoView({ behavior: "smooth" });
-};
-
 const Process: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
@@ -46,30 +41,24 @@ const Process: React.FC = () => {
     <section id="process" className="process" ref={ref}>
       <div className="container">
 
+        <div className="container">
         <m.div
-          className="process-eyebrow"
-          initial={{ opacity: 0, y: -16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="process-eye-line" />
-          <span className="process-eye-text">Zašto Zeltro</span>
-        </m.div>
-
-        <m.div
-          className="process-headline"
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.6, delay: 0.08 }}
+          className="projects-header"
+          initial={{ opacity: 0, y: -30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
+          transition={{ duration: false ? 0 : 0.55 }}
         >
           <h2>
-            <span className="process-muted">Svaki sajt mora</span>
+            <span className="section-title">Svaki sajt mora</span>
             {" "}da donese{" "}
             <span className="gradient-text">konkretne rezultate.</span>
             <br />
             <span className="process-muted">Sve ostalo je dekoracija.</span>
           </h2>
+
         </m.div>
+        </div>
+        {/* <br></br>         */}
 
         <m.div
           className="process-board"
@@ -93,8 +82,9 @@ const Process: React.FC = () => {
               </m.div>
             ))}
           </div>
+          </m.div>
 
-          <div className="process-bottom">
+          {/* <div className="process-bottom">
             <div className="process-manifesto">
               <div className="process-manifesto-label">Naše obećanje</div>
               <p>
@@ -130,7 +120,7 @@ const Process: React.FC = () => {
               </m.button>
             </div>
           </div>
-        </m.div>
+        </m.div> */}
 
       </div>
     </section>
