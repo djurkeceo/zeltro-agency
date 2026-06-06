@@ -58,7 +58,6 @@ const Process: React.FC = () => {
 
         </m.div>
         </div>
-        {/* <br></br>         */}
 
         <m.div
           className="process-board"
