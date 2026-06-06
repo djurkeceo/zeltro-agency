@@ -2,105 +2,137 @@ import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 import "./Process.css";
 
-const steps = [
+const pillars = [
   {
     number: "01",
-    title: "Konsultacije",
+    title: "Brzina koja prodaje",
     description:
-      "Tu smo da saslušamo Vašu priču i razumemo šta Vaš brend čini posebnim.",
-    icon: "💬",
-    outcome: "Dobijate jasnu sliku šta treba graditi i zašto.",
+      "Sporiji sajt znači manje kupaca. Svaki projekat optimizujemo za PageSpeed 90+ jer performansa nije opcija — to je standard.",
+    tag: "Performance",
   },
   {
     number: "02",
-    title: "Strategija",
-    description: "Kreiramo plan koji odgovara Vašim potrebama i budžetu.",
-    icon: "🧭",
-    outcome: "Definišemo prioritete, rokove i fokus koji donosi rezultat.",
+    title: "Dizajn koji konvertuje",
+    description:
+      "Lep sajt koji ne donosi upite je promašaj. Svaki piksel postoji iz razloga — da privuče, zadrži i ubedi posetioce da deluju.",
+    tag: "Conversion",
   },
   {
     number: "03",
-    title: "Dizajn",
+    title: "SEO koji radi za vas",
     description:
-      "Kreiramo UI koji ostavlja snažan prvi utisak i gradi poverenje kod korisnika od prve sekunde.",
-    icon: "🎨",
-    outcome: "Vaš brend dobija prepoznatljiv, moderan i konverzijski izgled.",
+      "Dok spavate, vaš sajt se rangira. Gradimo tehničke temelje koji guraju vaš brend na vrh Google pretrage organski.",
+    tag: "Visibility",
   },
   {
     number: "04",
-    title: "Development",
+    title: "Partnerstvo, ne servis",
     description:
-      "Gradimo stabilna i skalabilna rešenja koja su optimizovana za brzinu i sve uređaje.",
-    icon: "⚙️",
-    outcome: "Dobijate brz i pouzdan proizvod spreman za rast.",
-  },
-  {
-    number: "05",
-    title: "Launch",
-    description: "Testiramo svaki detalj, pa tek onda idemo live.",
-    icon: "🚀",
-    outcome: "Lansiranje bez stresa, sa sigurnim performansama od starta.",
-  },
-  {
-    number: "06",
-    title: "Održavanje",
-    description: "Tu smo i posle lansiranja — ažuriranja, podrška, rast.",
-    icon: "🔧",
-    outcome: "Kontinuirana podrška i unapređenja koja čuvaju momentum.",
+      "Ne nestajemo posle lansiranja. Tu smo za ažuriranja, rast i sve promene koje vaš biznis zahteva — dugoročno.",
+    tag: "Long-term",
   },
 ];
 
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) element.scrollIntoView({ behavior: "smooth" });
+};
+
 const Process: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
     <section id="process" className="process" ref={ref}>
       <div className="container">
+
         <m.div
-          className="process-header"
-          initial={{ opacity: 0, y: -30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
-          transition={{ duration: 0.6 }}
+          className="process-eyebrow"
+          initial={{ opacity: 0, y: -16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="section-title">
-            Od ideje do <span className="gradient-text">digitalnog uspeha</span>
-          </h2>
-          {/* <p className="process-subtitle">
-            Svaki korak ima svrhu. Svaka odluka ima razlog.
-          </p> */}
+          <span className="process-eye-line" />
+          <span className="process-eye-text">Zašto Zeltro</span>
         </m.div>
 
         <m.div
-          className="process-shell glass"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+          className="process-headline"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 0.6, delay: 0.08 }}
         >
-          <div className="process-steps">
-            {steps.map((step, index) => (
-              <m.article
-                key={step.number}
-                className="process-card glass"
-                initial={{ opacity: 0, y: 40 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
-                }
-                transition={{ duration: 0.55, delay: 0.2 + index * 0.09 }}
+          <h2>
+            <span className="process-muted">Svaki sajt mora</span>
+            {" "}da donosi{" "}
+            <span className="gradient-text">konkretne rezultate.</span>
+            <br />
+            <span className="process-muted">Sve ostalo je dekoracija.</span>
+          </h2>
+        </m.div>
+
+        <m.div
+          className="process-board"
+          initial={{ opacity: 0, y: 32 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
+          transition={{ duration: 0.6, delay: 0.18 }}
+        >
+          <div className="process-pillars">
+            {pillars.map((pillar, index) => (
+              <m.div
+                key={pillar.number}
+                className="process-pillar"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: 0.25 + index * 0.07 }}
               >
-                <div className="process-card-top">
-                  <span className="process-step-icon">{step.icon}</span>
-                  <div className="process-card-title-wrap">
-                    <p className="process-step-number">FAZA {step.number}</p>
-                    <h3 className="process-step-title">{step.title}</h3>
-                  </div>
-                </div>
-                <p className="process-step-desc">{step.description}</p>
-                <p className="process-step-outcome">{step.outcome}</p>
-              </m.article>
+                <div className="process-pillar-num">{pillar.number}</div>
+                <div className="process-pillar-title">{pillar.title}</div>
+                <p className="process-pillar-desc">{pillar.description}</p>
+                <span className="process-pillar-tag">{pillar.tag}</span>
+              </m.div>
             ))}
           </div>
+
+          <div className="process-bottom">
+            <div className="process-manifesto">
+              <div className="process-manifesto-label">Naše obećanje</div>
+              <p>
+                Ne pravimo sajtove koji samo <strong>izgledaju dobro</strong> —
+                pravimo digitalna sredstva koja <strong>rade za vas 24/7</strong>{" "}
+                i donose merljiv povratak investicije. Bez skrivenih troškova,
+                bez šablona, bez kompromisa.
+              </p>
+            </div>
+
+            <div className="process-actions">
+              <div className="process-manifesto-label">Sledeći korak</div>
+              <m.button
+                className="process-btn-primary"
+                whileHover={{
+                  scale: 1.03,
+                  y: -2,
+                  boxShadow: "0 14px 30px rgba(0, 229, 255, 0.25)",
+                }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                onClick={() => scrollToSection("contact")}
+              >
+                Besplatna konsultacija ↗
+              </m.button>
+              <m.button
+                className="process-btn-ghost"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                onClick={() => scrollToSection("projects")}
+              >
+                Pogledaj projekte
+              </m.button>
+            </div>
+          </div>
         </m.div>
+
       </div>
     </section>
   );
