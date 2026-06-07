@@ -1,4 +1,4 @@
-import { m, useInView } from "framer-motion";
+import { m, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import "./Process.css";
 
@@ -35,44 +35,77 @@ const pillars = [
 
 const Process: React.FC = () => {
   const ref = useRef(null);
+  const shouldReduceMotion = useReducedMotion() ?? false;
   const isInView = useInView(ref, { once: true, amount: 0.15 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.14,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : -24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0 : 0.55 },
+    },
+  };
+
+  const pillarVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0 : 0.45 },
+    },
+  };
 
   return (
     <section id="process" className="process" ref={ref}>
       <div className="container">
-
-        <div className="container">
         <m.div
           className="projects-header"
-          initial={{ opacity: 0, y: -30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
-          transition={{ duration: false ? 0 : 0.55 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <h2>
-            <span className="section-title">Svaki sajt mora</span>
-            {" "}da donese{" "}
+          <m.h2 variants={itemVariants}>
+            <span className="section-title">Svaki sajt mora</span> da donese{" "}
             <span className="gradient-text">konkretne rezultate.</span>
             <br />
             <span className="process-muted">Sve ostalo je dekoracija.</span>
-          </h2>
-
+          </m.h2>
         </m.div>
-        </div>
 
         <m.div
           className="process-board"
-          initial={{ opacity: 0, y: 32 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
-          transition={{ duration: 0.6, delay: 0.18 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <div className="process-pillars">
-            {pillars.map((pillar, index) => (
+          <m.div className="process-pillars" variants={containerVariants}>
+            {pillars.map((pillar) => (
               <m.div
                 key={pillar.number}
                 className="process-pillar"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: 0.25 + index * 0.07 }}
+                variants={pillarVariants}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        y: -6,
+                        scale: 1.01,
+                        boxShadow: "0 18px 40px rgba(0, 229, 255, 0.12)",
+                        background: "rgba(0, 229, 255, 0.03)",
+                      }
+                }
+                transition={{ type: "spring", stiffness: 280, damping: 22 }}
               >
                 <div className="process-pillar-num">{pillar.number}</div>
                 <div className="process-pillar-title">{pillar.title}</div>
@@ -80,8 +113,8 @@ const Process: React.FC = () => {
                 <span className="process-pillar-tag">{pillar.tag}</span>
               </m.div>
             ))}
-          </div>
           </m.div>
+        </m.div>
 
           {/* <div className="process-bottom">
             <div className="process-manifesto">
