@@ -28,7 +28,7 @@ const pillars = [
     number: "04",
     title: "Partnerstvo, ne servis",
     description:
-      "Ne nestajemo posle lansiranja. Tu smo za ažuriranja, rast i sve promene koje vaš biznis zahteva — dugoročno.",
+      "Ne nestajemo posle lansiranja. Tu smo za ažuriranja, rast i sve promene koje Vaš biznis zahteva — dugoročno.",
     tag: "Long-term",
   },
 ];
