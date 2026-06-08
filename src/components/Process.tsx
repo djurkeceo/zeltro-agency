@@ -21,7 +21,7 @@ const pillars = [
     number: "03",
     title: "SEO koji radi za vas",
     description:
-      "Dok spavate, Vaš sajt se rangira. Gradimo tehničke temelje koji guraju vaš brend na vrh Google pretrage organski.",
+      "Dok spavate, Vaš sajt se rangira. Gradimo tehničke temelje koji guraju Vaš brend na vrh Google pretrage organski.",
     tag: "Visibility",
   },
   {
