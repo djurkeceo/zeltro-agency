@@ -8,28 +8,28 @@ const pillars = [
     title: "Brzina koja prodaje",
     description:
       "Sporiji sajt znači manje kupaca. Svaki projekat optimizujemo za PageSpeed 90+ jer performansa nije opcija — to je standard.",
-    tag: "Performance",
+    tag: "Performansa",
   },
   {
     number: "02",
     title: "Dizajn koji konvertuje",
     description:
       "Lep sajt koji ne donosi upite je promašaj. Svaki piksel postoji iz razloga — da privuče, zadrži i ubedi posetioce da deluju.",
-    tag: "Conversion",
+    tag: "Konverzija",
   },
   {
     number: "03",
     title: "SEO koji radi za vas",
     description:
       "Dok spavate, Vaš sajt se rangira. Gradimo tehničke temelje koji guraju Vaš brend na vrh Google pretrage organski.",
-    tag: "Visibility",
+    tag: "Vidljivost",
   },
   {
     number: "04",
     title: "Partnerstvo, ne servis",
     description:
       "Ne nestajemo posle lansiranja. Tu smo za ažuriranja, rast i sve promene koje Vaš biznis zahteva — dugoročno.",
-    tag: "Long-term",
+    tag: "Dugoročno",
   },
 ];
 
