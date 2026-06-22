@@ -1,5 +1,6 @@
 import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
+import { LazyMotion, domAnimation } from 'framer-motion'
 import './index.css'
 import App from './App.tsx'
 
@@ -14,9 +15,11 @@ const isAdminRoute = normalizedPath === '/admin'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {isAdminRoute ? (
-      <Suspense fallback={<div className="app-loading">Učitavanje...</div>}>
-        <AdminPanel />
-      </Suspense>
+      <LazyMotion features={domAnimation} strict>
+        <Suspense fallback={<div className="app-loading">Učitavanje...</div>}>
+          <AdminPanel />
+        </Suspense>
+      </LazyMotion>
     ) : (
       <App />
     )}
