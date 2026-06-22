@@ -105,12 +105,12 @@ section {
   position: relative;
 }
 
-section:not(.hero) {
+.app section:not(.hero) {
   content-visibility: auto;
   contain-intrinsic-size: 1px 900px;
 }
 
-footer {
+.app footer {
   content-visibility: auto;
   contain-intrinsic-size: 1px 600px;
 }
