@@ -121,7 +121,7 @@ export const monthlyPackages: MonthlyPackage[] = [
     price: "60-80 EUR / mes",
     includes: [
       "Sve iz Basica",
-      "Do 2h sitnih izmena mesečno (tekst, slike, cene)",
+      "Do 2h sitnih izmena nedeljno (tekst, slike, cene)",
       "Priority support (24h response)",
       "Mesečni izveštaj poseta (Google Analytics)",
       "Google My Business — ažuriranje podataka i fotografija",
