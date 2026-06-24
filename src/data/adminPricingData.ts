@@ -122,7 +122,7 @@ export const monthlyPackages: MonthlyPackage[] = [
     includes: [
       "Sve iz Basica",
       "Do 2h sitnih izmena nedeljno (tekst, slike, cene)",
-      "Priority support (24h response)",
+      "Priority support (6h response)",
       "Mesečni izveštaj poseta (Google Analytics)",
       "Google My Business — ažuriranje podataka i fotografija",
       "Jedna runda bezbednosnih provera mesečno",
