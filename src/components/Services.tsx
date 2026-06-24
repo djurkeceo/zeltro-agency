@@ -33,7 +33,7 @@ const services: Service[] = [
     icon: "🌐",
     badge: "Frontend",
     features: [
-      "Do 7 stranica",
+      "Do 15 stranica",
       "Animacije (Framer Motion)",
       "Hamburger meni",
       "Galerija/Portfolio",
