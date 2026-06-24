@@ -68,7 +68,6 @@ const services: Service[] = [
       "Desktop + mobilni",
       "Tipografija i palete",
       "Reusable komponente",
-      "2 runde revizija",
     ],
   },
   {

@@ -31,7 +31,6 @@ export const projectPackages: ProjectPackage[] = [
       "Osnovna SEO podešavanja (meta tagovi, OG tagovi)",
       "Google Analytics integracija",
       "Povezivanje sa domenom klijenta",
-      "Jedna runda revizija uključena",
     ],
     excludes: [
       "Hosting",
@@ -52,7 +51,6 @@ export const projectPackages: ProjectPackage[] = [
       "Galerija slika ili portfolio sekcija",
       "Sitemap.xml i robots.txt",
       "Optimizacija brzine učitavanja (lazy loading, kompresija slika)",
-      "Dve runde revizija uključene",
     ],
     excludes: [
       "Hosting",
