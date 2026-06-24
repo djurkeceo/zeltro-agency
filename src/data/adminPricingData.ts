@@ -113,7 +113,7 @@ export const monthlyPackages: MonthlyPackage[] = [
       "SSL sertifikat",
       "Nedeljni backup",
       "Uptime monitoring",
-      "Tehnička podrška (email, 48h response)",
+      "Tehnička podrška (email, 24h response)",
     ],
   },
   {
