@@ -2,7 +2,7 @@
 
 > **Better websites. Better business.**
 
-Zeltro is an independent web studio specializing in modern, fast, and custom-built websites for small and medium businesses. Based in Serbia, working with clients across the Balkans and Europe.
+Zeltro is an independent web agency specializing in modern, fast, and custom-built websites for small and medium businesses. Based in Serbia, working with clients across the Balkans and Europe.
 
 🌐 **[zeltro.agency](https://zeltro.agency)**
 
