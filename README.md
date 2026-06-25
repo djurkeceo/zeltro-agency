@@ -1,138 +1,96 @@
-# Zeltro - Web Design Agency Landing Page
+# Zeltro Agency
 
-A breathtaking, modern landing website for Zeltro, a web design agency specializing in custom websites, blogs, and WordPress solutions.
+> **Better websites. Better business.**
 
-## 🎨 Design Features
+Zeltro is an independent web studio specializing in modern, fast, and custom-built websites for small and medium businesses. Based in Serbia, working with clients across the Balkans and Europe.
 
-- **Dark Theme**: Deep blacks with electric blue accents (#00e5ff)
-- **Custom Typography**: Archivo Black (display) + Space Grotesk (body)
-- **Heavy Animations**: Powered by Framer Motion with scroll-triggered reveals
-- **Glassmorphism**: Backdrop blur effects on cards and overlays
-- **Gradient Meshes**: Animated background orbs and gradients
-- **Fully Responsive**: Mobile-first design with tablet and desktop optimization
-
-## 🚀 Tech Stack
-
-- **React 19** - UI library
-- **TypeScript** - Type safety with strict mode
-- **Vite 8** - Lightning-fast build tool
-- **Framer Motion 12** - Advanced animations
-- **CSS Variables** - Theme management
-- **Google Fonts** - Archivo Black & Space Grotesk
-
-## 📦 Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-## 🎯 Sections
-
-1. **Hero Section** - Bold headline with animated gradient orbs, CTAs, and stats
-2. **About Section** - Split layout with story and code snippet visual
-3. **Services Section** - Three service cards with hover animations
-4. **Projects Section** - Grid of 6 fictional project showcases
-5. **Pricing Section** - Custom pricing approach with consultation CTA
-6. **Testimonials Section** - Client reviews with ratings
-7. **Contact Section** - Form with contact information cards
-8. **Footer** - Full footer with navigation, social links, and back-to-top
-9. **Admin Section (`/admin`)** - Protected internal pricing dashboard
-
-## 🎭 Key Components
-
-```
-src/
-├── components/
-│   ├── Navbar.tsx/css      # Sticky navbar with scroll effects
-│   ├── Hero.tsx/css        # Hero with animated background
-│   ├── About.tsx/css       # Story section with code visual
-│   ├── Services.tsx/css    # Service cards with hover effects
-│   ├── Projects.tsx/css    # Project grid with overlays
-│   ├── Pricing.tsx/css     # Custom pricing section
-│   ├── Testimonials.tsx/css # Client testimonials
-│   ├── Contact.tsx/css     # Contact form and info
-│   └── Footer.tsx/css      # Footer with social links
-├── styles/
-│   └── variables.css       # CSS custom properties
-├── App.tsx                 # Main app component
-├── main.tsx               # Entry point
-└── index.css              # Global styles
-```
-
-## 🎨 Color Palette
-
-```css
---color-bg-primary: #0a0a0f       /* Deep black */
---color-bg-secondary: #13131a     /* Dark navy */
---color-accent: #00e5ff           /* Electric blue */
---color-text-primary: #ffffff     /* White */
---color-text-secondary: #b4b4c8   /* Light gray */
-```
-
-## ✨ Animation Features
-
-- Scroll-triggered section reveals using Framer Motion `useInView`
-- Staggered children animations for sequential reveals
-- Hover effects on cards, buttons, and links
-- Animated gradient orbs in hero section
-- Smooth page scrolling between sections
-- Mobile menu slide-in animation
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 968px
-- **Desktop**: > 968px
-
-## 🌐 Navigation
-
-- Smooth scroll to sections
-- Sticky navbar with blur effect on scroll
-- Mobile hamburger menu
-- Progress indicator at the top
-
-## 📄 License
-
-All rights reserved © 2026 Zeltro Agency
-
-## 🎯 Development
-
-The site uses TypeScript strict mode with no `any` types allowed. All components are strongly typed for maximum type safety.
-
-### Available Scripts
-
-- `npm run dev` - Start development server (with HMR)
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-## 🚀 Deployment
-
-The build output is in the `dist/` folder. Deploy to any static hosting service:
-
-- Vercel
-- Netlify
-- GitHub Pages
-- AWS S3 + CloudFront
-- Any static web server
-
-## 🎨 Customization
-
-1. **Colors**: Edit `src/styles/variables.css`
-2. **Fonts**: Update `index.html` and variables
-3. **Content**: Modify component files in `src/components/`
-4. **Animations**: Adjust Framer Motion variants in components
+🌐 **[zeltro.agency](https://zeltro.agency)**
 
 ---
 
-Built with ❤️ using React + TypeScript + Framer Motion
+## What We Do
+
+We build digital solutions that help businesses establish a strong online presence. Every project is crafted from scratch — no templates, no shortcuts.
+
+| Service                 | Description                                               |
+| ----------------------- | --------------------------------------------------------- |
+| **Landing Pages**       | Single-page sites optimized for conversions               |
+| **Multi-page Websites** | Full business websites with animations and SEO            |
+| **Fullstack Web Apps**  | React + .NET applications with databases and admin panels |
+| **Web Design (Figma)**  | Wireframes and hi-fi mockups before development           |
+| **SEO Optimization**    | On-page SEO, Google Search Console, local SEO             |
+| **Monthly Maintenance** | Hosting, backups, updates, and support                    |
+
+---
+
+## Tech Stack
+
+### Frontend
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=white)
+
+### Backend
+
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+
+### Deployment & Tools
+
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+
+---
+
+## Pricing
+
+### One-time Services
+
+| Package               | Price        | Delivery  |
+| --------------------- | ------------ | --------- |
+| Landing Page          | 150–300 EUR  | 2-5 days  |
+| Multi-page Website    | 350–600 EUR  | 7-10 days |
+| Fullstack Web App     | 800–1800 EUR | 2–5 weeks |
+| Figma Design          | 100–200 EUR  | 3–5 days  |
+| Landing Page Campaign | 250–450 EUR  | 5–7 days  |
+
+### Monthly Services
+
+| Package              | Price          | Includes                                         |
+| -------------------- | -------------- | ------------------------------------------------ |
+| Basic Maintenance    | 30–45 EUR/mo   | Hosting, SSL, backups, monitoring                |
+| Standard Maintenance | 60–80 EUR/mo   | Basic + 2h changes, reports, GMB                 |
+| SEO Package          | 100–150 EUR/mo | Keywords, on-page SEO, Search Console, local SEO |
+
+---
+
+## Contact
+
+Have a project in mind? Let's talk.
+
+| Channel      | Link                                                                             |
+| ------------ | -------------------------------------------------------------------------------- |
+| 🌐 Website   | [zeltro.agency](https://zeltro.agency)                                           |
+| 📧 Email     | zeltro.agency@gmail.com                                                          |
+| 💼 LinkedIn  | [linkedin.com/company/zeltro-agency](https://linkedin.com/company/zeltro-agency) |
+| 📸 Instagram | [@zeltro.agency](https://instagram.com/zeltro.agency)                            |
+| 💻 GitHub    | [github.com/djurkeceo](https://github.com/djurkeceo)                             |
+
+---
+
+## License
+
+All client projects are proprietary and owned by their respective clients.  
+The Zeltro brand, website, and internal tools are © 2026 Zeltro. All rights reserved.
+
+---
+
+<p align="center">
+  <strong>Better websites. Better business.</strong><br>
+  <a href="https://zeltro.agency">zeltro.agency</a>
+</p>
