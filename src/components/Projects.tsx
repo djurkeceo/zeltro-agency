@@ -52,7 +52,7 @@ const createThumbnail = (
   src640: string,
   src1280: string,
   width: number,
-  height: number
+  height: number,
 ): ProjectThumbnail => ({
   src: src640,
   srcSet: `${src640} 640w, ${src1280} 1280w`,
@@ -70,7 +70,7 @@ const projects: Project[] = [
       studioNoirPreview640,
       studioNoirPreview1280,
       1280,
-      636
+      636,
     ),
     projectUrl: "https://studio-noir-inky.vercel.app/",
   },
@@ -83,7 +83,7 @@ const projects: Project[] = [
       prosekatorPreview640,
       prosekatorPreview1280,
       1280,
-      618
+      618,
     ),
     projectUrl: "https://prosekator.vercel.app/",
   },
@@ -92,24 +92,19 @@ const projects: Project[] = [
     category: "Landing Page",
     tags: ["Next.js", "CSS", "Framer Motion"],
     description: "Live preview projekta Syncly.",
-    thumbnail: createThumbnail(
-      synclyPreview640,
-      synclyPreview1280,
-      1280,
-      622
-    ),
+    thumbnail: createThumbnail(synclyPreview640, synclyPreview1280, 1280, 622),
     projectUrl: "https://syncly-phi.vercel.app/",
   },
   {
     title: "Metal Shop",
     category: "Višestranični Website",
     tags: ["TypeScript", "React", "CSS", "Framer Motion"],
-    description: "Website preview projekta Metal Shop",
+    description: "Live preview projekta Metal Shop",
     thumbnail: createThumbnail(
       metalShopPreview640,
       metalShopPreview1280,
       1280,
-      634
+      634,
     ),
     projectUrl: "https://metal-shop-su.vercel.app/",
   },
@@ -117,12 +112,12 @@ const projects: Project[] = [
     title: "Portfolio - Lena Marković",
     category: "Višestranični Website",
     tags: ["TypeScript", "CSS", "React"],
-    description: "Live preview portfolio projekta.",
+    description: "Live preview projekta Portfolio - Lena Marković.",
     thumbnail: createThumbnail(
       lenaMarkovicPreview640,
       lenaMarkovicPreview1280,
       1280,
-      647
+      647,
     ),
     projectUrl: "https://lena-markovic.vercel.app/",
   },
@@ -135,7 +130,7 @@ const projects: Project[] = [
       sharkOriginsPreview640,
       sharkOriginsPreview1280,
       1280,
-      646
+      646,
     ),
     projectUrl: "https://evolucija-ajkule.vercel.app/",
   },
