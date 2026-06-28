@@ -25,10 +25,17 @@
   border-radius: 1.15rem;
   position: relative;
   overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
   cursor: pointer;
   border: 1px solid rgba(186, 214, 255, 0.17);
-  background: linear-gradient(180deg, rgba(13, 20, 37, 0.9), rgba(8, 13, 23, 0.92));
+  background: linear-gradient(
+    180deg,
+    rgba(13, 20, 37, 0.9),
+    rgba(8, 13, 23, 0.92)
+  );
 }
 
 .service-card::before {
@@ -62,6 +69,7 @@
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
   margin-bottom: 0.8rem;
+  margin-left: 0.8rem;
   background: rgba(91, 231, 255, 0.13);
   color: var(--color-accent);
   border: 1px solid rgba(91, 231, 255, 0.34);
