@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
             className="hero-subtitle"
             initial={false}
             layout={false}
-            style={{ willChange: 'opacity' }}
+            style={{ willChange: "opacity" }}
           >
             Kreiramo moderne web sajtove, moćne web aplikacije, strateški
             dizajn, SEO optimizaciju i pouzdano održavanje — sve što je potrebno
@@ -78,9 +78,9 @@ const Hero: React.FC = () => {
               }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 320, damping: 18 }}
-              onClick={() => scrollToSection("projects")}
+              onClick={() => scrollToSection("contact")}
             >
-              Pogledaj Projekte
+              Kontaktiraj nas
             </m.button>
             <m.button
               className="btn btn-secondary"
@@ -91,9 +91,9 @@ const Hero: React.FC = () => {
               }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 320, damping: 18 }}
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("projects")}
             >
-              Kontaktiraj Nas
+              Pogledaj Projekte
             </m.button>
           </m.div>
 
