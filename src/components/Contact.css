@@ -16,7 +16,7 @@
 
 .contact-content {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 1rem;
   align-items: start;
 }
@@ -63,7 +63,11 @@
   padding: clamp(1rem, 2.8vw, 1.6rem);
   border-radius: 1.2rem;
   border: 1px solid rgba(186, 214, 255, 0.2);
-  background: linear-gradient(180deg, rgba(12, 19, 35, 0.95), rgba(8, 13, 24, 0.95));
+  background: linear-gradient(
+    180deg,
+    rgba(12, 19, 35, 0.95),
+    rgba(8, 13, 24, 0.95)
+  );
   transition: all var(--transition-base);
 }
 
@@ -116,7 +120,9 @@
   border: none;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
   box-shadow: 0 12px 24px rgba(91, 231, 255, 0.2);
 }
 

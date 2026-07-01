@@ -33,24 +33,6 @@ const Contact: React.FC = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="contact-info">
-            <div className="info-card glass">
-              <div className="info-icon">📧</div>
-              <h3>Email</h3>
-              <p>zeltro.agency@gmail.com</p>
-            </div>
-            <div className="info-card glass">
-              <div className="info-icon">📍</div>
-              <h3>Lokacija</h3>
-              <p>Subotica, Srbija</p>
-            </div>
-            <div className="info-card glass">
-              <div className="info-icon">💼</div>
-              <h3>Konsultacija</h3>
-              <p>100% Besplatna</p>
-            </div>
-          </div>
-
           <m.form
             className="contact-form glass"
             onSubmit={handleSubmit}
@@ -127,6 +109,24 @@ const Contact: React.FC = () => {
               </p>
             )}
           </m.form>
+
+          <div className="contact-info">
+            <div className="info-card glass">
+              <div className="info-icon">📧</div>
+              <h3>Email</h3>
+              <p>zeltro.agency@gmail.com</p>
+            </div>
+            <div className="info-card glass">
+              <div className="info-icon">📍</div>
+              <h3>Lokacija</h3>
+              <p>Subotica, Srbija</p>
+            </div>
+            <div className="info-card glass">
+              <div className="info-icon">💼</div>
+              <h3>Konsultacija</h3>
+              <p>100% Besplatna</p>
+            </div>
+          </div>
         </m.div>
       </div>
     </section>
