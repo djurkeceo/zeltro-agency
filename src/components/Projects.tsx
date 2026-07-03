@@ -217,7 +217,7 @@ const allProjects: Project[] = [
   {
     title: "Beauty Studio by Nada",
     category: "Višestranićni Website",
-    tags: ["TypeScript", "React"],
+    tags: ["TypeScript", "React", "Framer Motion"],
     description: "Live preview projekta Beauty Studio by Nada.",
     thumbnail: createThumbnail(beautyByNada640, beautyByNada1280, 1280, 640),
     projectUrl: "https://beauty-by-nada.vercel.app/",
@@ -225,7 +225,7 @@ const allProjects: Project[] = [
   {
     title: "Elektro Jovanić",
     category: "Landing Page",
-    tags: ["TypeScript", "React"],
+    tags: ["TypeScript", "React", "Framer Motion"],
     description: "Live preview projekta Elektro Jovanić.",
     thumbnail: createThumbnail(
       elektroJovanic640,
