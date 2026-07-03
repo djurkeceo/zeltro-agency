@@ -14,6 +14,8 @@ import sharkOriginsPreview640 from "../assets/SharkOrigins-640.png";
 import sharkOriginsPreview1280 from "../assets/SharkOrigins-1280.png";
 import beautyByNada640 from "../assets/BeautyByNada-640.png";
 import beautyByNada1280 from "../assets/BeautyByNada-1280.png";
+import elektroJovanic640 from "../assets/ElektroJovanic-640.png";
+import elektroJovanic1280 from "../assets/ElektroJovanic-1280.png";
 import "./Projects.css";
 
 interface ProjectThumbnail {
@@ -217,21 +219,21 @@ const allProjects: Project[] = [
     category: "Višestranićni Website",
     tags: ["TypeScript", "React"],
     description: "Live preview projekta Beauty Studio by Nada.",
-    thumbnail: createThumbnail(beautyByNada640, beautyByNada1280, 1280, 646),
+    thumbnail: createThumbnail(beautyByNada640, beautyByNada1280, 1280, 640),
     projectUrl: "https://beauty-by-nada.vercel.app/",
   },
   {
-    title: "Shark Origins",
-    category: "Educational Web Game",
+    title: "Elektro Jovanić",
+    category: "Landing Page",
     tags: ["TypeScript", "React"],
-    description: "Live preview projekta Shark Origins.",
+    description: "Live preview projekta Elektro Jovanić.",
     thumbnail: createThumbnail(
-      sharkOriginsPreview640,
-      sharkOriginsPreview1280,
+      elektroJovanic640,
+      elektroJovanic1280,
       1280,
-      646,
+      640,
     ),
-    projectUrl: "https://evolucija-ajkule.vercel.app/",
+    projectUrl: "https://elektro-jovanic.vercel.app/",
   },
 ];
 
