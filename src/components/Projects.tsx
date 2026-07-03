@@ -12,6 +12,8 @@ import lenaMarkovicPreview640 from "../assets/LenaMarkovicPortfolio-640.png";
 import lenaMarkovicPreview1280 from "../assets/LenaMarkovicPortfolio-1280.png";
 import sharkOriginsPreview640 from "../assets/SharkOrigins-640.png";
 import sharkOriginsPreview1280 from "../assets/SharkOrigins-1280.png";
+import beautyByNada640 from "../assets/BeautyByNada-640.png";
+import beautyByNada1280 from "../assets/BeautyByNada-1280.png";
 import "./Projects.css";
 
 interface ProjectThumbnail {
@@ -60,7 +62,7 @@ const createThumbnail = (
   height,
 });
 
-const projects: Project[] = [
+const showcaseProjects: Project[] = [
   {
     title: "Studio Noir",
     category: "Višestranični Website",
@@ -120,6 +122,103 @@ const projects: Project[] = [
       647,
     ),
     projectUrl: "https://lena-markovic.vercel.app/",
+  },
+  {
+    title: "Shark Origins",
+    category: "Educational Web Game",
+    tags: ["TypeScript", "React"],
+    description: "Live preview projekta Shark Origins.",
+    thumbnail: createThumbnail(
+      sharkOriginsPreview640,
+      sharkOriginsPreview1280,
+      1280,
+      646,
+    ),
+    projectUrl: "https://evolucija-ajkule.vercel.app/",
+  },
+];
+
+const allProjects: Project[] = [
+  {
+    title: "Studio Noir",
+    category: "Višestranični Website",
+    tags: ["React", "TypeScript", "CSS", "Framer Motion"],
+    description: "Live preview projekta Studio Noir.",
+    thumbnail: createThumbnail(
+      studioNoirPreview640,
+      studioNoirPreview1280,
+      1280,
+      636,
+    ),
+    projectUrl: "https://studio-noir-inky.vercel.app/",
+  },
+  {
+    title: "Prosekator",
+    category: "Web Application",
+    tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "MongoDB"],
+    description: "Live preview projekta Prosekator.",
+    thumbnail: createThumbnail(
+      prosekatorPreview640,
+      prosekatorPreview1280,
+      1280,
+      618,
+    ),
+    projectUrl: "https://prosekator.vercel.app/",
+  },
+  {
+    title: "Syncly",
+    category: "Landing Page",
+    tags: ["Next.js", "CSS", "Framer Motion"],
+    description: "Live preview projekta Syncly.",
+    thumbnail: createThumbnail(synclyPreview640, synclyPreview1280, 1280, 622),
+    projectUrl: "https://syncly-phi.vercel.app/",
+  },
+  {
+    title: "Metal Shop",
+    category: "Višestranični Website",
+    tags: ["TypeScript", "React", "CSS", "Framer Motion"],
+    description: "Live preview projekta Metal Shop",
+    thumbnail: createThumbnail(
+      metalShopPreview640,
+      metalShopPreview1280,
+      1280,
+      634,
+    ),
+    projectUrl: "https://metal-shop-su.vercel.app/",
+  },
+  {
+    title: "Portfolio - Lena Marković",
+    category: "Višestranični Website",
+    tags: ["TypeScript", "CSS", "React"],
+    description: "Live preview projekta Portfolio - Lena Marković.",
+    thumbnail: createThumbnail(
+      lenaMarkovicPreview640,
+      lenaMarkovicPreview1280,
+      1280,
+      647,
+    ),
+    projectUrl: "https://lena-markovic.vercel.app/",
+  },
+  {
+    title: "Shark Origins",
+    category: "Educational Web Game",
+    tags: ["TypeScript", "React"],
+    description: "Live preview projekta Shark Origins.",
+    thumbnail: createThumbnail(
+      sharkOriginsPreview640,
+      sharkOriginsPreview1280,
+      1280,
+      646,
+    ),
+    projectUrl: "https://evolucija-ajkule.vercel.app/",
+  },
+  {
+    title: "Beauty Studio by Nada",
+    category: "Višestranićni Website",
+    tags: ["TypeScript", "React"],
+    description: "Live preview projekta Beauty Studio by Nada.",
+    thumbnail: createThumbnail(beautyByNada640, beautyByNada1280, 1280, 646),
+    projectUrl: "https://beauty-by-nada.vercel.app/",
   },
   {
     title: "Shark Origins",
@@ -237,6 +336,8 @@ const Projects: React.FC = () => {
     window.open(projectUrl, "_blank", "noopener,noreferrer");
   };
 
+  const projectsToShow = isProjectsPage ? allProjects : showcaseProjects;
+
   return (
     <section id="projects" className="projects" ref={ref}>
       <div className="container">
@@ -261,9 +362,9 @@ const Projects: React.FC = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {projects.map((project, index) => (
+          {projectsToShow.map((project, index) => (
             <ProjectCard
-              key={project.title}
+              key={`${project.title}-${index}`}
               project={project}
               index={index}
               cardVariants={cardVariants}

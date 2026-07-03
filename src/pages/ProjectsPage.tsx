@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import Projects from "../components/Projects";
+import Projects from "../components/Projects.tsx";
 
 const ProjectsPage = () => {
   return (
