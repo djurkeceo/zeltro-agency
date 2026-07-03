@@ -210,6 +210,8 @@ const Projects: React.FC = () => {
   const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion() ?? false;
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  const isProjectsPage = normalizedPath === "/projects";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -270,6 +272,27 @@ const Projects: React.FC = () => {
             />
           ))}
         </m.div>
+        {!isProjectsPage && (
+          <div className="projects-page-cta">
+            <m.a
+              href="/projects"
+              className="projects-page-button"
+              whileHover={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      scale: 1.03,
+                      y: -2,
+                      boxShadow: "0 12px 28px rgba(0, 229, 255, 0.28)",
+                    }
+              }
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              Pogledaj sve projekte
+            </m.a>
+          </div>
+        )}
       </div>
     </section>
   );

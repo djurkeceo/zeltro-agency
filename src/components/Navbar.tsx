@@ -30,6 +30,12 @@ const Navbar: React.FC = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
+    const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
+    if (normalizedPath !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
