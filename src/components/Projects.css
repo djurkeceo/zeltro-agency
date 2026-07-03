@@ -22,10 +22,17 @@
   border-radius: 999px;
   border: 1px solid rgba(186, 214, 255, 0.32);
   color: var(--color-text-primary);
-  background: linear-gradient(180deg, rgba(12, 25, 42, 0.95), rgba(10, 18, 32, 0.95));
+  background: linear-gradient(
+    180deg,
+    rgba(12, 25, 42, 0.95),
+    rgba(10, 18, 32, 0.95)
+  );
   font-weight: 600;
   font-size: 0.95rem;
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
 }
 
 .projects-page-button:hover {
@@ -44,15 +51,43 @@
   gap: 1rem;
 }
 
+.projects-grid-wrapper {
+  overflow: hidden;
+}
+
+/* Razmak izmedju showcase grida i extra grida koji se otvara na klik */
+.extra-projects-grid {
+  margin-top: 1rem;
+}
+
 .project-card {
   border-radius: 1.2rem;
   overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
   cursor: default;
   content-visibility: auto;
   contain-intrinsic-size: 420px;
   border: 1px solid rgba(186, 214, 255, 0.19);
-  background: linear-gradient(180deg, rgba(11, 18, 33, 0.95), rgba(8, 13, 24, 0.95));
+  background: linear-gradient(
+    180deg,
+    rgba(11, 18, 33, 0.95),
+    rgba(8, 13, 24, 0.95)
+  );
+}
+
+/*
+  Kartice unutar extra grida se animiraju preko height: 0 -> "auto" na
+  roditelju (Framer Motion). Dok je ta animacija u toku, browser tretira
+  kartice kao "van viewport-a" i koristi contain-intrinsic-size (420px)
+  umesto stvarne visine, pa se tacna visina otkrije tek na kraju animacije -
+  to je uzrok "snap" efekta. Zato iskljucujemo content-visibility samo ovde.
+*/
+.extra-projects-grid .project-card {
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
 }
 
 .project-card-clickable {
@@ -62,7 +97,11 @@
 .project-thumbnail {
   position: relative;
   height: min(230px, 30vh);
-  background: linear-gradient(145deg, rgba(17, 24, 43, 0.95), rgba(8, 13, 23, 0.95));
+  background: linear-gradient(
+    145deg,
+    rgba(17, 24, 43, 0.95),
+    rgba(8, 13, 23, 0.95)
+  );
   display: flex;
   align-items: center;
   justify-content: center;

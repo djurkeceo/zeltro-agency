@@ -1,5 +1,5 @@
-import { m, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { AnimatePresence, m, useInView, useReducedMotion } from "framer-motion";
+import { useRef, useState } from "react";
 import studioNoirPreview640 from "../assets/StudioNoir-640.png";
 import studioNoirPreview1280 from "../assets/StudioNoir-1280.png";
 import prosekatorPreview640 from "../assets/Prosekator-640.png";
@@ -16,6 +16,8 @@ import beautyByNada640 from "../assets/BeautyByNada-640.png";
 import beautyByNada1280 from "../assets/BeautyByNada-1280.png";
 import elektroJovanic640 from "../assets/ElektroJovanic-640.png";
 import elektroJovanic1280 from "../assets/ElektroJovanic-1280.png";
+import ironLab640 from "../assets/IronLab-640.png";
+import ironLab1280 from "../assets/IronLab-1280.png";
 import "./Projects.css";
 
 interface ProjectThumbnail {
@@ -37,16 +39,9 @@ interface Project {
 interface ProjectCardProps {
   project: Project;
   index: number;
-  cardVariants: {
-    hidden: { opacity: number; scale: number };
-    visible: {
-      opacity: number;
-      scale: number;
-      transition: { duration: number };
-    };
-  };
   shouldReduceMotion: boolean;
   onOpenProject: (projectUrl?: string) => void;
+  eagerLoad?: boolean;
 }
 
 const projectImageSizes =
@@ -64,7 +59,7 @@ const createThumbnail = (
   height,
 });
 
-const showcaseProjects: Project[] = [
+const showCaseProjects: Project[] = [
   {
     title: "Studio Noir",
     category: "Višestranični Website",
@@ -140,86 +135,14 @@ const showcaseProjects: Project[] = [
   },
 ];
 
-const allProjects: Project[] = [
-  {
-    title: "Studio Noir",
-    category: "Višestranični Website",
-    tags: ["React", "TypeScript", "CSS", "Framer Motion"],
-    description: "Live preview projekta Studio Noir.",
-    thumbnail: createThumbnail(
-      studioNoirPreview640,
-      studioNoirPreview1280,
-      1280,
-      636,
-    ),
-    projectUrl: "https://studio-noir-inky.vercel.app/",
-  },
-  {
-    title: "Prosekator",
-    category: "Web Application",
-    tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "MongoDB"],
-    description: "Live preview projekta Prosekator.",
-    thumbnail: createThumbnail(
-      prosekatorPreview640,
-      prosekatorPreview1280,
-      1280,
-      618,
-    ),
-    projectUrl: "https://prosekator.vercel.app/",
-  },
-  {
-    title: "Syncly",
-    category: "Landing Page",
-    tags: ["Next.js", "CSS", "Framer Motion"],
-    description: "Live preview projekta Syncly.",
-    thumbnail: createThumbnail(synclyPreview640, synclyPreview1280, 1280, 622),
-    projectUrl: "https://syncly-phi.vercel.app/",
-  },
-  {
-    title: "Metal Shop",
-    category: "Višestranični Website",
-    tags: ["TypeScript", "React", "CSS", "Framer Motion"],
-    description: "Live preview projekta Metal Shop",
-    thumbnail: createThumbnail(
-      metalShopPreview640,
-      metalShopPreview1280,
-      1280,
-      634,
-    ),
-    projectUrl: "https://metal-shop-su.vercel.app/",
-  },
-  {
-    title: "Portfolio - Lena Marković",
-    category: "Višestranični Website",
-    tags: ["TypeScript", "CSS", "React"],
-    description: "Live preview projekta Portfolio - Lena Marković.",
-    thumbnail: createThumbnail(
-      lenaMarkovicPreview640,
-      lenaMarkovicPreview1280,
-      1280,
-      647,
-    ),
-    projectUrl: "https://lena-markovic.vercel.app/",
-  },
-  {
-    title: "Shark Origins",
-    category: "Educational Web Game",
-    tags: ["TypeScript", "React"],
-    description: "Live preview projekta Shark Origins.",
-    thumbnail: createThumbnail(
-      sharkOriginsPreview640,
-      sharkOriginsPreview1280,
-      1280,
-      646,
-    ),
-    projectUrl: "https://evolucija-ajkule.vercel.app/",
-  },
+// Samo dodatni projekti koji se otkrivaju klikom na "Prikaži više"
+const extraProjects: Project[] = [
   {
     title: "Beauty Studio by Nada",
     category: "Višestranićni Website",
     tags: ["TypeScript", "React", "Framer Motion"],
     description: "Live preview projekta Beauty Studio by Nada.",
-    thumbnail: createThumbnail(beautyByNada640, beautyByNada1280, 1280, 640),
+    thumbnail: createThumbnail(beautyByNada640, beautyByNada1280, 1280, 643),
     projectUrl: "https://beauty-by-nada.vercel.app/",
   },
   {
@@ -231,23 +154,42 @@ const allProjects: Project[] = [
       elektroJovanic640,
       elektroJovanic1280,
       1280,
-      640,
+      646,
     ),
     projectUrl: "https://elektro-jovanic.vercel.app/",
+  },
+  {
+    title: "Iron Lab",
+    category: "Landing Page",
+    tags: ["TypeScript", "React"],
+    description: "Live preview projekta Iron Lab.",
+    thumbnail: createThumbnail(ironLab640, ironLab1280, 1280, 645),
+    projectUrl: "https://iron-lab.vercel.app/",
   },
 ];
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
   index,
-  cardVariants,
   shouldReduceMotion,
   onOpenProject,
+  eagerLoad = false,
 }) => {
   return (
     <m.div
       className={`project-card glass ${project.projectUrl ? "project-card-clickable" : ""}`}
-      variants={cardVariants}
+      initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96, y: 18 }}
+      animate={
+        shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }
+      }
+      exit={
+        shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.97, y: -6 }
+      }
+      transition={{
+        duration: shouldReduceMotion ? 0 : 0.35,
+        delay: shouldReduceMotion ? 0 : index * 0.05,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       whileHover={
         project.projectUrl && !shouldReduceMotion ? { y: -8 } : undefined
       }
@@ -273,9 +215,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             height={project.thumbnail.height}
             alt={`${project.title} preview`}
             className="project-thumbnail-image"
-            loading="lazy"
+            // Extra kartice se pojavljuju tek na klik (ne na scroll), pa
+            // "lazy" ovde samo pomera visinu tokom slide animacije i
+            // pravi "snap" efekat pred kraj. Zato eager za njih.
+            loading={eagerLoad ? "eager" : "lazy"}
             decoding="async"
-            fetchPriority="low"
+            fetchPriority={eagerLoad ? "auto" : "low"}
           />
         ) : (
           <div className="thumbnail-placeholder">
@@ -311,34 +256,12 @@ const Projects: React.FC = () => {
   const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion() ?? false;
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
-  const isProjectsPage = normalizedPath === "/projects";
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.12,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: shouldReduceMotion ? 0 : 0.45 },
-    },
-  };
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const openProject = (projectUrl?: string) => {
     if (!projectUrl) return;
     window.open(projectUrl, "_blank", "noopener,noreferrer");
   };
-
-  const projectsToShow = isProjectsPage ? allProjects : showcaseProjects;
 
   return (
     <section id="projects" className="projects" ref={ref}>
@@ -358,27 +281,57 @@ const Projects: React.FC = () => {
           </p>
         </m.div>
 
-        <m.div
-          className="projects-grid"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {projectsToShow.map((project, index) => (
+        {/* Showcase kartice - uvek vidljive, bez layout/AnimatePresence logike */}
+        <div className="projects-grid">
+          {showCaseProjects.map((project, index) => (
             <ProjectCard
-              key={`${project.title}-${index}`}
+              key={project.title}
               project={project}
               index={index}
-              cardVariants={cardVariants}
               shouldReduceMotion={shouldReduceMotion}
               onOpenProject={openProject}
+              eagerLoad={index < 3}
             />
           ))}
-        </m.div>
-        {!isProjectsPage && (
+        </div>
+
+        {/* Extra kartice - slide down/up preko height animacije */}
+        <AnimatePresence initial={false}>
+          {showAllProjects && (
+            <m.div
+              key="extra-projects-wrapper"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{
+                height: {
+                  duration: shouldReduceMotion ? 0 : 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+                opacity: { duration: shouldReduceMotion ? 0 : 0.3 },
+              }}
+              style={{ overflow: "hidden" }}
+            >
+              <div className="projects-grid extra-projects-grid">
+                {extraProjects.map((project, index) => (
+                  <ProjectCard
+                    key={project.title}
+                    project={project}
+                    index={index}
+                    shouldReduceMotion={shouldReduceMotion}
+                    onOpenProject={openProject}
+                    eagerLoad
+                  />
+                ))}
+              </div>
+            </m.div>
+          )}
+        </AnimatePresence>
+
+        {extraProjects.length > 0 && (
           <div className="projects-page-cta">
-            <m.a
-              href="/projects"
+            <m.button
+              type="button"
               className="projects-page-button"
               whileHover={
                 shouldReduceMotion
@@ -391,9 +344,10 @@ const Projects: React.FC = () => {
               }
               whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              onClick={() => setShowAllProjects((prev) => !prev)}
             >
-              Pogledaj sve projekte
-            </m.a>
+              {showAllProjects ? "Prikaži manje" : "Prikaži više"}
+            </m.button>
           </div>
         )}
       </div>
