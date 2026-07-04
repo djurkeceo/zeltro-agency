@@ -18,6 +18,8 @@ import elektroJovanic640 from "../assets/ElektroJovanic-640.png";
 import elektroJovanic1280 from "../assets/ElektroJovanic-1280.png";
 import ironLab640 from "../assets/IronLab-640.png";
 import ironLab1280 from "../assets/IronLab-1280.png";
+import segmentGym640 from "../assets/SegmentGym-640.png";
+import segmentGym1280 from "../assets/SegmentGym-1280.png";
 import "./Projects.css";
 
 interface ProjectThumbnail {
@@ -165,6 +167,14 @@ const extraProjects: Project[] = [
     description: "Live preview projekta Iron Lab.",
     thumbnail: createThumbnail(ironLab640, ironLab1280, 1280, 645),
     projectUrl: "https://iron-lab.vercel.app/",
+  },
+  {
+    title: "Segment Gym",
+    category: "Višestranićni Website",
+    tags: ["TypeScript", "React", "Framer Motion"],
+    description: "Live preview projekta Segment Gym.",
+    thumbnail: createThumbnail(segmentGym640, segmentGym1280, 1280, 720),
+    projectUrl: "https://segment-gym.vercel.app/",
   },
 ];
 
