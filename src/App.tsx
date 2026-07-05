@@ -1,8 +1,6 @@
 import React, { Suspense } from "react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import Hero from "./components/Hero";
-import Seo from "./components/Seo";
-import CursorFollow from "./components/CursorFollow";
 import "./App.css";
 
 const Navbar = React.lazy(() => import("./components/Navbar"));
@@ -13,6 +11,7 @@ const Pricing = React.lazy(() => import("./components/Pricing"));
 const Testimonials = React.lazy(() => import("./components/Process"));
 const Contact = React.lazy(() => import("./components/Contact"));
 const Footer = React.lazy(() => import("./components/Footer"));
+const CursorFollow = React.lazy(() => import("./components/CursorFollow"));
 
 const SuspenseFallback = () => <div style={{ minHeight: "100vh" }} />;
 
@@ -20,8 +19,9 @@ function App() {
   return (
     <LazyMotion features={domAnimation} strict>
       <div className="app">
-        <CursorFollow />
-        <Seo />
+        <Suspense fallback={null}>
+          <CursorFollow />
+        </Suspense>
         <Suspense fallback={null}>
           <Navbar />
         </Suspense>

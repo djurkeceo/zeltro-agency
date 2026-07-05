@@ -5,6 +5,12 @@
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/syne-normal-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/syne-normal-700-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-normal-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-normal-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-normal-700-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -26,6 +32,54 @@
     <meta name="theme-color" content="#02050e" />
 
     <link rel="canonical" href="https://zeltro.agency/" />
+
+    <style>
+      @font-face{font-family:'Syne';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/syne-normal-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'Syne';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/syne-normal-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'Syne';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/syne-normal-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'Syne';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/syne-normal-800-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-sans-normal-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/dm-sans-normal-500-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/dm-sans-normal-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/dm-sans-normal-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:'Syne';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/syne-normal-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+      @font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-sans-normal-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+      @font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/dm-sans-normal-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+      *{margin:0;padding:0;box-sizing:border-box}
+      html{scroll-behavior:smooth;overflow-x:hidden}
+      body{font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:#f7fbff;background:#05070d;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+      #root{min-height:100vh;position:relative}
+      h1,h2,h3,h4,h5,h6{font-family:'Syne',sans-serif;line-height:1.06;font-weight:700;letter-spacing:-0.03em}
+      h1{font-size:clamp(2.8rem,8vw,6.2rem)}h2{font-size:clamp(2rem,5vw,4.3rem)}
+      p{color:#b8c6e3;font-weight:500}a{color:inherit;text-decoration:none}
+      button{font-family:'DM Sans',sans-serif;cursor:pointer;border:none;background:none}
+      .container{max-width:1240px;margin:0 auto;padding:0 1.4rem}
+      section{padding:7rem 0;position:relative}
+      .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:7rem}
+      .hero-background{position:absolute;inset:0;z-index:-1;overflow:hidden}
+      .gradient-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.18}
+      .orb-1{width:min(480px,55vw);height:min(480px,55vw);background:radial-gradient(circle,rgba(91,231,255,.4) 0,rgba(91,231,255,0) 68%);top:-6%;right:0}
+      .orb-2{width:min(380px,45vw);height:min(380px,45vw);background:radial-gradient(circle,rgba(118,145,255,.35) 0,rgba(118,145,255,0) 68%);bottom:5%;left:-4%}
+      .orb-3{width:min(320px,38vw);height:min(320px,38vw);background:radial-gradient(circle,rgba(138,124,255,.3) 0,rgba(138,124,255,0) 70%);top:35%;left:55%;transform:translate(-50%,-50%)}
+      .hero-content{text-align:center;max-width:900px;margin:0 auto;padding:clamp(1rem,2.5vw,2rem)}
+      .hero-title{margin-bottom:1.2rem;line-height:1.04;letter-spacing:-0.04em}
+      .hero-subtitle{font-size:clamp(1rem,1.8vw,1.2rem);max-width:720px;margin:0 auto 2.4rem;color:#b8c6e3;line-height:1.75}
+      .hero-ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+      .btn{padding:.85rem 1.5rem;font-size:.95rem;font-weight:700;border-radius:999px;position:relative}
+      .btn-primary{background:linear-gradient(95deg,#5be7ff 0,#69b3ff 52%,#8a7cff 100%);color:#03111b;box-shadow:0 10px 24px rgba(91,231,255,.22)}
+      .btn-secondary{background:rgba(255,255,255,.02);color:#f7fbff;border:1px solid rgba(186,214,255,.25)}
+      .hero-stats{display:flex;justify-content:center;gap:1.5rem}
+      .stat{text-align:center}.stat+.stat{padding-left:1.5rem;border-left:1px solid rgba(186,214,255,.12)}
+      .stat-value{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:.3rem;font-weight:700}
+      .stat-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#7f8fb1}
+      .gradient-text{background:linear-gradient(95deg,#5be7ff 0,#69b3ff 52%,#8a7cff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto}
+      .glass{background:rgba(13,20,37,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(186,214,255,.2)}
+      .section-title{margin-bottom:1.2rem}
+      ::selection{background:#5be7ff;color:#05070d}
+      @media(max-width:768px){.container{padding:0 1rem}section{padding:4rem 0}.hero{min-height:100svh;padding-top:5.5rem}.hero-ctas{flex-direction:column}.btn{width:100%}.gradient-orb{animation:none;opacity:.15;filter:blur(50px)}.hero-stats{gap:.8rem}.stat+.stat{padding-left:.8rem}}
+      @media(max-width:560px){.hero{padding-top:5rem}.hero-stats{flex-direction:column;align-items:center}.stat+.stat{padding-left:0;border-left:none;padding-top:.8rem;border-top:1px solid rgba(186,214,255,.12)}}
+      @media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+    </style>
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sr_RS" />
@@ -54,43 +108,38 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Zeltro",
-        "url": "https://zeltro.agency",
-        "logo": "https://zeltro.agency/zeltro-logo.png",
-        "description": "Zeltro je web agencija iz Srbije za izradu custom web sajtova, web aplikacija, SEO optimizaciju, web dizajn i održavanje sajtova.",
-        "sameAs": []
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Zeltro",
-        "url": "https://zeltro.agency",
-        "inLanguage": "sr"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Zeltro",
+            "url": "https://zeltro.agency",
+            "logo": "https://zeltro.agency/zeltro-logo.png",
+            "description": "Zeltro je web agencija iz Srbije za izradu custom web sajtova, web aplikacija, SEO optimizaciju, web dizajn i održavanje sajtova.",
+            "sameAs": [
+              "https://www.linkedin.com/company/zeltro-agency/",
+              "https://github.com/djurkeceo"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "name": "Zeltro",
+            "url": "https://zeltro.agency",
+            "inLanguage": "sr"
+          },
+          {
+            "@type": "ProfessionalService",
+            "name": "Zeltro",
+            "description": "Zeltro je web agencija iz Srbije za izradu custom web sajtova, web aplikacija, SEO optimizaciju, web dizajn i održavanje sajtova.",
+            "areaServed": "RS",
+            "address": { "@type": "PostalAddress", "addressLocality": "Subotica", "addressCountry": "RS" },
+            "serviceType": ["Izrada custom web sajtova", "Izrada web aplikacija", "SEO optimizacija", "Web dizajn", "Održavanje sajtova"],
+            "url": "https://zeltro.agency"
+          }
+        ]
       }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-      />
-    </noscript>
+
   </head>
   <body>
     <div id="root"></div>

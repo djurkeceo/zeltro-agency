@@ -85,6 +85,7 @@ const Navbar: React.FC = () => {
                   width={114}
                   height={34}
                   decoding="async"
+                  fetchPriority="high"
                   whileHover={{ rotate: -1.5 }}
                   transition={smoothHoverTransition}
                 />
