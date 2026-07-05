@@ -1,5 +1,28 @@
-import { m } from "framer-motion";
+import { m, useInView, animate } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import "./Hero.css";
+
+const StatValue = ({ value, suffix }: { value: number; suffix?: string }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    if (!isInView) return;
+    const controls = animate(0, value, {
+      duration: 2.5,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setDisplay(v.toFixed(0)),
+    });
+    return () => controls.stop();
+  }, [isInView, value]);
+
+  return (
+    <p ref={ref} className="stat-value gradient-text">
+      {display}{suffix}
+    </p>
+  );
+};
 
 const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -99,20 +122,15 @@ const Hero: React.FC = () => {
 
           <m.div variants={itemVariants} className="hero-stats" initial={false}>
             <div className="stat">
-              <p className="stat-value gradient-text">20+</p>
+              <StatValue value={20} suffix="+" />
               <p className="stat-label">Projekata</p>
             </div>
             <div className="stat">
-              <p className="stat-value gradient-text">2</p>
+              <StatValue value={2} />
               <p className="stat-label">Godine Iskustva</p>
             </div>
             <div className="stat">
-              <p className="stat-value gradient-text">
-                100
-                <span className="stat-percent" style={{ marginLeft: "-0.5px" }}>
-                  %
-                </span>
-              </p>
+              <StatValue value={100} suffix="%" />
               <p className="stat-label">Zadovoljnih Klijenata</p>
             </div>
           </m.div>

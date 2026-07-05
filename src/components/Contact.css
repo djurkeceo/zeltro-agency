@@ -1,5 +1,5 @@
 .contact {
-  background: linear-gradient(180deg, #060b17 0%, #05070d 100%);
+  background: var(--color-bg-primary);
   position: relative;
 }
 
@@ -10,7 +10,7 @@
 
 .contact-subtitle {
   font-size: 1.08rem;
-  max-width: 640px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -24,49 +24,49 @@
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.7rem;
 }
 
 .info-card {
-  padding: 1rem;
+  padding: 1.1rem;
   border-radius: 1rem;
   text-align: left;
-  border: 1px solid rgba(186, 214, 255, 0.19);
-  background: rgba(12, 19, 35, 0.8);
+  border: 1px solid rgba(186, 214, 255, 0.14);
+  background: rgba(12, 19, 35, 0.7);
   transition: all var(--transition-base);
 }
 
 .info-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(91, 231, 255, 0.45);
+  border-color: rgba(91, 231, 255, 0.35);
 }
 
 .info-icon {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 0.4rem;
 }
 
 .info-card h3 {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: 0.2rem;
 }
 
 .info-card p {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-text-secondary);
 }
 
 .contact-form {
   padding: clamp(1rem, 2.8vw, 1.6rem);
-  border-radius: 1.2rem;
-  border: 1px solid rgba(186, 214, 255, 0.2);
+  border-radius: 1.1rem;
+  border: 1px solid rgba(186, 214, 255, 0.14);
   background: linear-gradient(
     180deg,
-    rgba(12, 19, 35, 0.95),
-    rgba(8, 13, 24, 0.95)
+    rgba(12, 19, 35, 0.85),
+    rgba(8, 13, 24, 0.85)
   );
   transition: all var(--transition-base);
 }
@@ -77,43 +77,43 @@
 
 .form-group label {
   display: block;
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin-bottom: 0.32rem;
-  letter-spacing: 0.03em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.82rem 0.9rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(186, 214, 255, 0.2);
-  border-radius: 0.8rem;
+  padding: 0.78rem 0.9rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(186, 214, 255, 0.16);
+  border-radius: 0.7rem;
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   transition: all var(--transition-fast);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: rgba(91, 231, 255, 0.75);
-  box-shadow: 0 0 0 3px rgba(91, 231, 255, 0.15);
+  border-color: rgba(91, 231, 255, 0.6);
+  box-shadow: 0 0 0 2px rgba(91, 231, 255, 0.1);
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 140px;
+  min-height: 130px;
 }
 
 .submit-button {
   width: 100%;
-  padding: 0.9rem;
-  font-size: 0.94rem;
+  padding: 0.85rem;
+  font-size: 0.92rem;
   font-weight: 700;
   background: var(--gradient-primary);
   color: #03111b;
@@ -123,7 +123,7 @@
   transition:
     transform var(--transition-base),
     box-shadow var(--transition-base);
-  box-shadow: 0 12px 24px rgba(91, 231, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(91, 231, 255, 0.18);
 }
 
 .submit-button:disabled {
@@ -133,7 +133,7 @@
 
 .form-status {
   margin-top: 0.7rem;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   line-height: 1.45;
 }
 
@@ -148,7 +148,7 @@
 .form-error {
   margin-top: 0.35rem;
   color: #ff9aaf;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 @media (max-width: 930px) {

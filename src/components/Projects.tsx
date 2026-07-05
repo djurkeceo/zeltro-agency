@@ -44,6 +44,7 @@ interface ProjectCardProps {
   shouldReduceMotion: boolean;
   onOpenProject: (projectUrl?: string) => void;
   eagerLoad?: boolean;
+  variants?: Record<string, unknown>;
 }
 
 const projectImageSizes =
@@ -188,18 +189,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <m.div
       className={`project-card glass ${project.projectUrl ? "project-card-clickable" : ""}`}
-      initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96, y: 18 }}
-      animate={
-        shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }
+      variants={
+        shouldReduceMotion
+          ? undefined
+          : { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } } }
       }
-      exit={
-        shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.97, y: -6 }
-      }
-      transition={{
-        duration: shouldReduceMotion ? 0 : 0.35,
-        delay: shouldReduceMotion ? 0 : index * 0.05,
-        ease: [0.22, 1, 0.36, 1],
-      }}
       whileHover={
         project.projectUrl && !shouldReduceMotion ? { y: -8 } : undefined
       }
@@ -266,7 +260,19 @@ const Projects: React.FC = () => {
   const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion() ?? false;
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const gridRef = useRef(null);
+  const isGridView = useInView(gridRef, { once: true, amount: 0.1 });
   const [showAllProjects, setShowAllProjects] = useState(false);
+
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.06,
+      },
+    },
+  };
 
   const openProject = (projectUrl?: string) => {
     if (!projectUrl) return;
@@ -291,8 +297,14 @@ const Projects: React.FC = () => {
           </p>
         </m.div>
 
-        {/* Showcase kartice - uvek vidljive, bez layout/AnimatePresence logike */}
-        <div className="projects-grid">
+        {/* Showcase kartice - scroll reveal */}
+        <m.div
+          className="projects-grid"
+          ref={gridRef}
+          variants={gridVariants}
+          initial="hidden"
+          animate={isGridView ? "visible" : "hidden"}
+        >
           {showCaseProjects.map((project, index) => (
             <ProjectCard
               key={project.title}
@@ -303,7 +315,7 @@ const Projects: React.FC = () => {
               eagerLoad={index < 3}
             />
           ))}
-        </div>
+        </m.div>
 
         {/* Extra kartice - slide down/up preko height animacije */}
         <AnimatePresence initial={false}>

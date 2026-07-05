@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import Hero from "./components/Hero";
 import Seo from "./components/Seo";
+import CursorFollow from "./components/CursorFollow";
 import "./App.css";
 
 const Navbar = React.lazy(() => import("./components/Navbar"));
@@ -19,6 +20,7 @@ function App() {
   return (
     <LazyMotion features={domAnimation} strict>
       <div className="app">
+        <CursorFollow />
         <Seo />
         <Suspense fallback={null}>
           <Navbar />
