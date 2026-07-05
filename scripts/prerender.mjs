@@ -1,23 +1,21 @@
 // scripts/prerender.mjs
 //
-// Pokrece se NAKON "vite build". Servira dist/ lokalno preko Vite preview
-// API-ja, otvara ga u headless browseru, simulira skrolovanje (da bi se
-// aktivirali Framer Motion useInView triggeri), i upisuje finalni
-// renderovani HTML nazad u dist/index.html.
+// Pokrece se NAKON "vite build" (vidi package.json "build" skriptu).
+// Servira dist/ lokalno preko Vite preview API-ja, otvara ga u headless
+// Playwright Chromium-u, simulira skrolovanje (da bi se aktivirali Framer
+// Motion useInView triggeri), i upisuje finalni renderovani HTML nazad u
+// dist/index.html.
 //
-// VAZNA NAPOMENA O BROWSER-U:
-// Standardni Playwright Chromium radi odlicno lokalno, ali NE RADI na
-// Vercel-ovom build kontejneru - nedostaju mu sistemske biblioteke
-// (libnspr4.so i slicne) koje taj minimalni Linux image nema, a
-// "playwright install chromium" ih ne instalira (samo preuzima browser
-// binary, ne OS-level dependency-je).
-//
-// Zato: na Vercel-u (VERCEL=1, automatski postavljen env var) koristimo
-// @sparticuz/chromium - Chromium build koji dolazi sa svim potrebnim
-// bibliotekama "upakovanim" unutra, pravljen bas za ova ogranicena
-// build/serverless okruzenja. Lokalno i dalje koristimo obican Playwright.
+// NAPOMENA: Ova skripta se izvrsava ISKLJUCIVO u okruzenjima koja imaju
+// Playwright-ove sistemske biblioteke instalirane preko
+// `npx playwright install --with-deps chromium` - lokalno na desktop-u,
+// ili u GitHub Actions (ubuntu-latest runner, koji ima apt-get/sudo).
+// NE izvrsava se direktno na Vercel-u (njihov build sandbox nema apt-get
+// i ne moze da instalira potrebne sistemske biblioteke) - Vercel samo
+// deploy-uje vec zavrsen dist/ folder preko "vercel deploy --prebuilt".
 
 import { preview } from 'vite'
+import { chromium } from 'playwright'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -43,56 +41,26 @@ async function simulateScroll(page) {
   })
 }
 
-async function renderWithPlaywright() {
-  const { chromium } = await import('playwright')
-  const browser = await chromium.launch()
-  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } })
-
-  await page.goto(URL, { waitUntil: 'networkidle' })
-  await simulateScroll(page)
-  await page.waitForTimeout(1000)
-
-  const html = await page.content()
-  await browser.close()
-  return html
-}
-
-async function renderWithSparticuz() {
-  const chromium = (await import('@sparticuz/chromium')).default
-  const puppeteer = (await import('puppeteer-core')).default
-
-  const browser = await puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(),
-    headless: chromium.headless,
-  })
-  const page = await browser.newPage()
-
-  await page.goto(URL, { waitUntil: 'networkidle2' })
-  await simulateScroll(page)
-  await new Promise((r) => setTimeout(r, 1000))
-
-  const html = await page.content()
-  await browser.close()
-  return html
-}
-
-async function renderPage() {
-  if (process.env.VERCEL) {
-    console.log('▶ Detektovan Vercel build - koristim @sparticuz/chromium...')
-    return renderWithSparticuz()
-  }
-  console.log('▶ Lokalno okruzenje - koristim Playwright...')
-  return renderWithPlaywright()
-}
-
 async function run() {
   console.log('▶ Pokrecem lokalni preview server za dist/...')
   const server = await preview({ preview: { port: PORT } })
 
-  const html = await renderPage()
+  console.log('▶ Otvaram headless Playwright Chromium...')
+  const browser = await chromium.launch()
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } })
 
+  await page.goto(URL, { waitUntil: 'networkidle' })
+
+  console.log('▶ Simuliram skrolovanje da aktiviram useInView animacije...')
+  await simulateScroll(page)
+
+  // Sacekaj da se sve tranzicije/animacije zavrse i DOM stabilizuje
+  await page.waitForTimeout(1000)
+
+  console.log('▶ Snimam finalni renderovani HTML...')
+  const html = await page.content()
+
+  await browser.close()
   await server.httpServer.close()
 
   const outPath = path.resolve('dist', 'index.html')
