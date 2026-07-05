@@ -21,6 +21,7 @@ import path from 'node:path'
 
 const PORT = 4173
 const URL = `http://localhost:${PORT}/`
+const PRODUCTION_ORIGIN = 'https://zeltro.agency'
 
 async function simulateScroll(page) {
   // Sajt koristi Framer Motion `useInView` (amount: 0.1, once: true) -
@@ -58,10 +59,20 @@ async function run() {
   await page.waitForTimeout(1000)
 
   console.log('▶ Snimam finalni renderovani HTML...')
-  const html = await page.content()
+  let html = await page.content()
 
   await browser.close()
   await server.httpServer.close()
+
+  // Sigurnosna mreza: ako je bilo koji dinamicki kod (npr. Seo.tsx preko
+  // window.location.href) upisao lokalnu adresu (http://localhost:4173)
+  // negde u HTML (canonical, og:url, JSON-LD...), zamenimo je pravim
+  // produkcionim domenom pre nego sto fajl ode na server.
+  const localhostPattern = new RegExp(
+    `https?://localhost:${PORT}`,
+    'g',
+  )
+  html = html.replace(localhostPattern, PRODUCTION_ORIGIN)
 
   const outPath = path.resolve('dist', 'index.html')
   fs.writeFileSync(outPath, html, 'utf-8')
