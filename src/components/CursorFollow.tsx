@@ -7,6 +7,7 @@ const CursorFollow = () => {
   const rafRef = useRef<number>(0);
   const mouseRef = useRef({ x: 0, y: 0 });
   const ringPosRef = useRef({ x: 0, y: 0 });
+  const ringScaleRef = useRef(1);
   const isHoveringRef = useRef(false);
 
   useEffect(() => {
@@ -22,30 +23,35 @@ const CursorFollow = () => {
       }
     };
 
+    const hoverSelector =
+      "a, button, .service-card, .project-card, .process-pillar, .info-card, .pricing-cta, .cta-button, .social-link, .back-to-top, .submit-button";
+
+    const isInteractive = (el: EventTarget | null) =>
+      (el as HTMLElement)?.closest(hoverSelector);
+
     const handleOver = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest(
-        "a, button, .service-card, .project-card, .process-pillar, .info-card, .pricing-cta, .cta-button, .social-link, .back-to-top, .submit-button"
-      );
-      if (target) {
+      if (isInteractive(e.target)) {
         isHoveringRef.current = true;
-        ringRef.current?.classList.add("cursor-ring-hover");
       }
     };
 
-    const handleOut = () => {
-      isHoveringRef.current = false;
-      ringRef.current?.classList.remove("cursor-ring-hover");
+    const handleOut = (e: MouseEvent) => {
+      if (!isInteractive(e.relatedTarget)) {
+        isHoveringRef.current = false;
+      }
     };
 
     const animate = () => {
       const { x, y } = mouseRef.current;
       const ringPos = ringPosRef.current;
+      const targetScale = isHoveringRef.current ? 1.56 : 1;
 
       ringPos.x += (x - ringPos.x) * 0.12;
       ringPos.y += (y - ringPos.y) * 0.12;
+      ringScaleRef.current += (targetScale - ringScaleRef.current) * 0.12;
 
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0)`;
+        ringRef.current.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0) scale(${ringScaleRef.current})`;
       }
 
       rafRef.current = requestAnimationFrame(animate);

@@ -25,27 +25,13 @@
   z-index: 9998;
   will-change: transform;
   transform: translate3d(-100px, -100px, 0);
-  transition:
-    width 0.3s ease,
-    height 0.3s ease,
-    top 0.3s ease,
-    left 0.3s ease,
-    opacity 0.2s ease;
+  transition: opacity 0.2s ease;
   opacity: 0;
   background: var(--gradient-primary);
   background-size: 200% auto;
   animation: gradientShift 4s ease infinite;
   mask: radial-gradient(circle, transparent 15px, black 16.5px);
   -webkit-mask: radial-gradient(circle, transparent 15px, black 16.5px);
-}
-
-.cursor-ring-hover {
-  width: 56px;
-  height: 56px;
-  top: -28px;
-  left: -28px;
-  mask: radial-gradient(circle, transparent 24px, black 26px);
-  -webkit-mask: radial-gradient(circle, transparent 24px, black 26px);
 }
 
 body:hover .cursor-dot,
