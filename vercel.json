@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/.well-known/llms.txt",
+      "destination": "/llms.txt",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
