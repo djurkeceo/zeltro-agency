@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { m } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
 import logo120 from "../assets/zeltro-logo-120.png";
 import logo240 from "../assets/zeltro-logo-240.png";
@@ -52,16 +52,11 @@ const Navbar: React.FC = () => {
 
   return (
     <m.nav
-      className={`navbar ${isScrolled ? "scrolled" : ""}`}
+      className={`navbar ${isScrolled ? "scrolled" : ""} ${isMobileMenuOpen ? "menu-open" : ""}`}
       initial={false}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-        <div
-          className={`mobile-menu-backdrop ${isMobileMenuOpen ? "open" : ""}`}
-          onClick={() => setIsMobileMenuOpen(false)}
-          aria-hidden="true"
-        />
         <div className="container navbar-container">
           <m.div
             className="navbar-logo"
@@ -93,7 +88,7 @@ const Navbar: React.FC = () => {
             </a>
           </m.div>
 
-          <div className={`navbar-menu ${isMobileMenuOpen ? "open" : ""}`}>
+          <div className="navbar-menu">
             <a href="#home" onClick={() => scrollToSection("home")}>
               Početna
             </a>
@@ -133,6 +128,42 @@ const Navbar: React.FC = () => {
             <span></span>
           </button>
         </div>
+
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <m.div
+              className="mobile-menu-overlay"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <div className="mobile-menu-links">
+                <a href="#home" onClick={() => scrollToSection("home")}>
+                  Početna
+                </a>
+                <a href="#services" onClick={() => scrollToSection("services")}>
+                  Usluge
+                </a>
+                <a href="#projects" onClick={() => scrollToSection("projects")}>
+                  Projekti
+                </a>
+                <a href="#contact" onClick={() => scrollToSection("contact")}>
+                  Kontakt
+                </a>
+              </div>
+              <m.button
+                className="mobile-cta-button"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                transition={smoothHoverTransition}
+                onClick={() => scrollToSection("contact")}
+              >
+                Besplatna Konsultacija
+              </m.button>
+            </m.div>
+          )}
+        </AnimatePresence>
       </m.nav>
     );
   };
