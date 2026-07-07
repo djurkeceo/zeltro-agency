@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import Hero from "./components/Hero";
 import "./App.css";
+import { SimpleAnalytics } from "@simpleanalytics/react";
 
 const Navbar = React.lazy(() => import("./components/Navbar"));
 const About = React.lazy(() => import("./components/About"));
@@ -14,6 +15,9 @@ const Footer = React.lazy(() => import("./components/Footer"));
 const CursorFollow = React.lazy(() => import("./components/CursorFollow"));
 
 const SuspenseFallback = () => <div style={{ minHeight: "100vh" }} />;
+
+const isAutomatedBrowser =
+  typeof navigator !== "undefined" && navigator.webdriver === true;
 
 function App() {
   return (
@@ -47,6 +51,7 @@ function App() {
         <Suspense fallback={<SuspenseFallback />}>
           <Footer />
         </Suspense>
+        {!isAutomatedBrowser && <SimpleAnalytics />}
       </div>
     </LazyMotion>
   );
