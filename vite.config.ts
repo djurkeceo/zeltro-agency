@@ -9,7 +9,7 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    cssMinify: true,
+    cssMinify: 'esbuild',
     cssCodeSplit: true,
     reportCompressedSize: false,
     rollupOptions: {
