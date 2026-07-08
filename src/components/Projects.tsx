@@ -20,6 +20,8 @@ import ironLab640 from "../assets/IronLab-640.webp";
 import ironLab1280 from "../assets/IronLab-1280.webp";
 import segmentGym640 from "../assets/SegmentGym-640.webp";
 import segmentGym1280 from "../assets/SegmentGym-1280.webp";
+import studioL640 from "../assets/StudioL-640.webp";
+import studioL1280 from "../assets/StudioL-1280.webp";
 import "./Projects.css";
 
 interface ProjectThumbnail {
@@ -177,6 +179,14 @@ const extraProjects: Project[] = [
     thumbnail: createThumbnail(segmentGym640, segmentGym1280, 1280, 720),
     projectUrl: "https://segment-gym.vercel.app/",
   },
+  {
+    title: "Studio L",
+    category: "Višestranićni Website",
+    tags: ["TypeScript", "React", "Framer Motion"],
+    description: "Live preview projekta Studio L",
+    thumbnail: createThumbnail(studioL640, studioL1280, 1280, 556),
+    projectUrl: "https://studio-l-psi.vercel.app/",
+  },
 ];
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -192,7 +202,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       variants={
         shouldReduceMotion
           ? undefined
-          : { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } } }
+          : {
+              hidden: { opacity: 0, y: 24 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+              },
+            }
       }
       whileHover={
         project.projectUrl && !shouldReduceMotion ? { y: -8 } : undefined
