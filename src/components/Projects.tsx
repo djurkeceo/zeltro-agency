@@ -22,6 +22,8 @@ import segmentGym640 from "../assets/SegmentGym-640.webp";
 import segmentGym1280 from "../assets/SegmentGym-1280.webp";
 import studioL640 from "../assets/StudioL-640.webp";
 import studioL1280 from "../assets/StudioL-1280.webp";
+import TDIServis640 from "../assets/TDIServis-640.webp";
+import TDIServis1280 from "../assets/TDIServis-1280.webp";
 import "./Projects.css";
 
 interface ProjectThumbnail {
@@ -186,6 +188,14 @@ const extraProjects: Project[] = [
     description: "Live preview projekta Studio L",
     thumbnail: createThumbnail(studioL640, studioL1280, 1280, 556),
     projectUrl: "https://studio-l-psi.vercel.app/",
+  },
+  {
+    title: "TDI Servis",
+    category: "Višestranićni Website",
+    tags: ["TypeScript", "React", "Framer Motion"],
+    description: "Live preview projekta TDI Servis",
+    thumbnail: createThumbnail(TDIServis640, TDIServis1280, 1280, 724),
+    projectUrl: "https://tdi-servis.vercel.app/",
   },
 ];
 
