@@ -5,7 +5,6 @@
 ## Pages
 
 - [Home](https://zeltro.agency/)
-- [Admin](https://zeltro.agency/admin)
 
 ## Services
 
