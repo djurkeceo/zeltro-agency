@@ -47,6 +47,7 @@ const Footer: React.FC = () => {
                   decoding="async"
                   whileHover={{ rotate: -2 }}
                   transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                  onClick={() => scrollToSection("home")}
                 />
               </picture>
             </m.div>
