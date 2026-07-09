@@ -96,10 +96,20 @@ export const additionalServices: ExtraService[] = [
   },
   {
     name: "Google PageSpeed Insights optimizacija",
-    price: "80-150 EUR",
+    price: "80-130 EUR",
     includes: [
       "Audit performansi i Core Web Vitals preporuke",
       "Optimizacija slika, fontova i JS/CSS resursa",
+    ],
+  },
+  {
+    name: "Website Redizajn",
+    price: "50-125 EUR",
+    includes: [
+      "Analiza trenutnog sajta i UX preporuke",
+      "Redizajn svih stranica web sajta",
+      "Full responsive dizajn (Desktop + Mobilni)",
+      "Predaja Figma fajla sa komponentama",
     ],
   },
 ];
