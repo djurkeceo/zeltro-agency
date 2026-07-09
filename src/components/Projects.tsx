@@ -146,7 +146,7 @@ const showCaseProjects: Project[] = [
 const extraProjects: Project[] = [
   {
     title: "Beauty Studio by Nada",
-    category: "Višestranićni Website",
+    category: "Višestranični Website",
     tags: ["TypeScript", "React", "Framer Motion"],
     description: "Live preview projekta Beauty Studio by Nada.",
     thumbnail: createThumbnail(beautyByNada640, beautyByNada1280, 1280, 643),
@@ -175,7 +175,7 @@ const extraProjects: Project[] = [
   },
   {
     title: "Segment Gym",
-    category: "Višestranićni Website",
+    category: "Višestranični Website",
     tags: ["TypeScript", "React", "Framer Motion"],
     description: "Live preview projekta Segment Gym.",
     thumbnail: createThumbnail(segmentGym640, segmentGym1280, 1280, 720),
@@ -183,7 +183,7 @@ const extraProjects: Project[] = [
   },
   {
     title: "Studio L",
-    category: "Višestranićni Website",
+    category: "Višestranični Website",
     tags: ["TypeScript", "React", "Framer Motion"],
     description: "Live preview projekta Studio L",
     thumbnail: createThumbnail(studioL640, studioL1280, 1280, 556),
@@ -191,7 +191,7 @@ const extraProjects: Project[] = [
   },
   {
     title: "TDI Servis",
-    category: "Višestranićni Website",
+    category: "Website Redesign",
     tags: ["TypeScript", "React", "Framer Motion"],
     description: "Live preview projekta TDI Servis",
     thumbnail: createThumbnail(TDIServis640, TDIServis1280, 1280, 724),
