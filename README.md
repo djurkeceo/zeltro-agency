@@ -4,7 +4,7 @@
 
 Zeltro is an independent web agency specializing in modern, fast, and custom-built websites for small and medium businesses. Based in Serbia, working with clients across the Balkans and Europe.
 
-🌐 **[zeltro.agency](https://zeltro.agency)**
+🌐 **[zeltro.agency](https://www.zeltro.agency)**
 
 ---
 
@@ -75,7 +75,7 @@ Have a project in mind? Let's talk.
 
 | Channel      | Link                                                                             |
 | ------------ | -------------------------------------------------------------------------------- |
-| 🌐 Website   | [zeltro.agency](https://zeltro.agency)                                           |
+| 🌐 Website   | [zeltro.agency](https://www.zeltro.agency)                                       |
 | 📧 Email     | zeltro.agency@gmail.com                                                          |
 | 💼 LinkedIn  | [linkedin.com/company/zeltro-agency](https://linkedin.com/company/zeltro-agency) |
 | 📸 Instagram | [@zeltro.agency](https://instagram.com/zeltro.agency)                            |
@@ -92,5 +92,5 @@ The Zeltro brand, website, and internal tools are © 2026 Zeltro. All rights res
 
 <p align="center">
   <strong>Better websites. Better business.</strong><br>
-  <a href="https://zeltro.agency">zeltro.agency</a>
+  <a href="https://www.zeltro.agency">zeltro.agency</a>
 </p>

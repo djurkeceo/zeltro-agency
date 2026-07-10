@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE_URL = "https://zeltro.agency";
+const SITE_URL = "https://www.zeltro.agency";
 
 const defaultDescription =
   "Zeltro je web agencija iz Srbije za izradu custom web sajtova, web aplikacija, SEO optimizaciju, web dizajn i održavanje sajtova.";

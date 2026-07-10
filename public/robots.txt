@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin
-Sitemap: https://zeltro.agency/sitemap.xml
+Sitemap: https://www.zeltro.agency/sitemap.xml
