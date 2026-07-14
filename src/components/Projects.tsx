@@ -194,7 +194,7 @@ const extraProjects: Project[] = [
     category: "Website Redesign",
     tags: ["TypeScript", "React", "Framer Motion"],
     description: "Live preview projekta TDI Servis",
-    thumbnail: createThumbnail(TDIServis640, TDIServis1280, 1280, 723),
+    thumbnail: createThumbnail(TDIServis640, TDIServis1280, 1280, 724),
     projectUrl: "https://tdi-servis.vercel.app/",
   },
 ];
