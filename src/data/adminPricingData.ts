@@ -130,7 +130,7 @@ export const monthlyPackages: MonthlyPackage[] = [
     name: "Standard održavanje",
     price: "60-80 EUR / mes",
     includes: [
-      "Sve iz Basica",
+      "Sve iz Basic-a",
       "Do 2h sitnih izmena nedeljno (tekst, slike, cene)",
       "Priority support (6h response)",
       "Mesečni izveštaj poseta",
